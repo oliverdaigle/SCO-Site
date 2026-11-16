@@ -95,11 +95,18 @@ export function lossInv(g: number): number {
 export type ZMode = 'exact' | 'table' | 'roundup';
 
 /** z for a cumulative probability under a lookup convention.
- * exact: NORM.S.INV. table: nearest 2-decimal z (printed-table habit). roundup: Cachon & Terwiesch round-up rule. */
+ * exact: NORM.S.INV. table: closest entry of a printed 2-decimal z-table (ties round up). roundup: Cachon & Terwiesch round-up rule. */
 export function zFor(p: number, mode: ZMode = 'exact'): number {
   const z = normInv(p);
   if (!Number.isFinite(z)) return z;
-  if (mode === 'table') return Math.round(z * 100) / 100;
+  if (mode === 'table') {
+    // Closest printed-table entry by area (areas printed to 4 decimals); ties go to the larger z, as textbooks do for 95% -> 1.65.
+    if (p < 0.5) return -zFor(1 - p, 'table');
+    const zl = Math.floor(z * 100 + 1e-9) / 100, zh = Math.round((zl + 0.01) * 100) / 100;
+    const r4 = (x: number) => Math.round(x * 10000) / 10000;
+    const dl = Math.abs(r4(normCdf(zl)) - p), dh = Math.abs(r4(normCdf(zh)) - p);
+    return dl < dh - 1e-9 ? zl : zh;
+  }
   if (mode === 'roundup') return Math.ceil(z * 100 - 1e-9) / 100;
   return z;
 }

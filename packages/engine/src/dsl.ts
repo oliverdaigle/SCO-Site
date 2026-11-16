@@ -20,7 +20,7 @@ export const sdT = (unit: TimeUnit) => ({ role: 'sd' as const, unit });
 export const out = (id: string, label: string, o: Partial<OutputDef> = {}): OutputDef => ({ id, label, fmt: 'num', ...o });
 
 /** z-lookup convention input shared by the service-level calculators. */
-export const zModeInput = (): InputDef => sel('zMode', 'z-value source', [['exact', 'Exact (Excel NORM.S.INV)'], ['table', 'Printed table, nearest 2 decimals'], ['roundup', 'Printed table, round-up rule (Cachon)']], 'exact',
+export const zModeInput = (): InputDef => sel('zMode', 'z-value source', [['exact', 'Exact (Excel NORM.S.INV)'], ['table', 'Printed table, closest entry'], ['roundup', 'Printed table, round-up rule (Cachon)']], 'exact',
   { adv: true, help: 'Printed z-tables only go to two decimals, so a table answer can differ slightly from Excel. Cachon & Terwiesch always round up to the next table entry.' });
 
 /** Shared holding-cost inputs: either $/unit/period or % of unit cost. */

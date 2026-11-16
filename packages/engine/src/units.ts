@@ -61,3 +61,8 @@ export function normalize(def: CalcDef, raw: Vals): Normalized {
 function trim(x: number): string {
   return Number(x.toPrecision(6)).toLocaleString('en-US', { maximumFractionDigits: 4 });
 }
+
+/** Number of basis periods in a year (for annualizing per-period costs). */
+export function periodsPerYear(u: TimeUnit, dpy = 365): number {
+  return perYear(u, dpy);
+}
