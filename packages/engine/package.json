@@ -1,0 +1,9 @@
+{
+  "name": "@lotwise/engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pure calculation engine for Lotwise. Zero UI dependencies, zero runtime dependencies.",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts"
+}
