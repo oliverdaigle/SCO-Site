@@ -7,11 +7,19 @@ import { calcHref } from '@/lib/routes';
 import { Link, useNav } from '@/platform/nav';
 import { Tex } from '@/components/Tex';
 import { Icon } from '@/components/icons';
-import { Segmented, cx, useReducedMotion } from '@/components/ui';
+import { Segmented, cx, toast, useReducedMotion } from '@/components/ui';
 import { useAppMode } from '@/components/shell/Shell';
 
 const Map3D = lazy(() => import('@/components/map/Map3D'));
-function canWebGL(): boolean { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } }
+/** WebGL support, and whether it is drawn in software (no graphics acceleration), where the 3D map would stutter. */
+function webgl(): { ok: boolean; software: boolean } {
+  try {
+    const c = document.createElement('canvas'); const gl = (c.getContext('webgl2') || c.getContext('webgl')) as WebGLRenderingContext | null; if (!gl) return { ok: false, software: false };
+    const ext = gl.getExtension('WEBGL_debug_renderer_info'); const name = String(gl.getParameter(ext ? ext.UNMASKED_RENDERER_WEBGL : gl.RENDERER) ?? '');
+    gl.getExtension('WEBGL_lose_context')?.loseContext();
+    return { ok: true, software: /swiftshader|llvmpipe|softpipe|software|basic render/i.test(name) };
+  } catch { return { ok: false, software: false }; }
+}
 
 /** Flat fallback: the same graph as an SVG. Used for reduced motion, low-power devices, and when WebGL is missing. */
 function Map2D({ filter, pathSteps, path, selected, onHover, onPick }: { filter: string | null; path: string | null; pathSteps: string[]; selected: string | null; onHover: (id: string | null) => void; onPick: (id: string) => void }) {
@@ -34,9 +42,11 @@ function Map2D({ filter, pathSteps, path, selected, onHover, onPick }: { filter:
 export function MapScreen() {
   const nav = useNav(); const mode: Mode = useAppMode(); const theme = useStore((s) => s.theme); const hydrated = useStore((s) => s.hydrated); const reduced = useReducedMotion();
   const [filter, setFilter] = useState<string | null>(null); const [path, setPath] = useState<string | null>(null); const [selected, setSelected] = useState<string | null>('eoq'); const [hover, setHover] = useState<{ id: string; x?: number; y?: number } | null>(null);
-  const [view, setView] = useState<'3d' | '2d'>('2d'); const [gl, setGl] = useState(false);
-  useEffect(() => { const ok = canWebGL(); setGl(ok); let pref: string | null = null; try { pref = localStorage.getItem('lotwise:map'); } catch { /* ignore */ } const low = (navigator.hardwareConcurrency ?? 8) <= 2 || ((navigator as any).deviceMemory ?? 8) <= 2; setView(ok && !reduced && (pref ? pref === '3d' : !low) ? '3d' : '2d'); }, [reduced]);
-  const choose = (v: '3d' | '2d') => { setView(v); try { localStorage.setItem('lotwise:map', v); } catch { /* ignore */ } };
+  const [view, setView] = useState<'3d' | '2d'>('2d'); const [gl, setGl] = useState(false); const [auto, setAuto] = useState(true);
+  useEffect(() => { const w = webgl(); setGl(w.ok); let pref: string | null = null; try { pref = localStorage.getItem('lotwise:map'); } catch { /* ignore */ } const low = w.software || (navigator.hardwareConcurrency ?? 8) <= 2 || ((navigator as any).deviceMemory ?? 8) <= 2; setAuto(!pref); setView(w.ok && !reduced && (pref ? pref === '3d' : !low) ? '3d' : '2d'); }, [reduced]);
+  const choose = (v: '3d' | '2d') => { setView(v); setAuto(false); try { localStorage.setItem('lotwise:map', v); } catch { /* ignore */ } };
+  // If the 3D map was picked automatically and turns out to stutter on this device, fall back to the flat map.
+  const onSlow = () => { if (auto) { setView('2d'); toast('Switched to the flat map so it stays smooth on this device.'); } };
   const lp = LEARNING_PATHS.find((p) => p.id === path) ?? null; const steps = useMemo(() => lp?.steps ?? [], [lp]);
   const shownId = hover?.id ?? selected; const def = shownId ? byId[shownId] : null; const light = hydrated && theme === 'light';
   const open = (id: string) => nav.push(calcHref(mode, id));
@@ -57,7 +67,7 @@ export function MapScreen() {
       <div className="wrap mt-5">
         <div className="grid gap-5 lg:grid-cols-12">
           <div className="relative h-[58vh] min-h-[380px] overflow-hidden rounded-2xl border border-line bg-sunken lg:col-span-8 lg:h-[70vh]">
-            {view === '3d' && gl ? <Suspense fallback={<div className="flex h-full items-center justify-center text-sm text-muted">Loading the map…</div>}><Map3D filter={filter} path={path} pathSteps={steps} selected={selected} light={light} onHover={(id, x, y) => setHover(id ? { id, x, y } : null)} onPick={pick} /></Suspense>
+            {view === '3d' && gl ? <Suspense fallback={<div className="flex h-full items-center justify-center text-sm text-muted">Loading the map…</div>}><Map3D filter={filter} path={path} pathSteps={steps} selected={selected} light={light} onHover={(id, x, y) => setHover(id ? { id, x, y } : null)} onPick={pick} onSlow={onSlow} /></Suspense>
               : <Map2D filter={filter} path={path} pathSteps={steps} selected={selected} onHover={(id) => setHover(id ? { id } : null)} onPick={(id) => { if (selected === id) open(id); else setSelected(id); }} />}
             {view === '3d' && gl && (<div className="absolute bottom-3 right-3 flex flex-col gap-1.5"><button type="button" className="btn btn-sm !px-2" aria-label="Zoom in" onClick={() => window.dispatchEvent(new CustomEvent('lotwise-map-zoom', { detail: -4 }))}><Icon name="plus" size={15} /></button><button type="button" className="btn btn-sm !px-2" aria-label="Zoom out" onClick={() => window.dispatchEvent(new CustomEvent('lotwise-map-zoom', { detail: 4 }))}><Icon name="minus" size={15} /></button></div>)}
             {hover && hover.x !== undefined && byId[hover.id] && <div role="tooltip" className="pointer-events-none fixed z-30 max-w-[15rem] -translate-x-1/2 -translate-y-full rounded-lg border border-line-strong bg-raised px-3 py-2 text-sm shadow-xl" style={{ left: hover.x, top: (hover.y ?? 0) - 14 }}><span className="block font-semibold">{byId[hover.id].name}</span><span className="block text-xs text-muted">{catById[byId[hover.id].cat].name}</span></div>}

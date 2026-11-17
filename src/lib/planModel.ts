@@ -17,7 +17,7 @@ export function planWorkbook(p: PlanResult): SheetModel[] {
     ['Service level, A items', o.serviceA / 100, 'Probability of no stockout in a replenishment cycle'], ['Service level, B items', o.serviceB / 100, null], ['Service level, C items', o.serviceC / 100, null],
     ['A class covers the first (share of annual $ volume)', o.cutA / 100, 'The item that crosses the cutoff is placed in the higher class'], ['A + B classes cover the first', o.cutB / 100, null], ['Weeks per year', 52, null],
   ], headerRows: [0], formats: { 1: '0%' } };
-  const history: SheetModel = { name: 'History', widths: [14, ...p.skus.map(() => 16)], freeze: [1, 1], headerRows: [0], rows: [['Week starting', ...p.skus.map((s) => s.sku)], ...p.weekStarts.map((w, t) => [w, ...p.skus.map((s) => s.weekly[t])])] };
+  const history: SheetModel = { name: 'Sales history', widths: [14, ...p.skus.map(() => 16)], freeze: [1, 1], headerRows: [0], rows: [['Week starting', ...p.skus.map((s) => s.sku)], ...p.weekStarts.map((w, t) => [w, ...p.skus.map((s) => s.weekly[t])])] };
 
   // Forecast sheet: one block per SKU, formulas that mirror the fitted method.
   const fRows: Cell[][] = Array.from({ length: 6 + n }, () => new Array(1 + p.skus.length * BLOCK).fill(null));
@@ -30,7 +30,7 @@ export function planWorkbook(p: PlanResult): SheetModel[] {
     ['Actual', 'Level', 'Trend', 'Forecast', 'Error', 'Abs % error'].forEach((h, d) => (fRows[3][c0 + d] = h));
     const alpha = `$${colName(c0 + 1)}$3`, beta = `$${colName(c0 + 3)}$3`; const first4 = `${A}${r(start)}:${A}${r(start + Math.min(4, m) - 1)}`, last4 = `${A}${r(n - 4)}:${A}${r(n - 1)}`;
     for (let t = 0; t < n; t++) {
-      fRows[4 + t][c0] = F(`${q('History')}!${colName(1 + k)}${t + 2}`, s.weekly[t]); if (t < start) continue; const fit = s.fitted[t];
+      fRows[4 + t][c0] = F(`${q('Sales history')}!${colName(1 + k)}${t + 2}`, s.weekly[t]); if (t < start) continue; const fit = s.fitted[t];
       if (s.method === 'ses') fRows[4 + t][c0 + 3] = t === start ? F(`AVERAGE(${first4})`, fit) : F(`${Fc}${r(t - 1)}+${alpha}*(${A}${r(t - 1)}-${Fc}${r(t - 1)})`, fit);
       else if (s.method === 'sma4' || s.method === 'sma8') { const w = s.method === 'sma4' ? 4 : 8; if (t - start >= w) fRows[4 + t][c0 + 3] = F(`AVERAGE(${A}${r(t - w)}:${A}${r(t - 1)})`, fit); }
       else { const lv = holtState(s, start); fRows[4 + t][c0 + 1] = t === start ? F(`AVERAGE(${first4})-${T}${r(t)}`, lv.level[0]) : F(`${alpha}*${A}${r(t - 1)}+(1-${alpha})*(${L}${r(t - 1)}+${T}${r(t - 1)})`, lv.level[t - start]); fRows[4 + t][c0 + 2] = t === start ? F(`(AVERAGE(${last4})-AVERAGE(${first4}))/MAX(1,${m}-4)`, lv.trend[0]) : F(`${beta}*(${L}${r(t)}-${L}${r(t - 1)})+(1-${beta})*${T}${r(t - 1)}`, lv.trend[t - start]); fRows[4 + t][c0 + 3] = F(`${L}${r(t)}+${T}${r(t)}`, fit); }

@@ -97,7 +97,7 @@ export function CalculatorView({ calcId, mode, initial, embed }: { calcId: strin
         </div>
       </div>
 
-      <div className="mt-14 space-y-14">
+      <div className="cv-auto mt-14 space-y-14" style={{ containIntrinsicSize: 'auto 1800px' }}>
         <WorkedExamples def={def} onLoad={(v) => { setValues(v); setAdj({}); }} mode={mode} />
         <section aria-label="About this calculator" className="grid gap-8 lg:grid-cols-2">
           <div>

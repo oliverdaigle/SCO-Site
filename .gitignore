@@ -16,3 +16,5 @@ verification/.cache
 .vercel
 dist-demo/
 demo/.generated/
+test-results/
+playwright-report/

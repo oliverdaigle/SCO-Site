@@ -10,7 +10,7 @@ type Calc = { id: string; name: string; cat: string; claim?: string | null; pass
 const R = report as unknown as { generated: string; environment: Record<string, string>; summary: Record<string, number>; calculators: Calc[] };
 const n = (x: number) => x.toLocaleString('en-US');
 const g = (x: number) => (Number.isInteger(x) ? n(x) : Math.abs(x) >= 1000 ? n(Math.round(x * 100) / 100) : Math.abs(x) < 0.001 && x !== 0 ? x.toExponential(2) : String(Number(x.toPrecision(5))));
-const Tick = ({ ok }: { ok: boolean }) => <span className={ok ? 'text-good' : 'text-bad'} aria-label={ok ? 'passed' : 'failed'}><Icon name={ok ? 'check' : 'x'} size={14} /></span>;
+const Tick = ({ ok }: { ok: boolean }) => <span role="img" className={ok ? 'text-good' : 'text-bad'} aria-label={ok ? 'passed' : 'failed'}><Icon name={ok ? 'check' : 'x'} size={14} /></span>;
 
 export function VerifiedScreen() {
   const s = R.summary; const all = s.passed === s.calculators;

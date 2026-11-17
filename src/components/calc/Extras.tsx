@@ -18,7 +18,7 @@ import { usePro, UpgradeCard } from './Pro';
 
 export function VerifiedBadge({ id, compact }: { id: string; compact?: boolean }) {
   const v = (summary.calcs as Record<string, { x: number; s: number; e: number; ok: boolean }>)[id]; if (!v?.ok) return null;
-  return (<Link href={`/verified#${id}`} className="badge badge-good hover:brightness-110" title={`${v.e} worked examples, ${v.x.toLocaleString('en-US')} randomized cross-checks${v.s ? ', simulation proof' : ''}`}><Icon name="shield" size={12} />Verified{!compact && <span className="font-normal opacity-80">· {v.x.toLocaleString('en-US')} checks</span>}</Link>);
+  return (<Link href={`/verified#${id}`} className="badge badge-good hover:brightness-110" title={`${v.e} worked examples, ${v.x.toLocaleString('en-US')} randomized cross-checks${v.s ? ', simulation proof' : ''}`}><Icon name="shield" size={12} />Verified{!compact && <span className="font-normal">· {v.x.toLocaleString('en-US')} checks</span>}</Link>);
 }
 
 export const sensInputs = (def: CalcDef, v: Vals) => def.inputs.filter((i) => i.sens && (!i.show || i.show(v)) && ['number', 'money', 'percent', 'int'].includes(i.kind)).slice(0, 4);

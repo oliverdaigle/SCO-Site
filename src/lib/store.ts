@@ -1,6 +1,6 @@
 'use client';
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
 import type { Mode, NotationId, Vals } from '@lotwise/engine';
 import { DEMO_MODE } from '@/platform/env';
 
@@ -40,6 +40,14 @@ interface State {
 const today = () => new Date().toISOString().slice(0, 10);
 const yesterday = () => new Date(Date.now() - 864e5).toISOString().slice(0, 10);
 
+/** localStorage, except that nothing is written until the saved state has been loaded. Without this guard, any update made
+ * before loading (a child component's effect runs before the shell's) would overwrite the saved state with the defaults. */
+const guarded: StateStorage = {
+  getItem: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
+  setItem: (k, v) => { if (!useStore.persist?.hasHydrated()) return; try { localStorage.setItem(k, v); } catch { /* storage full or blocked */ } },
+  removeItem: (k) => { try { localStorage.removeItem(k); } catch { /* ignore */ } },
+};
+
 export const useStore = create<State>()(
   persist(
     (set, get) => ({
@@ -68,7 +76,7 @@ export const useStore = create<State>()(
       removeScenario: (id) => set({ scenarios: get().scenarios.filter((x) => x.id !== id) }),
       visit: (calcId) => set({ recent: [calcId, ...get().recent.filter((x) => x !== calcId)].slice(0, 8) }),
     }),
-    { name: 'lotwise:v1', skipHydration: true, partialize: (s) => { const { hydrated, setMode, setTheme, setNotation, setEli, signIn, signOut, setPlan, recordAnswer, saveScenario, removeScenario, visit, ...rest } = s; return rest; } },
+    { name: 'lotwise:v1', skipHydration: true, storage: createJSONStorage(() => guarded), partialize: (s) => { const { hydrated, setMode, setTheme, setNotation, setEli, signIn, signOut, setPlan, recordAnswer, saveScenario, removeScenario, visit, ...rest } = s; return rest; } },
   ),
 );
 

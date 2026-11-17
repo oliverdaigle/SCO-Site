@@ -66,6 +66,7 @@ export function PricingScreen() {
   return (
     <div className="wrap pb-24 pt-8 sm:pt-14">
       <header className="mx-auto max-w-3xl text-center"><p className="eyebrow">Pricing</p><h1 className="mt-2 text-4xl font-semibold sm:text-6xl">Every calculator is free.</h1><p className="mt-4 text-lg text-muted">Pro is for when the answer is not enough: when you need the whole plan, or the whole method.</p>{DEMO_MODE && <p className="mt-4 inline-flex items-center gap-2 text-sm text-faint"><span className="badge badge-neutral">Demo mode</span>Checkout is simulated. No card is needed and nothing is charged.</p>}</header>
+      <h2 className="sr-only">Plans</h2>
       <PricingCards />
       <section className="mx-auto mt-16 max-w-3xl" aria-label="Pricing questions"><h2 className="text-2xl font-semibold">Questions about pricing</h2><dl className="mt-4 divide-y divide-line">{PRICING_FAQ.map((f) => <div key={f.q} className="py-4"><dt className="font-medium">{f.q}</dt><dd className="mt-1.5 text-muted">{f.a}</dd></div>)}</dl></section>
     </div>

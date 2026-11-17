@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll, useSpring, useTransform, type MotionValue } from 'motion/react';
 import { CALCS, CATEGORIES, byId, defaults, run, type Mode, type Vals } from '@lotwise/engine';
 import summary from '@/data/verified-summary.json';
@@ -10,7 +10,8 @@ import { BRAND } from '@/platform/env';
 import { Link } from '@/platform/nav';
 import { Icon } from '@/components/icons';
 import { Slider, cx, useInView, useReducedMotion } from '@/components/ui';
-import { Viz } from '@/components/viz/Viz';
+// Chart code loads only when the first mini calculator scrolls near, keeping the first screen light.
+const Viz = lazy(() => import('@/components/viz/Viz').then((m) => ({ default: m.Viz })));
 import { ModeChoice } from './StartScreen';
 import { PricingCards } from './AccountScreens';
 
@@ -34,7 +35,7 @@ function MiniCalc({ stage, mode }: { stage: Stage; mode: Mode }) {
       <div className="flex items-center justify-between gap-3 text-xs text-faint"><span className="truncate">{def.name}</span><span className="badge badge-good shrink-0"><Icon name="shield" size={11} />Verified</span></div>
       <p className="display mt-3 min-h-[3.5rem] text-xl font-semibold leading-snug sm:text-2xl" aria-live="polite">{r.ok ? (r.biz?.headline ?? '').replace(/\*\*/g, '') : r.errors[0]}</p>
       <div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{stage.sliders.map((s) => (<div key={s.id}><div className="flex items-baseline justify-between gap-3 text-sm"><label htmlFor={`mini-${stage.id}-${s.id}`} className="text-muted">{s.label}</label><span className="num font-semibold text-accent">{s.fmt(Number(vals[s.id]))}</span></div><Slider id={`mini-${stage.id}-${s.id}`} label={s.label} min={s.min} max={s.max} step={s.step} value={Number(vals[s.id])} onChange={(x) => setVals((v) => ({ ...v, [s.id]: x }))} /></div>))}</div>
-      <div className="mt-3 min-h-[200px]">{seen && r.ok && r.viz && <Viz spec={r.viz} height={210} />}</div>
+      <div className="mt-3 min-h-[200px]">{seen && r.ok && r.viz && <Suspense fallback={<div className="h-[210px]" />}><Viz spec={r.viz} height={210} /></Suspense>}</div>
       <Link href={calcHref(mode, def.id)} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">Open the full calculator<Icon name="arrowRight" size={14} /></Link>
     </div>
   );
@@ -115,20 +116,20 @@ export function LandingScreen() {
 
       <Story mode={mode} />
 
-      <section className="border-t border-line" aria-labelledby="modes-h"><div className="wrap py-20 sm:py-28"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Two ways in</p><h2 id="modes-h" className="mt-2 text-4xl font-semibold sm:text-5xl">Same math. Your language.</h2><p className="mt-4 text-lg text-muted">Business mode gives you the answer, what it means in dollars, and what to do. Learner mode shows every step in your textbook’s notation. Switch any time.</p></div><div className="mt-10"><ModeChoice compact /></div></div></section>
+      <section className="cv-auto border-t border-line" aria-labelledby="modes-h"><div className="wrap py-20 sm:py-28"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Two ways in</p><h2 id="modes-h" className="mt-2 text-4xl font-semibold sm:text-5xl">Same math. Your language.</h2><p className="mt-4 text-lg text-muted">Business mode gives you the answer, what it means in dollars, and what to do. Learner mode shows every step in your textbook’s notation. Switch any time.</p></div><div className="mt-10"><ModeChoice compact /></div></div></section>
 
-      <section className="border-t border-line bg-surface/40" aria-labelledby="feat-h"><div className="wrap py-20 sm:py-28"><p className="eyebrow">More than calculators</p><h2 id="feat-h" className="mt-2 max-w-2xl text-4xl font-semibold sm:text-5xl">When one answer is not enough.</h2>
+      <section className="cv-auto border-t border-line bg-surface/40" aria-labelledby="feat-h"><div className="wrap py-20 sm:py-28"><p className="eyebrow">More than calculators</p><h2 id="feat-h" className="mt-2 max-w-2xl text-4xl font-semibold sm:text-5xl">When one answer is not enough.</h2>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{FEATURES.map((f) => (<li key={f.title} data-mode={f.mode}><Link href={f.href} className="card group flex h-full flex-col p-6 transition-all hover:-translate-y-0.5 hover:border-accent-line"><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent"><Icon name={f.icon} size={20} /></span><h3 className="mt-5 text-xl font-semibold">{f.title}</h3><p className="mt-2 flex-1 text-muted">{f.body}</p><span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">{f.cta}<Icon name="arrowRight" size={14} className="transition-transform group-hover:translate-x-0.5" /></span></Link></li>))}</ul></div></section>
 
-      <section className="border-t border-line" aria-labelledby="ver-h"><div className="wrap grid items-center gap-10 py-20 sm:py-28 lg:grid-cols-2">
+      <section className="cv-auto border-t border-line" aria-labelledby="ver-h"><div className="wrap grid items-center gap-10 py-20 sm:py-28 lg:grid-cols-2">
         <div><p className="eyebrow">Verified</p><h2 id="ver-h" className="mt-2 text-4xl font-semibold sm:text-5xl">A calculator you cannot trust is worse than none.</h2><p className="mt-4 text-lg text-muted">Every formula has to reproduce textbook examples, agree with a second implementation written separately in Python, and survive a simulation of the real-world claim it makes. The results are public, and regenerated on every test run.</p><Link href="/verified" className="btn btn-lg mt-7"><Icon name="shield" size={16} />See how every calculator was tested</Link></div>
         <dl className="grid grid-cols-2 gap-4">{[[`${S.passed}/${S.calculators}`, 'calculators passing every layer'], [big(S.crossComparisons), 'randomized comparisons against independent code'], [big(S.simulatedTrials), 'simulated trials testing real-world claims'], [String(S.examples), 'textbook-style worked examples reproduced']].map(([v, k]) => (<div key={k} className="card flex flex-col-reverse p-5"><dt className="mt-1 text-sm text-muted">{k}</dt><dd className="num display text-4xl font-semibold text-accent sm:text-5xl">{v}</dd></div>))}</dl>
       </div></section>
 
-      <section className="border-t border-line bg-surface/40" aria-labelledby="proof-h"><div className="wrap py-20 sm:py-24"><p className="eyebrow">In their words</p><h2 id="proof-h" className="mt-2 text-3xl font-semibold sm:text-4xl">What people say</h2>
+      <section className="cv-auto border-t border-line bg-surface/40" aria-labelledby="proof-h"><div className="wrap py-20 sm:py-24"><p className="eyebrow">In their words</p><h2 id="proof-h" className="mt-2 text-3xl font-semibold sm:text-4xl">What people say</h2>
         <ul className="mt-8 grid gap-4 md:grid-cols-3">{SOCIAL_PROOF.map((p) => (<li key={p.name} className={cx('card flex flex-col p-6', p.placeholder && 'border-dashed')}><Icon name="star" size={18} className="text-accent" /><blockquote className={cx('mt-4 flex-1 text-lg leading-relaxed', p.placeholder && 'text-faint')}>{p.placeholder ? p.quote : `“${p.quote}”`}</blockquote><p className="mt-5 text-sm"><span className="font-semibold">{p.name}</span><span className="block text-muted">{p.role}</span></p>{p.placeholder && <span className="badge badge-neutral mt-3 self-start">Placeholder</span>}</li>))}</ul></div></section>
 
-      <section className="border-t border-line" aria-labelledby="price-h"><div className="wrap py-20 sm:py-28"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Pricing</p><h2 id="price-h" className="mt-2 text-4xl font-semibold sm:text-5xl">Every calculator is free.</h2><p className="mt-4 text-lg text-muted">Pro is for when you need the whole plan, or the whole method.</p></div><div className="mt-10"><PricingCards compact /></div></div></section>
+      <section className="cv-auto border-t border-line" aria-labelledby="price-h"><div className="wrap py-20 sm:py-28"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Pricing</p><h2 id="price-h" className="mt-2 text-4xl font-semibold sm:text-5xl">Every calculator is free.</h2><p className="mt-4 text-lg text-muted">Pro is for when you need the whole plan, or the whole method.</p></div><div className="mt-10"><PricingCards compact /></div></div></section>
 
       <section className="relative overflow-hidden border-t border-line"><div className="aurora" aria-hidden /><div className="wrap relative py-24 text-center"><h2 className="mx-auto max-w-3xl text-4xl font-semibold sm:text-6xl">What are you trying to decide?</h2><div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"><Link href="/business/wizard" data-mode="business" className="btn btn-primary btn-lg w-full sm:w-auto">Solve a business problem</Link><Link href="/learn/wizard" data-mode="learner" className="btn btn-primary btn-lg w-full sm:w-auto">Find the right model</Link></div></div></section>
     </div>

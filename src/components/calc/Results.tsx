@@ -22,8 +22,9 @@ export function StepTable({ t }: { t: TableSpec }) {
 }
 
 function StepCard({ s, i, eli }: { s: Step; i: number; eli: boolean }) {
+  // Later steps skip layout until they scroll near; long solutions stay quick on phones.
   return (
-    <li className="relative pl-11">
+    <li className={cx('relative pl-11', i >= 2 && 'cv-auto')} style={i >= 2 ? { containIntrinsicSize: 'auto 220px' } : undefined}>
       <span className="num absolute left-0 top-0 flex h-7 w-7 items-center justify-center rounded-full border border-accent-line bg-accent-soft text-xs font-semibold text-accent">{i + 1}</span>
       <h4 className="font-sans text-[0.95rem] font-semibold leading-7 tracking-normal">{s.title}</h4>
       {s.tex && <div className="scroll-x mt-1.5 rounded-lg bg-sunken px-3 py-2.5 ring-1 ring-line"><Tex>{s.tex}</Tex></div>}
@@ -47,7 +48,9 @@ export function LearnerResult({ def, r, nota, pro, eli, setEli }: { def: CalcDef
         </div>
         {rest.length > 0 && (<dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 border-t border-line pt-4 text-sm sm:grid-cols-3">{rest.map((o) => (<div key={o.id} className="min-w-0"><dt className="truncate text-xs text-faint" title={o.label}>{o.sym && <span className="mr-1 text-muted"><Tex>{resolveSym(o.sym, nota)}</Tex></span>}{o.label}</dt><dd className="num font-medium">{fmtOut(o, r.o[o.id])}</dd></div>))}</dl>)}
       </section>
-      {r.warnings.map((w, i) => (<div key={i} role="alert" className="flex gap-2.5 rounded-xl border border-warn/50 bg-[color-mix(in_oklab,var(--warn)_10%,transparent)] px-4 py-3 text-sm"><Icon name="alert" size={17} className="mt-0.5 shrink-0 text-warn" /><span>{w}</span></div>))}
+      {r.warnings.map((w, i) => /^Unit mismatch/.test(w)
+        ? (<div key={i} role="status" className="flex gap-2.5 rounded-xl border border-warn/50 bg-[color-mix(in_oklab,var(--warn)_10%,transparent)] px-4 py-3 text-sm"><Icon name="alert" size={17} className="mt-0.5 shrink-0 text-warn" /><span>{w}</span></div>)
+        : (<p key={i} role="note" className="flex gap-2.5 rounded-xl border border-line bg-raised px-4 py-3 text-sm text-muted"><Icon name="info" size={17} className="mt-0.5 shrink-0 text-faint" /><span>{w}</span></p>))}
       <section aria-label="Step-by-step solution" className="card p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h3 className="text-lg font-semibold">Step-by-step solution</h3>
@@ -96,7 +99,7 @@ export function MathView({ def, r, s }: { def: CalcDef; r: RunResult; s: Record<
       <dl className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-3">{outs.map((o) => (<div key={o.id}><dt className="text-xs text-faint">{o.label}</dt><dd className="num font-medium">{fmtOut(o, r.o[o.id])}</dd></div>))}</dl>
       <ol className="space-y-2.5 border-t border-line pt-3">{r.steps.filter((x) => x.tex).map((x, i) => (<li key={i} className="text-sm"><span className="text-muted">{x.title}</span><div className="scroll-x mt-1 rounded-md bg-sunken px-2.5 py-2 ring-1 ring-line"><Tex>{x.tex!}</Tex></div></li>))}</ol>
       {def.convention && <p className="text-sm text-muted"><b className="text-fg">Convention.</b> {def.convention}</p>}
-      {r.warnings.map((w, i) => <p key={i} className="text-sm text-muted"><b className="text-fg">Units.</b> {w.replace('Unit mismatch: y', 'Y')}</p>)}
+      {r.warnings.map((w, i) => <p key={i} className="text-sm text-muted"><b className="text-fg">Units.</b> {w.replace(/^Unit mismatch: y/, 'Y').replace(/^Units converted: t/, 'T')}</p>)}
     </div>
   );
 }

@@ -22,3 +22,28 @@ describe('Plan Builder Excel export', () => {
     const sid = hf.getSheetId('Settings')!, pid = hf.getSheetId('Policy')!; const before = hf.getCellValue({ sheet: pid, row: 1, col: 15 }) as number; hf.setCellContents({ sheet: sid, row: 1, col: 1 }, 0.5); const after = hf.getCellValue({ sheet: pid, row: 1, col: 15 }) as number; expect(after).toBeLessThan(before);
   });
 });
+
+// The formula model above is only half the proof: the real .xlsx must also be writable and keep its formulas.
+// Build the actual file with ExcelJS, read it back, and recalculate the formulas found in the file.
+describe('Plan Builder .xlsx file', () => {
+  it('uses sheet names Excel accepts', () => {
+    const plan = buildPlan(fs.readFileSync('public/samples/coffee-shop.csv', 'utf8')); if (!plan.ok) throw new Error('plan failed');
+    for (const s of planWorkbook(plan)) { expect(s.name.length).toBeLessThanOrEqual(31); expect(s.name).not.toMatch(/[\\/?*[\]:]/); expect(s.name.toLowerCase()).not.toBe('history'); }
+  });
+  for (const f of ['coffee-shop', 'sneaker-resale', 'small-manufacturer']) it(`writes a real workbook whose formulas recalculate for ${f}`, async () => {
+    const plan = buildPlan(fs.readFileSync(`public/samples/${f}.csv`, 'utf8')); if (!plan.ok) throw new Error('plan failed');
+    const { planToXlsx } = await import('@/lib/planExcel');
+    const blob = await planToXlsx(plan); expect(blob.size).toBeGreaterThan(5000);
+    const ExcelJS: any = (await import('exceljs')).default ?? (await import('exceljs'));
+    const wb = new ExcelJS.Workbook(); await wb.xlsx.load(Buffer.from(await blob.arrayBuffer()));
+    const names: string[] = wb.worksheets.map((w: any) => w.name); expect(names).toEqual(planWorkbook(plan).map((s) => s.name));
+    // Rebuild every sheet from the file itself: formulas as formulas, everything else as values.
+    // (ExcelJS's reader drops a cached result of 0, so the expected values come from the plan model, cell by cell.)
+    const model = Object.fromEntries(planWorkbook(plan).map((s) => [s.name, s.rows]));
+    const sheets: Record<string, unknown[][]> = {}; const cached: { s: string; r: number; c: number; v: unknown }[] = [];
+    for (const ws of wb.worksheets) { const rows: unknown[][] = []; ws.eachRow({ includeEmpty: true }, (row: any, rn: number) => { const out: unknown[] = []; row.eachCell({ includeEmpty: true }, (cell: any, cn: number) => { const v = cell.value; if (v && typeof v === 'object' && 'formula' in v) { expect(v.formula).not.toMatch(/(^|[^.])\bNORM\.S\.INV\(/); out[cn - 1] = '=' + String(v.formula).replace(/_xlfn\./g, ''); const m = model[ws.name]?.[rn - 1]?.[cn - 1] as any; cached.push({ s: ws.name, r: rn - 1, c: cn - 1, v: m?.v }); } else out[cn - 1] = v instanceof Date ? v.toISOString().slice(0, 10) : v; }); rows[rn - 1] = out; }); sheets[ws.name] = rows.map((r) => r ?? []); }
+    const hf = HyperFormula.buildFromSheets(sheets as any, { licenseKey: 'gpl-v3' }); const bad: string[] = [];
+    for (const k of cached) { const got = hf.getCellValue({ sheet: hf.getSheetId(k.s)!, row: k.r, col: k.c }); const ok = typeof k.v === 'number' ? typeof got === 'number' && Math.abs(got - k.v) <= 1e-6 * Math.max(1, Math.abs(k.v)) : String(got ?? '') === String(k.v ?? ''); if (!ok && bad.length < 6) bad.push(`${k.s} R${k.r + 1}C${k.c + 1}: ${JSON.stringify(got)} vs ${JSON.stringify(k.v)}`); }
+    expect(bad).toEqual([]); expect(cached.length).toBeGreaterThan(plan.skus.length * 25);
+  });
+});

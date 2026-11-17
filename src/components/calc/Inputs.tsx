@@ -9,8 +9,8 @@ export function parseNum(s: string): number { const t = s.replace(/[$,%\s]/g, ''
 export function parseSeries(s: string): number[] { return s.split(/[\s,;\t\n]+/).map((x) => x.replace(/[$,%]/g, '')).filter((x) => x !== '').map(Number); }
 const show = (n: number) => (Number.isFinite(n) ? String(+n.toPrecision(12)) : '');
 
-function NumberField({ inp, value, unit, onChange, onUnit, mode, nota }: { inp: InputDef; value: number; unit?: TimeUnit; onChange: (v: number) => void; onUnit: (u: TimeUnit) => void; mode: Mode; nota: NotationId }) {
-  const id = useId(); const [text, setText] = useState(show(value)); const focused = useRef(false);
+function NumberField({ inp, value, unit, onChange, onUnit, mode, nota, fid }: { inp: InputDef; value: number; unit?: TimeUnit; onChange: (v: number) => void; onUnit: (u: TimeUnit) => void; mode: Mode; nota: NotationId; fid?: string }) {
+  const gen = useId(); const id = fid ?? gen; const [text, setText] = useState(show(value)); const focused = useRef(false);
   useEffect(() => { if (!focused.current || parseNum(text) !== value) { if (!(focused.current && Number.isNaN(parseNum(text)) && Number.isNaN(value))) setText(show(value)); } }, [value]); // eslint-disable-line
   const invalid = !Number.isFinite(value) || (inp.min !== undefined && value < inp.min) || (inp.max !== undefined && value > inp.max);
   const prefix = inp.kind === 'money' ? '$' : null; const suffix = inp.kind === 'percent' ? '%' : inp.unit && inp.unit !== '$' && inp.unit !== '%' && !inp.time ? inp.unit : null;
@@ -27,7 +27,7 @@ function NumberField({ inp, value, unit, onChange, onUnit, mode, nota }: { inp: 
           {suffix && <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-faint">{suffix}</span>}
         </div>
         {inp.time && (
-          <select aria-label={`${inp.label} time unit`} className="input w-[7.2rem] shrink-0 text-sm" value={unit ?? inp.time.unit} onChange={(e) => onUnit(e.target.value as TimeUnit)}>
+          <select id={`${id}-unit`} aria-label={`${inp.label} time unit`} className="input w-[7.2rem] shrink-0 text-sm" value={unit ?? inp.time.unit} onChange={(e) => onUnit(e.target.value as TimeUnit)}>
             {(['day', 'week', 'month', 'year'] as TimeUnit[]).map((u) => <option key={u} value={u}>{role === 'dur' ? u + 's' : 'per ' + u}</option>)}
           </select>)}
       </div>
@@ -46,8 +46,8 @@ function FieldLabel({ inp, mode, nota, htmlFor }: { inp: InputDef; mode: Mode; n
   );
 }
 
-function SeriesField({ inp, value, onChange, mode, nota }: { inp: InputDef; value: number[]; onChange: (v: number[]) => void; mode: Mode; nota: NotationId }) {
-  const id = useId(); const [text, setText] = useState((value ?? []).join(', ')); const last = useRef(JSON.stringify(value));
+function SeriesField({ inp, value, onChange, mode, nota, fid }: { inp: InputDef; value: number[]; onChange: (v: number[]) => void; mode: Mode; nota: NotationId; fid?: string }) {
+  const gen = useId(); const id = fid ?? gen; const [text, setText] = useState((value ?? []).join(', ')); const last = useRef(JSON.stringify(value));
   useEffect(() => { const j = JSON.stringify(value); if (j !== last.current) { last.current = j; setText((value ?? []).join(', ')); } }, [value]);
   const bad = (value ?? []).some((x) => !Number.isFinite(x));
   return (
@@ -137,11 +137,11 @@ export function InputPanel({ def, values, onChange, mode, nota }: { def: CalcDef
   const main = visible.filter((i) => !i.adv), adv = visible.filter((i) => i.adv); const [open, setOpen] = useState(false);
   const field = (i: InputDef) => {
     if (i.kind === 'select') { return (<div key={i.id} className="flex h-full flex-col justify-end"><FieldLabel inp={i} mode={mode} nota={nota} htmlFor={`f-${def.id}-${i.id}`} /><select id={`f-${def.id}-${i.id}`} className="input mt-1.5" value={values[i.id]} onChange={(e) => onChange({ [i.id]: e.target.value })}>{i.options!.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}</select></div>); }
-    if (i.kind === 'series') return <SeriesField key={i.id} inp={i} value={values[i.id]} onChange={(v) => onChange({ [i.id]: v })} mode={mode} nota={nota} />;
+    if (i.kind === 'series') return <SeriesField key={i.id} fid={`f-${def.id}-${i.id}`} inp={i} value={values[i.id]} onChange={(v) => onChange({ [i.id]: v })} mode={mode} nota={nota} />;
     if (i.kind === 'table') return <TableField key={i.id} inp={i} value={values[i.id]} onChange={(v) => onChange({ [i.id]: v })} mode={mode} nota={nota} />;
     if (i.kind === 'tree') return (<div key={i.id}><FieldLabel inp={i} mode={mode} nota={nota} /><div className="scroll-x mt-1.5 rounded-[10px] border border-line-strong bg-sunken p-2"><div className="min-w-[30rem]"><TreeEditor node={values[i.id]} depth={0} onChange={(n) => onChange({ [i.id]: n })} /></div></div></div>);
     const off = i.time?.unless && values[i.time.unless[0]] === i.time.unless[1]; // the unit picker is hidden when the number is used as entered
-    return <NumberField key={i.id} inp={off ? { ...i, time: undefined } : i} value={values[i.id]} unit={values[i.id + '_u']} onChange={(v) => onChange({ [i.id]: v })} onUnit={(u) => onChange({ [i.id + '_u']: u })} mode={mode} nota={nota} />;
+    return <NumberField key={i.id} fid={`f-${def.id}-${i.id}`} inp={off ? { ...i, time: undefined } : i} value={values[i.id]} unit={values[i.id + '_u']} onChange={(v) => onChange({ [i.id]: v })} onUnit={(u) => onChange({ [i.id + '_u']: u })} mode={mode} nota={nota} />;
   };
   const wide = (i: InputDef) => i.kind === 'table' || i.kind === 'series' || i.kind === 'tree';
   return (

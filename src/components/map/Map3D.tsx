@@ -5,12 +5,13 @@ import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three';
 import { CAT_COLOR, LAYOUT, pathEdges } from '@/lib/mapLayout';
 
-export interface MapProps { filter: string | null; path: string | null; pathSteps: string[]; selected: string | null; light: boolean; onHover: (id: string | null, x?: number, y?: number) => void; onPick: (id: string, viaMouse: boolean) => void }
+export interface MapProps { filter: string | null; path: string | null; pathSteps: string[]; selected: string | null; light: boolean; onHover: (id: string | null, x?: number, y?: number) => void; onPick: (id: string, viaMouse: boolean) => void; onSlow?: () => void }
 
 function glowTexture(): THREE.Texture { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d')!; const grad = g.createRadialGradient(64, 64, 0, 64, 64, 64); grad.addColorStop(0, 'rgba(255,255,255,0.9)'); grad.addColorStop(0.25, 'rgba(255,255,255,0.35)'); grad.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = grad; g.fillRect(0, 0, 128, 128); return new THREE.CanvasTexture(c); }
 function labelTexture(text: string, color: string): { tex: THREE.Texture; aspect: number } { const c = document.createElement('canvas'); const g = c.getContext('2d')!; const font = '600 44px ui-sans-serif, system-ui, sans-serif'; g.font = font; const w = Math.ceil(g.measureText(text).width) + 24; c.width = w; c.height = 64; const g2 = c.getContext('2d')!; g2.font = font; g2.fillStyle = color; g2.textBaseline = 'middle'; g2.fillText(text, 12, 34); const tex = new THREE.CanvasTexture(c); tex.anisotropy = 4; return { tex, aspect: w / 64 }; }
 
-function Scene({ filter, path, pathSteps, selected, light, onHover, onPick }: MapProps) {
+function Scene({ filter, path, pathSteps, selected, light, onHover, onPick, onSlow }: MapProps) {
+  const perf = useRef({ frames: 0, time: 0, done: false });
   const group = useRef<THREE.Group>(null); const { camera, gl, size } = useThree();
   const drag = useRef({ on: false, x: 0, y: 0, moved: 0, vx: 0, vy: 0 }); const hovering = useRef(false); const zoom = useRef(30);
   const glow = useMemo(glowTexture, []); const sphere = useMemo(() => new THREE.SphereGeometry(1, 20, 20), []);
@@ -37,6 +38,8 @@ function Scene({ filter, path, pathSteps, selected, light, onHover, onPick }: Ma
     return () => { el.removeEventListener('pointerdown', down); window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); el.removeEventListener('wheel', wheel); window.removeEventListener('lotwise-map-zoom', onZoom); };
   }, [gl]);
   useFrame((_, dt) => {
+    // Frame-rate check over the first ~2 seconds (skipping the first frames, which include setup work).
+    const pf = perf.current; if (!pf.done) { pf.frames++; if (pf.frames > 10) pf.time += dt; if (pf.frames >= 70) { pf.done = true; if (pf.time / 60 > 0.05) onSlow?.(); } }
     const g = group.current; if (!g) return; const d = drag.current;
     if (!d.on) { if (!hovering.current) g.rotation.y += Math.min(dt, 0.05) * 0.045 + d.vx; d.vx *= 0.92; }
     const aspect = size.width / Math.max(1, size.height); const target = zoom.current / Math.min(1, aspect * 0.85); camera.position.z += (target - camera.position.z) * 0.12;
@@ -49,7 +52,7 @@ function Scene({ filter, path, pathSteps, selected, light, onHover, onPick }: Ma
     <group ref={group} rotation={[0.25, 0.6, 0]}>
       {!light && <points geometry={stars}><pointsMaterial size={0.09} color="#8b94ad" transparent opacity={0.55} sizeAttenuation /></points>}
       <lineSegments geometry={edgeGeo}><lineBasicMaterial vertexColors transparent opacity={0.95} /></lineSegments>
-      {path && <lineSegments geometry={pathGeo}><lineBasicMaterial color={light ? '#b8480a' : '#ffd9b8'} linewidth={2} /></lineSegments>}
+      {path && <lineSegments geometry={pathGeo}><lineBasicMaterial color={light ? '#9c3c07' : '#ffd9b8'} linewidth={2} /></lineSegments>}
       {LAYOUT.nodes.map((n, i) => { const on = active(i); const sel = selected === n.id; const r = (0.2 + Math.min(n.deg, 6) * 0.028) * (sel ? 1.55 : path && on ? 1.3 : 1); const color = CAT_COLOR[n.cat]; return (
         <group key={n.id} position={n.p}>
           <mesh geometry={sphere} scale={r} onPointerOver={over(n.id)} onPointerOut={out} onClick={click(n.id)}><meshBasicMaterial color={on ? color : light ? '#c9cedb' : '#3a4152'} transparent opacity={on ? 1 : 0.5} /></mesh>
@@ -62,5 +65,5 @@ function Scene({ filter, path, pathSteps, selected, light, onHover, onPick }: Ma
   );
 }
 export default function Map3D(props: MapProps) {
-  return (<Canvas camera={{ position: [0, 0, 30], fov: 50, near: 0.1, far: 200 }} dpr={[1, 1.75]} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }} style={{ touchAction: 'pan-y', cursor: 'grab' }} aria-hidden><Scene {...props} /></Canvas>);
+  return (<Canvas camera={{ position: [0, 0, 30], fov: 50, near: 0.1, far: 200 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }} style={{ touchAction: 'pan-y', cursor: 'grab' }} aria-hidden><Scene {...props} /></Canvas>);
 }

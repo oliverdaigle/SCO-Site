@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useState, type ReactNode } from 'react';
 import type { Mode } from '@lotwise/engine';
 import { liveStreak, useStore } from '@/lib/store';
 import { modeFromPath, swapMode } from '@/lib/routes';
@@ -21,7 +21,8 @@ export function Shell({ children }: { children: ReactNode }) {
   const path = usePath(); const nav = useNav(); const pathMode = modeFromPath(path); const storeMode = useStore((s) => s.mode); const mode: Mode = pathMode ?? storeMode ?? 'business';
   const setMode = useStore((s) => s.setMode); const theme = useStore((s) => s.theme); const setTheme = useStore((s) => s.setTheme); const hydrated = useStore((s) => s.hydrated); const user = useStore((s) => s.user); const plan = useStore((s) => s.plan); const setPlan = useStore((s) => s.setPlan); const streak = useStore((s) => s.streak);
   const [cmd, setCmd] = useState(false); const [menu, setMenu] = useState(false); const [mac, setMac] = useState(true);
-  useEffect(() => { useStore.persist.rehydrate(); useStore.setState({ hydrated: true }); setMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)); }, []);
+  // Load saved state in a layout effect: it runs before any child component's effects, so nothing reads or writes the defaults first.
+  useLayoutEffect(() => { useStore.persist.rehydrate(); useStore.setState({ hydrated: true }); setMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)); }, []);
   useEffect(() => { if (!HAS_SUPABASE) return; let off: (() => void) | undefined; let dead = false; import('@/lib/auth').then((m) => m.initAuth()).then((f) => { if (dead) f(); else off = f; }); return () => { dead = true; off?.(); }; }, []);
   useEffect(() => { if (!hydrated) return; document.documentElement.dataset.theme = theme; }, [theme, hydrated]);
   useEffect(() => { if (pathMode) { document.documentElement.dataset.mode = pathMode; if (hydrated && storeMode !== pathMode) setMode(pathMode); } else if (hydrated && storeMode) document.documentElement.dataset.mode = storeMode; }, [pathMode, storeMode, hydrated, setMode]);
@@ -53,7 +54,7 @@ export function Shell({ children }: { children: ReactNode }) {
             </nav>
             <div className="ml-auto flex items-center gap-1.5">
               {mode === 'learner' && st > 0 && <Link href="/learn/practice" className="badge hidden sm:inline-flex" title={`${st}-day practice streak`}><Icon name="flame" size={12} />{st}</Link>}
-              <button type="button" onClick={() => setCmd(true)} className="flex h-9 items-center gap-2 rounded-[10px] border border-line bg-sunken px-2.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-fg" aria-label="Search calculators" aria-keyshortcuts="Meta+K Control+K"><Icon name="search" size={15} /><span className="hidden md:inline">Search</span><kbd className="kbd hidden md:inline">{mac ? '⌘' : 'Ctrl '}K</kbd></button>
+              <button type="button" onClick={() => setCmd(true)} className="flex h-9 items-center gap-2 rounded-[10px] border border-line bg-sunken px-2.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-fg" aria-keyshortcuts="Meta+K Control+K"><Icon name="search" size={15} /><span className="sr-only md:not-sr-only">Search</span><kbd className="kbd hidden md:inline">{mac ? '⌘' : 'Ctrl '}K</kbd></button>
               <button type="button" className="btn btn-ghost btn-sm !px-2" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}><Icon name={hydrated && theme === 'light' ? 'moon' : 'sun'} size={16} /></button>
               <Link href={user ? '/account' : '/login'} className="btn btn-sm hidden sm:inline-flex">{hydrated && user ? <><Icon name="user" size={14} />Account</> : 'Sign in'}</Link>
               <button type="button" className="btn btn-ghost btn-sm !px-2 lg:hidden" aria-label="Menu" aria-expanded={menu} onClick={() => setMenu(!menu)}><Icon name={menu ? 'x' : 'menu'} size={18} /></button>

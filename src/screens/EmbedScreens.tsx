@@ -73,7 +73,7 @@ export function EmbedBuilderScreen() {
           </div>
           <div className="card p-4 sm:p-5">
             <div className="flex items-center justify-between gap-3"><Segmented label="Embed type" value={tab} onChange={setTab} size="sm" options={[{ value: 'iframe', label: 'Iframe' }, { value: 'script', label: 'Script (auto-resize)' }]} /><button type="button" className="btn btn-primary btn-sm" onClick={copy}><Icon name="copy" size={14} />Copy code</button></div>
-            <pre className="scroll-x mt-3 max-h-56 overflow-auto rounded-lg border border-line bg-sunken p-3 text-xs leading-relaxed"><code>{code}</code></pre>
+            <pre tabIndex={0} aria-label="Embed code" className="scroll-x mt-3 max-h-56 overflow-auto rounded-lg border border-line bg-sunken p-3 text-xs leading-relaxed"><code>{code}</code></pre>
             <p className="mt-3 text-xs text-faint">{tab === 'iframe' ? 'Works anywhere HTML is allowed, including Notion, Canvas, WordPress, and Squarespace embed blocks.' : 'One small script turns every tagged element on the page into a calculator and keeps its height in sync.'}</p>
           </div>
         </div>
