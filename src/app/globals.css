@@ -59,7 +59,7 @@
 
 @layer components {
   .wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
-  @media (min-width: 640px) { .wrap { padding-inline: 28px; } }
+  @media (min-width: 640px) { .wrap { padding-inline: max(28px, env(safe-area-inset-left, 0px)) max(28px, env(safe-area-inset-right, 0px)); } }
   .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow); }
   .panel { background: var(--raised); border: 1px solid var(--line); border-radius: 10px; }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 40px; padding: 0 16px; border-radius: 10px; font-weight: 550; font-size: 0.9rem; border: 1px solid var(--line-strong); background: var(--raised); color: var(--fg); transition: background 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.15s; cursor: pointer; white-space: nowrap; user-select: none; }

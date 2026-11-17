@@ -99,7 +99,7 @@ function PdfSummary({ def, r, mode }: { def: CalcDef; r: RunResult; mode: Mode }
 export function ShareBar({ def, values, r, mode }: { def: CalcDef; values: Vals; r: RunResult; mode: Mode }) {
   const pro = usePro('business'); const [busy, setBusy] = useState(false); const [pdf, setPdf] = useState(false); const pdfRef = useRef<HTMLDivElement>(null);
   const path = `/s/${mode === 'learner' ? 'learn' : 'business'}/${def.id}?v=${encodeValues(def, values)}`;
-  const share = async () => { const url = IS_ARTIFACT ? SITE_URL + path : absoluteUrl(path); const ok = await copyText(url); toast(ok ? 'Link copied. It restores these exact inputs.' : 'Could not copy. Select the address bar instead.'); track('share', { calc: def.id, mode }); };
+  const share = async () => { const url = IS_ARTIFACT ? SITE_URL + path : absoluteUrl(path); const ok = await copyText(url); toast(ok ? (IS_ARTIFACT ? 'Link copied. On the live site it opens this calculator with these exact inputs.' : 'Link copied. It restores these exact inputs.') : 'Could not copy. Select the address bar instead.'); track('share', { calc: def.id, mode }); };
   const doPdf = async () => { setPdf(true); setBusy(true); await new Promise((res) => setTimeout(res, 350)); try { if (pdfRef.current) await exportPdf(pdfRef.current, `lotwise-${def.id}.pdf`); track('export', { kind: 'pdf', calc: def.id }); toast('PDF summary ready'); } catch { toast('Could not create the PDF. Try again.'); } setBusy(false); setPdf(false); };
   return (
     <div className="flex flex-wrap items-center gap-2">
