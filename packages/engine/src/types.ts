@@ -61,7 +61,8 @@ export type VizSpec =
       hlines?: { y: number; label: string; tone?: Tone }[]; vlines?: { x: number; label: string; tone?: Tone }[];
       bands?: { y0: number; y1: number; label: string; tone?: Tone }[];
       shade?: { x0: number; x1: number; series: number; tone?: Tone; label?: string }[];
-      marks?: { x: number; y: number; label: string; tone?: Tone }[]; flagged?: number[] }
+      marks?: { x: number; y: number; label: string; tone?: Tone }[]; flagged?: number[];
+      ribbon?: { upper: [number, number][]; lower: [number, number][]; label: string; tone?: Tone } }
   | { kind: 'queue'; lambda: number; mu: number; servers: number; cva: number; cvs: number; Lq: number; Wq: number; rho: number; timeUnit: string }
   | { kind: 'network'; variant: 'cpm' | 'line'; nodes: { id: string; label: string; dur: number; es?: number; ef?: number; ls?: number; lf?: number; slack?: number; critical?: boolean; group?: number }[]; edges: [string, string][]; total?: number }
   | { kind: 'map'; tableId: string; points: { name: string; x: number; y: number; w: number }[]; center?: { x: number; y: number; label: string }; candidates?: { name: string; x: number; y: number; score: number; best: boolean }[] }
