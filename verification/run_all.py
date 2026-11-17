@@ -25,6 +25,17 @@ def main():
     # Layer 3
     sims = simulate.run()
     schema = json.load(open(os.path.join(CACHE, 'xcheck', '_schema.json')))
+    # Plan Builder Excel export, recalculated in LibreOffice with every cached result removed
+    import shutil, tempfile, xlsx_libreoffice
+    excel = None
+    if shutil.which('soffice'):
+        work = tempfile.mkdtemp(prefix='lotwise-xlsx-'); rows = []
+        for sample in xlsx_libreoffice.SAMPLES:
+            n, bad = xlsx_libreoffice.check(sample, work); rows.append(dict(sample=sample, cells=n, passed=not bad, problems=bad))
+            print(f"{'PASS' if not bad else 'FAIL'}  Excel export ({sample}): {n} formula cells recalculated by LibreOffice", flush=True)
+        shutil.rmtree(work, ignore_errors=True)
+        ver = subprocess.run(['soffice', '--version'], capture_output=True, text=True).stdout.split()
+        excel = dict(tool='LibreOffice ' + (ver[1] if len(ver) > 1 else ''), cells=sum(r['cells'] for r in rows), passed=all(r['passed'] for r in rows), samples=rows)
 
     calcs = []
     for s in schema:
@@ -49,7 +60,7 @@ def main():
                      crossCases=sum(c['crosscheck']['cases'] for c in calcs), crossComparisons=sum(c['crosscheck']['comparisons'] for c in calcs), crossMismatches=sum(c['crosscheck']['mismatches'] for c in calcs),
                      properties=sum(c['properties']['n'] for c in calcs), propertiesPassed=sum(c['properties']['passed'] for c in calcs), otherTests=len(other), otherTestsPassed=sum(t['status'] == 'passed' for t in other),
                      simulations=len(sims), simulationsPassed=sum(q['passed'] for q in sims), simulatedTrials=sum(q['n'] for q in sims), withSimulation=sum(1 for c in calcs if c['simulations']), totalTests=len(tests), totalTestsPassed=sum(t['status'] == 'passed' for t in tests)),
-        calculators=calcs)
+        calculators=calcs, excel=excel)
     json.dump(report, open(os.path.join(HERE, 'report.json'), 'w'), indent=1, default=lambda o: o.item() if hasattr(o, 'item') else str(o))
     # Small summary the app bundles for the Verified badge on every calculator page.
     slim = {'generated': report['generated'], 'summary': report['summary'], 'calcs': {c['id']: {'x': c['crosscheck']['cases'], 'e': c['examples']['n'], 'p': c['properties']['n'], 's': len(c['simulations']), 'ok': bool(c['passed'])} for c in report['calculators']}}
@@ -58,7 +69,8 @@ def main():
     write_md(report)
     s = report['summary']
     print(f"\n{s['passed']}/{s['calculators']} calculators verified | examples {s['examplesPassed']}/{s['examples']} | cross-check {s['crossCases']:,} cases, {s['crossMismatches']} mismatches | properties {s['propertiesPassed']}/{s['properties']} | simulations {s['simulationsPassed']}/{s['simulations']} ({s['simulatedTrials']:,} trials) | {time.time() - t0:.0f}s")
-    sys.exit(0 if s['passed'] == s['calculators'] and s['totalTestsPassed'] == s['totalTests'] else 1)
+    if excel: print(f"Excel export: {excel['cells']:,} formula cells recalculated in {excel['tool']}, {'all match' if excel['passed'] else 'MISMATCHES'}")
+    sys.exit(0 if s['passed'] == s['calculators'] and s['totalTestsPassed'] == s['totalTests'] and (not excel or excel['passed']) else 1)
 
 def write_md(rep):
     s = rep['summary']; L = []
@@ -80,6 +92,10 @@ def write_md(rep):
     for c in rep['calculators']:
         sim = 'pass' if c['simulations'] and all(q['passed'] for q in c['simulations']) else ('FAIL' if c['simulations'] else 'n/a')
         L.append(f"| {c['name']} | {c['examples']['passed']}/{c['examples']['n']} | {c['crosscheck']['cases']:,} | {c['crosscheck']['comparisons']:,} | {c['properties']['passed']}/{c['properties']['n']} | {sim} | {'Verified' if c['passed'] else 'FAILED'} |")
+    if rep.get('excel'):
+        e = rep['excel']
+        L += ['', '## Plan Builder Excel export', '', f"The Plan Builder exports a workbook in which every calculated number is a formula. For each sample dataset the file is written exactly as the app writes it, every cached result is deleted, and {e['tool']} recalculates the workbook from the raw sales history. Every formula cell is compared with the number the app shows.", '',
+              '| Sample dataset | Formula cells | Result |', '|---|---|---|'] + [f"| {r['sample']} | {r['cells']:,} | {'all match' if r['passed'] else 'MISMATCH'} |" for r in e['samples']]
     L += ['', '## Simulation results', '']
     seen = set()
     for c in rep['calculators']:

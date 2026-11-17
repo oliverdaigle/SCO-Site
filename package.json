@@ -15,9 +15,10 @@
     "test:engine": "vitest run packages/engine",
     "test:e2e": "playwright test --trace off",
     "verify": "python3 verification/run_all.py",
-    "verify:report": "tsx scripts/build-verification-report.ts",
     "demo:build": "node scripts/build-demo.mjs",
-    "lighthouse": "node scripts/lighthouse.mjs"
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "verify:excel": "python3 verification/xlsx_libreoffice.py",
+    "a11y": "node scripts/a11y-audit.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.9.0",

@@ -1,6 +1,6 @@
 # Lotwise Verification Report
 
-Generated 2026-11-17 07:04 UTC by `npm run verify`. This file and the public Verified page are built from the same test run (`verification/report.json`).
+Generated 2026-11-17 15:01 UTC by `npm run verify`. This file and the public Verified page are built from the same test run (`verification/report.json`).
 
 ## Result
 
@@ -120,6 +120,16 @@ Environment: Python 3.13.18, numpy 2.5.3, scipy 1.18.1, statsmodels 0.15.0, Node
 | Decision Tree | 2/2 | 2,000 | 6,000 | 5/5 | pass | Verified |
 | Expected Value of Perfect Information (EVPI) | 2/2 | 2,000 | 20,973 | 3/3 | pass | Verified |
 | Maximax, Maximin, and Minimax Regret | 2/2 | 2,000 | 75,827 | 5/5 | n/a | Verified |
+
+## Plan Builder Excel export
+
+The Plan Builder exports a workbook in which every calculated number is a formula. For each sample dataset the file is written exactly as the app writes it, every cached result is deleted, and LibreOffice 24.2.7.2 recalculates the workbook from the raw sales history. Every formula cell is compared with the number the app shows.
+
+| Sample dataset | Formula cells | Result |
+|---|---|---|
+| coffee-shop | 1,808 | all match |
+| sneaker-resale | 2,234 | all match |
+| small-manufacturer | 1,950 | all match |
 
 ## Simulation results
 

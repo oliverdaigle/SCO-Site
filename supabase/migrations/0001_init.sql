@@ -100,3 +100,4 @@ create or replace function public.admin_stats(days int default 30) returns jsonb
   );
 $$;
 revoke all on function public.admin_stats(int) from public, anon, authenticated;
+grant execute on function public.admin_stats(int) to service_role;
