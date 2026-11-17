@@ -19,3 +19,4 @@ export * as queue from './math/queue';
 export * as network from './math/network';
 export * as mrpx from './math/mrp';
 export { simplex } from './math/simplex';
+export * from './planbuilder';

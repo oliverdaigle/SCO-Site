@@ -21,7 +21,7 @@ export function XYChart({ spec, height = 300 }: { spec: XY; height?: number }) {
   const [ref, width] = useWidth<HTMLDivElement>(640);
   const [hover, setHover] = useState<number | null>(null);
   const cats = spec.x.cats; const small = width < 480;
-  const m = { t: 22, r: small ? 12 : 18, b: cats ? (cats.some((c) => c.length > 7) && cats.length > 4 ? 62 : 44) : 42, l: small ? 44 : 56 };
+  const m = { t: 22, r: small ? 12 : 18, b: cats ? (cats.some((c) => c.length > 7) && cats.length > 4 ? 86 : 44) : 42, l: small ? 44 : 56 };
   const H = small ? Math.min(height, 250) : height; const iw = Math.max(40, width - m.l - m.r), ih = H - m.t - m.b;
 
   const { xs, ys, bw } = useMemo(() => {
@@ -85,7 +85,7 @@ export function XYChart({ spec, height = 300 }: { spec: XY; height?: number }) {
             {spec.vlines?.map((v, i) => { const x = xs(v.x); const right = x > iw * 0.72; return (<g key={i}><line x1={x} x2={x} y1={-6} y2={ih} stroke={toneVar(v.tone)} strokeWidth={1.4} strokeDasharray="6 4" />{v.label && <text x={x + (right ? -5 : 5)} y={4 + (i % 3) * 13} textAnchor={right ? 'end' : 'start'} fontSize="11" fontWeight={600} fill={toneVar(v.tone)} paintOrder="stroke" stroke="var(--surface)" strokeWidth={3}>{v.label}</text>}</g>); })}
             {spec.marks?.map((k, i) => { const x = xs(k.x), y = ys(k.y); const right = x > iw * 0.7; return (<g key={i}><circle cx={x} cy={y} r={9} fill={toneVar(k.tone)} opacity={0.2} /><circle cx={x} cy={y} r={4.5} fill={toneVar(k.tone)} stroke="var(--surface)" strokeWidth={2} />{k.label && <text x={x + (right ? -10 : 10)} y={y - 9} textAnchor={right ? 'end' : 'start'} fontSize="11" fontWeight={600} fill="var(--fg)" paintOrder="stroke" stroke="var(--surface)" strokeWidth={3}>{k.label}</text>}</g>); })}
             <line x1={0} x2={iw} y1={ih} y2={ih} stroke="var(--line-strong)" />
-            {xTicks.map((t, i) => { const lab = cats ? cats[t] : tick(t); const rot = cats && cats.some((c) => c.length > 7) && cats.length > 4; const skip = cats && cats.length > 14 && i % Math.ceil(cats.length / 12) !== 0; return skip ? null : (<text key={i} x={xs(t)} y={ih + 16} textAnchor={rot ? 'end' : 'middle'} transform={rot ? `rotate(-32 ${xs(t)} ${ih + 16})` : undefined} fontSize="11" fill="var(--faint)" className={cats ? '' : 'num'}>{lab.length > 16 ? lab.slice(0, 15) + '…' : lab}</text>); })}
+            {xTicks.map((t, i) => { const lab = cats ? cats[t] : tick(t); const rot = cats && cats.some((c) => c.length > 7) && cats.length > 4; const skip = cats && cats.length > 14 && i % Math.ceil(cats.length / 12) !== 0; return skip ? null : (<text key={i} x={xs(t)} y={ih + 16} textAnchor={rot ? 'end' : 'middle'} transform={rot ? `rotate(-32 ${xs(t)} ${ih + 16})` : undefined} fontSize="11" fill="var(--faint)" className={cats ? '' : 'num'}>{lab.length > (rot ? 13 : 16) ? lab.slice(0, rot ? 12 : 15) + '…' : lab}</text>); })}
             {spec.x.label && <text x={iw / 2} y={ih + m.b - 6} textAnchor="middle" fontSize="11" fill="var(--muted)">{spec.x.label}</text>}
             <text x={-m.l + 4} y={-9} fontSize="11" fill="var(--muted)">{spec.y.label}</text>
             {snap !== null && <line x1={xs(snap)} x2={xs(snap)} y1={0} y2={ih} stroke="var(--fg)" strokeOpacity={0.35} strokeWidth={1} pointerEvents="none" />}

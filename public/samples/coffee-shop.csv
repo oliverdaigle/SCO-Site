@@ -1,0 +1,2261 @@
+date,sku,units,unit_cost,lead_time_days,order_cost,on_hand
+2026-05-18,House Blend Beans 12oz,20,6.50,5,25,179
+2026-05-19,House Blend Beans 12oz,21,6.50,5,25,179
+2026-05-20,House Blend Beans 12oz,13,6.50,5,25,179
+2026-05-21,House Blend Beans 12oz,15,6.50,5,25,179
+2026-05-22,House Blend Beans 12oz,22,6.50,5,25,179
+2026-05-23,House Blend Beans 12oz,21,6.50,5,25,179
+2026-05-24,House Blend Beans 12oz,14,6.50,5,25,179
+2026-05-25,House Blend Beans 12oz,17,6.50,5,25,179
+2026-05-26,House Blend Beans 12oz,16,6.50,5,25,179
+2026-05-27,House Blend Beans 12oz,13,6.50,5,25,179
+2026-05-28,House Blend Beans 12oz,14,6.50,5,25,179
+2026-05-29,House Blend Beans 12oz,23,6.50,5,25,179
+2026-05-30,House Blend Beans 12oz,19,6.50,5,25,179
+2026-05-31,House Blend Beans 12oz,8,6.50,5,25,179
+2026-06-01,House Blend Beans 12oz,24,6.50,5,25,179
+2026-06-02,House Blend Beans 12oz,13,6.50,5,25,179
+2026-06-03,House Blend Beans 12oz,22,6.50,5,25,179
+2026-06-04,House Blend Beans 12oz,12,6.50,5,25,179
+2026-06-05,House Blend Beans 12oz,14,6.50,5,25,179
+2026-06-06,House Blend Beans 12oz,9,6.50,5,25,179
+2026-06-07,House Blend Beans 12oz,8,6.50,5,25,179
+2026-06-08,House Blend Beans 12oz,19,6.50,5,25,179
+2026-06-09,House Blend Beans 12oz,13,6.50,5,25,179
+2026-06-10,House Blend Beans 12oz,13,6.50,5,25,179
+2026-06-11,House Blend Beans 12oz,15,6.50,5,25,179
+2026-06-12,House Blend Beans 12oz,15,6.50,5,25,179
+2026-06-13,House Blend Beans 12oz,9,6.50,5,25,179
+2026-06-14,House Blend Beans 12oz,18,6.50,5,25,179
+2026-06-15,House Blend Beans 12oz,18,6.50,5,25,179
+2026-06-16,House Blend Beans 12oz,10,6.50,5,25,179
+2026-06-17,House Blend Beans 12oz,7,6.50,5,25,179
+2026-06-18,House Blend Beans 12oz,20,6.50,5,25,179
+2026-06-19,House Blend Beans 12oz,20,6.50,5,25,179
+2026-06-20,House Blend Beans 12oz,13,6.50,5,25,179
+2026-06-21,House Blend Beans 12oz,15,6.50,5,25,179
+2026-06-22,House Blend Beans 12oz,17,6.50,5,25,179
+2026-06-23,House Blend Beans 12oz,12,6.50,5,25,179
+2026-06-24,House Blend Beans 12oz,15,6.50,5,25,179
+2026-06-25,House Blend Beans 12oz,19,6.50,5,25,179
+2026-06-26,House Blend Beans 12oz,25,6.50,5,25,179
+2026-06-27,House Blend Beans 12oz,18,6.50,5,25,179
+2026-06-28,House Blend Beans 12oz,12,6.50,5,25,179
+2026-06-29,House Blend Beans 12oz,20,6.50,5,25,179
+2026-06-30,House Blend Beans 12oz,13,6.50,5,25,179
+2026-07-01,House Blend Beans 12oz,11,6.50,5,25,179
+2026-07-02,House Blend Beans 12oz,20,6.50,5,25,179
+2026-07-03,House Blend Beans 12oz,17,6.50,5,25,179
+2026-07-04,House Blend Beans 12oz,17,6.50,5,25,179
+2026-07-05,House Blend Beans 12oz,12,6.50,5,25,179
+2026-07-06,House Blend Beans 12oz,21,6.50,5,25,179
+2026-07-07,House Blend Beans 12oz,26,6.50,5,25,179
+2026-07-08,House Blend Beans 12oz,18,6.50,5,25,179
+2026-07-09,House Blend Beans 12oz,25,6.50,5,25,179
+2026-07-10,House Blend Beans 12oz,18,6.50,5,25,179
+2026-07-11,House Blend Beans 12oz,16,6.50,5,25,179
+2026-07-12,House Blend Beans 12oz,9,6.50,5,25,179
+2026-07-13,House Blend Beans 12oz,17,6.50,5,25,179
+2026-07-14,House Blend Beans 12oz,20,6.50,5,25,179
+2026-07-15,House Blend Beans 12oz,18,6.50,5,25,179
+2026-07-16,House Blend Beans 12oz,5,6.50,5,25,179
+2026-07-17,House Blend Beans 12oz,20,6.50,5,25,179
+2026-07-18,House Blend Beans 12oz,18,6.50,5,25,179
+2026-07-19,House Blend Beans 12oz,16,6.50,5,25,179
+2026-07-20,House Blend Beans 12oz,10,6.50,5,25,179
+2026-07-21,House Blend Beans 12oz,25,6.50,5,25,179
+2026-07-22,House Blend Beans 12oz,13,6.50,5,25,179
+2026-07-23,House Blend Beans 12oz,22,6.50,5,25,179
+2026-07-24,House Blend Beans 12oz,22,6.50,5,25,179
+2026-07-25,House Blend Beans 12oz,12,6.50,5,25,179
+2026-07-26,House Blend Beans 12oz,16,6.50,5,25,179
+2026-07-27,House Blend Beans 12oz,23,6.50,5,25,179
+2026-07-28,House Blend Beans 12oz,14,6.50,5,25,179
+2026-07-29,House Blend Beans 12oz,9,6.50,5,25,179
+2026-07-30,House Blend Beans 12oz,18,6.50,5,25,179
+2026-07-31,House Blend Beans 12oz,15,6.50,5,25,179
+2026-08-01,House Blend Beans 12oz,23,6.50,5,25,179
+2026-08-02,House Blend Beans 12oz,14,6.50,5,25,179
+2026-08-03,House Blend Beans 12oz,23,6.50,5,25,179
+2026-08-04,House Blend Beans 12oz,18,6.50,5,25,179
+2026-08-05,House Blend Beans 12oz,18,6.50,5,25,179
+2026-08-06,House Blend Beans 12oz,21,6.50,5,25,179
+2026-08-07,House Blend Beans 12oz,13,6.50,5,25,179
+2026-08-08,House Blend Beans 12oz,23,6.50,5,25,179
+2026-08-09,House Blend Beans 12oz,16,6.50,5,25,179
+2026-08-10,House Blend Beans 12oz,16,6.50,5,25,179
+2026-08-11,House Blend Beans 12oz,15,6.50,5,25,179
+2026-08-12,House Blend Beans 12oz,14,6.50,5,25,179
+2026-08-13,House Blend Beans 12oz,20,6.50,5,25,179
+2026-08-14,House Blend Beans 12oz,19,6.50,5,25,179
+2026-08-15,House Blend Beans 12oz,21,6.50,5,25,179
+2026-08-16,House Blend Beans 12oz,12,6.50,5,25,179
+2026-08-17,House Blend Beans 12oz,12,6.50,5,25,179
+2026-08-18,House Blend Beans 12oz,18,6.50,5,25,179
+2026-08-19,House Blend Beans 12oz,24,6.50,5,25,179
+2026-08-20,House Blend Beans 12oz,15,6.50,5,25,179
+2026-08-21,House Blend Beans 12oz,17,6.50,5,25,179
+2026-08-22,House Blend Beans 12oz,18,6.50,5,25,179
+2026-08-23,House Blend Beans 12oz,13,6.50,5,25,179
+2026-08-24,House Blend Beans 12oz,16,6.50,5,25,179
+2026-08-25,House Blend Beans 12oz,20,6.50,5,25,179
+2026-08-26,House Blend Beans 12oz,15,6.50,5,25,179
+2026-08-27,House Blend Beans 12oz,26,6.50,5,25,179
+2026-08-28,House Blend Beans 12oz,27,6.50,5,25,179
+2026-08-29,House Blend Beans 12oz,9,6.50,5,25,179
+2026-08-30,House Blend Beans 12oz,14,6.50,5,25,179
+2026-08-31,House Blend Beans 12oz,13,6.50,5,25,179
+2026-09-01,House Blend Beans 12oz,16,6.50,5,25,179
+2026-09-02,House Blend Beans 12oz,13,6.50,5,25,179
+2026-09-03,House Blend Beans 12oz,14,6.50,5,25,179
+2026-09-04,House Blend Beans 12oz,20,6.50,5,25,179
+2026-09-05,House Blend Beans 12oz,20,6.50,5,25,179
+2026-09-06,House Blend Beans 12oz,21,6.50,5,25,179
+2026-09-07,House Blend Beans 12oz,25,6.50,5,25,179
+2026-09-08,House Blend Beans 12oz,11,6.50,5,25,179
+2026-09-09,House Blend Beans 12oz,18,6.50,5,25,179
+2026-09-10,House Blend Beans 12oz,18,6.50,5,25,179
+2026-09-11,House Blend Beans 12oz,20,6.50,5,25,179
+2026-09-12,House Blend Beans 12oz,19,6.50,5,25,179
+2026-09-13,House Blend Beans 12oz,14,6.50,5,25,179
+2026-09-14,House Blend Beans 12oz,20,6.50,5,25,179
+2026-09-15,House Blend Beans 12oz,15,6.50,5,25,179
+2026-09-16,House Blend Beans 12oz,12,6.50,5,25,179
+2026-09-17,House Blend Beans 12oz,17,6.50,5,25,179
+2026-09-18,House Blend Beans 12oz,14,6.50,5,25,179
+2026-09-19,House Blend Beans 12oz,23,6.50,5,25,179
+2026-09-20,House Blend Beans 12oz,22,6.50,5,25,179
+2026-09-21,House Blend Beans 12oz,25,6.50,5,25,179
+2026-09-22,House Blend Beans 12oz,14,6.50,5,25,179
+2026-09-23,House Blend Beans 12oz,19,6.50,5,25,179
+2026-09-24,House Blend Beans 12oz,15,6.50,5,25,179
+2026-09-25,House Blend Beans 12oz,20,6.50,5,25,179
+2026-09-26,House Blend Beans 12oz,20,6.50,5,25,179
+2026-09-27,House Blend Beans 12oz,14,6.50,5,25,179
+2026-09-28,House Blend Beans 12oz,23,6.50,5,25,179
+2026-09-29,House Blend Beans 12oz,18,6.50,5,25,179
+2026-09-30,House Blend Beans 12oz,21,6.50,5,25,179
+2026-10-01,House Blend Beans 12oz,12,6.50,5,25,179
+2026-10-02,House Blend Beans 12oz,18,6.50,5,25,179
+2026-10-03,House Blend Beans 12oz,19,6.50,5,25,179
+2026-10-04,House Blend Beans 12oz,11,6.50,5,25,179
+2026-10-05,House Blend Beans 12oz,20,6.50,5,25,179
+2026-10-06,House Blend Beans 12oz,13,6.50,5,25,179
+2026-10-07,House Blend Beans 12oz,15,6.50,5,25,179
+2026-10-08,House Blend Beans 12oz,15,6.50,5,25,179
+2026-10-09,House Blend Beans 12oz,16,6.50,5,25,179
+2026-10-10,House Blend Beans 12oz,16,6.50,5,25,179
+2026-10-11,House Blend Beans 12oz,12,6.50,5,25,179
+2026-10-12,House Blend Beans 12oz,22,6.50,5,25,179
+2026-10-13,House Blend Beans 12oz,11,6.50,5,25,179
+2026-10-14,House Blend Beans 12oz,10,6.50,5,25,179
+2026-10-15,House Blend Beans 12oz,12,6.50,5,25,179
+2026-10-16,House Blend Beans 12oz,14,6.50,5,25,179
+2026-10-17,House Blend Beans 12oz,22,6.50,5,25,179
+2026-10-18,House Blend Beans 12oz,14,6.50,5,25,179
+2026-10-19,House Blend Beans 12oz,16,6.50,5,25,179
+2026-10-20,House Blend Beans 12oz,12,6.50,5,25,179
+2026-10-21,House Blend Beans 12oz,16,6.50,5,25,179
+2026-10-22,House Blend Beans 12oz,16,6.50,5,25,179
+2026-10-23,House Blend Beans 12oz,12,6.50,5,25,179
+2026-10-24,House Blend Beans 12oz,23,6.50,5,25,179
+2026-10-25,House Blend Beans 12oz,15,6.50,5,25,179
+2026-10-26,House Blend Beans 12oz,26,6.50,5,25,179
+2026-10-27,House Blend Beans 12oz,15,6.50,5,25,179
+2026-10-28,House Blend Beans 12oz,14,6.50,5,25,179
+2026-10-29,House Blend Beans 12oz,28,6.50,5,25,179
+2026-10-30,House Blend Beans 12oz,23,6.50,5,25,179
+2026-10-31,House Blend Beans 12oz,19,6.50,5,25,179
+2026-11-01,House Blend Beans 12oz,16,6.50,5,25,179
+2026-11-02,House Blend Beans 12oz,20,6.50,5,25,179
+2026-11-03,House Blend Beans 12oz,13,6.50,5,25,179
+2026-11-04,House Blend Beans 12oz,13,6.50,5,25,179
+2026-11-05,House Blend Beans 12oz,21,6.50,5,25,179
+2026-11-06,House Blend Beans 12oz,12,6.50,5,25,179
+2026-11-07,House Blend Beans 12oz,16,6.50,5,25,179
+2026-11-08,House Blend Beans 12oz,17,6.50,5,25,179
+2026-11-09,House Blend Beans 12oz,18,6.50,5,25,179
+2026-11-10,House Blend Beans 12oz,14,6.50,5,25,179
+2026-11-11,House Blend Beans 12oz,11,6.50,5,25,179
+2026-11-12,House Blend Beans 12oz,10,6.50,5,25,179
+2026-11-13,House Blend Beans 12oz,17,6.50,5,25,179
+2026-11-14,House Blend Beans 12oz,17,6.50,5,25,179
+2026-11-15,House Blend Beans 12oz,19,6.50,5,25,179
+2026-05-18,Oat Milk 32oz,23,2.90,3,20,112
+2026-05-19,Oat Milk 32oz,26,2.90,3,20,112
+2026-05-20,Oat Milk 32oz,24,2.90,3,20,112
+2026-05-21,Oat Milk 32oz,21,2.90,3,20,112
+2026-05-22,Oat Milk 32oz,24,2.90,3,20,112
+2026-05-23,Oat Milk 32oz,31,2.90,3,20,112
+2026-05-24,Oat Milk 32oz,18,2.90,3,20,112
+2026-05-25,Oat Milk 32oz,19,2.90,3,20,112
+2026-05-26,Oat Milk 32oz,27,2.90,3,20,112
+2026-05-27,Oat Milk 32oz,16,2.90,3,20,112
+2026-05-28,Oat Milk 32oz,23,2.90,3,20,112
+2026-05-29,Oat Milk 32oz,24,2.90,3,20,112
+2026-05-30,Oat Milk 32oz,33,2.90,3,20,112
+2026-05-31,Oat Milk 32oz,16,2.90,3,20,112
+2026-06-01,Oat Milk 32oz,29,2.90,3,20,112
+2026-06-02,Oat Milk 32oz,26,2.90,3,20,112
+2026-06-03,Oat Milk 32oz,26,2.90,3,20,112
+2026-06-04,Oat Milk 32oz,31,2.90,3,20,112
+2026-06-05,Oat Milk 32oz,38,2.90,3,20,112
+2026-06-06,Oat Milk 32oz,22,2.90,3,20,112
+2026-06-07,Oat Milk 32oz,21,2.90,3,20,112
+2026-06-08,Oat Milk 32oz,26,2.90,3,20,112
+2026-06-09,Oat Milk 32oz,34,2.90,3,20,112
+2026-06-10,Oat Milk 32oz,21,2.90,3,20,112
+2026-06-11,Oat Milk 32oz,16,2.90,3,20,112
+2026-06-12,Oat Milk 32oz,26,2.90,3,20,112
+2026-06-13,Oat Milk 32oz,24,2.90,3,20,112
+2026-06-14,Oat Milk 32oz,18,2.90,3,20,112
+2026-06-15,Oat Milk 32oz,31,2.90,3,20,112
+2026-06-16,Oat Milk 32oz,21,2.90,3,20,112
+2026-06-17,Oat Milk 32oz,30,2.90,3,20,112
+2026-06-18,Oat Milk 32oz,33,2.90,3,20,112
+2026-06-19,Oat Milk 32oz,29,2.90,3,20,112
+2026-06-20,Oat Milk 32oz,25,2.90,3,20,112
+2026-06-21,Oat Milk 32oz,17,2.90,3,20,112
+2026-06-22,Oat Milk 32oz,22,2.90,3,20,112
+2026-06-23,Oat Milk 32oz,15,2.90,3,20,112
+2026-06-24,Oat Milk 32oz,14,2.90,3,20,112
+2026-06-25,Oat Milk 32oz,29,2.90,3,20,112
+2026-06-26,Oat Milk 32oz,31,2.90,3,20,112
+2026-06-27,Oat Milk 32oz,29,2.90,3,20,112
+2026-06-28,Oat Milk 32oz,25,2.90,3,20,112
+2026-06-29,Oat Milk 32oz,26,2.90,3,20,112
+2026-06-30,Oat Milk 32oz,33,2.90,3,20,112
+2026-07-01,Oat Milk 32oz,29,2.90,3,20,112
+2026-07-02,Oat Milk 32oz,28,2.90,3,20,112
+2026-07-03,Oat Milk 32oz,21,2.90,3,20,112
+2026-07-04,Oat Milk 32oz,31,2.90,3,20,112
+2026-07-05,Oat Milk 32oz,26,2.90,3,20,112
+2026-07-06,Oat Milk 32oz,41,2.90,3,20,112
+2026-07-07,Oat Milk 32oz,20,2.90,3,20,112
+2026-07-08,Oat Milk 32oz,29,2.90,3,20,112
+2026-07-09,Oat Milk 32oz,28,2.90,3,20,112
+2026-07-10,Oat Milk 32oz,26,2.90,3,20,112
+2026-07-11,Oat Milk 32oz,36,2.90,3,20,112
+2026-07-12,Oat Milk 32oz,26,2.90,3,20,112
+2026-07-13,Oat Milk 32oz,24,2.90,3,20,112
+2026-07-14,Oat Milk 32oz,28,2.90,3,20,112
+2026-07-15,Oat Milk 32oz,23,2.90,3,20,112
+2026-07-16,Oat Milk 32oz,25,2.90,3,20,112
+2026-07-17,Oat Milk 32oz,31,2.90,3,20,112
+2026-07-18,Oat Milk 32oz,25,2.90,3,20,112
+2026-07-19,Oat Milk 32oz,30,2.90,3,20,112
+2026-07-20,Oat Milk 32oz,35,2.90,3,20,112
+2026-07-21,Oat Milk 32oz,30,2.90,3,20,112
+2026-07-22,Oat Milk 32oz,20,2.90,3,20,112
+2026-07-23,Oat Milk 32oz,18,2.90,3,20,112
+2026-07-24,Oat Milk 32oz,27,2.90,3,20,112
+2026-07-25,Oat Milk 32oz,34,2.90,3,20,112
+2026-07-26,Oat Milk 32oz,25,2.90,3,20,112
+2026-07-27,Oat Milk 32oz,38,2.90,3,20,112
+2026-07-28,Oat Milk 32oz,25,2.90,3,20,112
+2026-07-29,Oat Milk 32oz,33,2.90,3,20,112
+2026-07-30,Oat Milk 32oz,29,2.90,3,20,112
+2026-07-31,Oat Milk 32oz,35,2.90,3,20,112
+2026-08-01,Oat Milk 32oz,25,2.90,3,20,112
+2026-08-02,Oat Milk 32oz,23,2.90,3,20,112
+2026-08-03,Oat Milk 32oz,33,2.90,3,20,112
+2026-08-04,Oat Milk 32oz,21,2.90,3,20,112
+2026-08-05,Oat Milk 32oz,25,2.90,3,20,112
+2026-08-06,Oat Milk 32oz,25,2.90,3,20,112
+2026-08-07,Oat Milk 32oz,29,2.90,3,20,112
+2026-08-08,Oat Milk 32oz,23,2.90,3,20,112
+2026-08-09,Oat Milk 32oz,28,2.90,3,20,112
+2026-08-10,Oat Milk 32oz,29,2.90,3,20,112
+2026-08-11,Oat Milk 32oz,21,2.90,3,20,112
+2026-08-12,Oat Milk 32oz,38,2.90,3,20,112
+2026-08-13,Oat Milk 32oz,24,2.90,3,20,112
+2026-08-14,Oat Milk 32oz,29,2.90,3,20,112
+2026-08-15,Oat Milk 32oz,29,2.90,3,20,112
+2026-08-16,Oat Milk 32oz,18,2.90,3,20,112
+2026-08-17,Oat Milk 32oz,31,2.90,3,20,112
+2026-08-18,Oat Milk 32oz,35,2.90,3,20,112
+2026-08-19,Oat Milk 32oz,32,2.90,3,20,112
+2026-08-20,Oat Milk 32oz,27,2.90,3,20,112
+2026-08-21,Oat Milk 32oz,39,2.90,3,20,112
+2026-08-22,Oat Milk 32oz,25,2.90,3,20,112
+2026-08-23,Oat Milk 32oz,23,2.90,3,20,112
+2026-08-24,Oat Milk 32oz,30,2.90,3,20,112
+2026-08-25,Oat Milk 32oz,26,2.90,3,20,112
+2026-08-26,Oat Milk 32oz,21,2.90,3,20,112
+2026-08-27,Oat Milk 32oz,20,2.90,3,20,112
+2026-08-28,Oat Milk 32oz,31,2.90,3,20,112
+2026-08-29,Oat Milk 32oz,25,2.90,3,20,112
+2026-08-30,Oat Milk 32oz,23,2.90,3,20,112
+2026-08-31,Oat Milk 32oz,32,2.90,3,20,112
+2026-09-01,Oat Milk 32oz,31,2.90,3,20,112
+2026-09-02,Oat Milk 32oz,22,2.90,3,20,112
+2026-09-03,Oat Milk 32oz,28,2.90,3,20,112
+2026-09-04,Oat Milk 32oz,15,2.90,3,20,112
+2026-09-05,Oat Milk 32oz,30,2.90,3,20,112
+2026-09-06,Oat Milk 32oz,21,2.90,3,20,112
+2026-09-07,Oat Milk 32oz,51,2.90,3,20,112
+2026-09-08,Oat Milk 32oz,25,2.90,3,20,112
+2026-09-09,Oat Milk 32oz,27,2.90,3,20,112
+2026-09-10,Oat Milk 32oz,32,2.90,3,20,112
+2026-09-11,Oat Milk 32oz,30,2.90,3,20,112
+2026-09-12,Oat Milk 32oz,30,2.90,3,20,112
+2026-09-13,Oat Milk 32oz,29,2.90,3,20,112
+2026-09-14,Oat Milk 32oz,36,2.90,3,20,112
+2026-09-15,Oat Milk 32oz,33,2.90,3,20,112
+2026-09-16,Oat Milk 32oz,40,2.90,3,20,112
+2026-09-17,Oat Milk 32oz,24,2.90,3,20,112
+2026-09-18,Oat Milk 32oz,24,2.90,3,20,112
+2026-09-19,Oat Milk 32oz,38,2.90,3,20,112
+2026-09-20,Oat Milk 32oz,23,2.90,3,20,112
+2026-09-21,Oat Milk 32oz,33,2.90,3,20,112
+2026-09-22,Oat Milk 32oz,30,2.90,3,20,112
+2026-09-23,Oat Milk 32oz,29,2.90,3,20,112
+2026-09-24,Oat Milk 32oz,30,2.90,3,20,112
+2026-09-25,Oat Milk 32oz,29,2.90,3,20,112
+2026-09-26,Oat Milk 32oz,28,2.90,3,20,112
+2026-09-27,Oat Milk 32oz,33,2.90,3,20,112
+2026-09-28,Oat Milk 32oz,43,2.90,3,20,112
+2026-09-29,Oat Milk 32oz,32,2.90,3,20,112
+2026-09-30,Oat Milk 32oz,32,2.90,3,20,112
+2026-10-01,Oat Milk 32oz,32,2.90,3,20,112
+2026-10-02,Oat Milk 32oz,39,2.90,3,20,112
+2026-10-03,Oat Milk 32oz,34,2.90,3,20,112
+2026-10-04,Oat Milk 32oz,20,2.90,3,20,112
+2026-10-05,Oat Milk 32oz,38,2.90,3,20,112
+2026-10-06,Oat Milk 32oz,29,2.90,3,20,112
+2026-10-07,Oat Milk 32oz,26,2.90,3,20,112
+2026-10-08,Oat Milk 32oz,37,2.90,3,20,112
+2026-10-09,Oat Milk 32oz,31,2.90,3,20,112
+2026-10-10,Oat Milk 32oz,44,2.90,3,20,112
+2026-10-11,Oat Milk 32oz,23,2.90,3,20,112
+2026-10-12,Oat Milk 32oz,44,2.90,3,20,112
+2026-10-13,Oat Milk 32oz,30,2.90,3,20,112
+2026-10-14,Oat Milk 32oz,39,2.90,3,20,112
+2026-10-15,Oat Milk 32oz,35,2.90,3,20,112
+2026-10-16,Oat Milk 32oz,34,2.90,3,20,112
+2026-10-17,Oat Milk 32oz,32,2.90,3,20,112
+2026-10-18,Oat Milk 32oz,31,2.90,3,20,112
+2026-10-19,Oat Milk 32oz,33,2.90,3,20,112
+2026-10-20,Oat Milk 32oz,30,2.90,3,20,112
+2026-10-21,Oat Milk 32oz,23,2.90,3,20,112
+2026-10-22,Oat Milk 32oz,33,2.90,3,20,112
+2026-10-23,Oat Milk 32oz,50,2.90,3,20,112
+2026-10-24,Oat Milk 32oz,46,2.90,3,20,112
+2026-10-25,Oat Milk 32oz,30,2.90,3,20,112
+2026-10-26,Oat Milk 32oz,34,2.90,3,20,112
+2026-10-27,Oat Milk 32oz,38,2.90,3,20,112
+2026-10-28,Oat Milk 32oz,43,2.90,3,20,112
+2026-10-29,Oat Milk 32oz,31,2.90,3,20,112
+2026-10-30,Oat Milk 32oz,46,2.90,3,20,112
+2026-10-31,Oat Milk 32oz,30,2.90,3,20,112
+2026-11-01,Oat Milk 32oz,23,2.90,3,20,112
+2026-11-02,Oat Milk 32oz,32,2.90,3,20,112
+2026-11-03,Oat Milk 32oz,18,2.90,3,20,112
+2026-11-04,Oat Milk 32oz,32,2.90,3,20,112
+2026-11-05,Oat Milk 32oz,36,2.90,3,20,112
+2026-11-06,Oat Milk 32oz,43,2.90,3,20,112
+2026-11-07,Oat Milk 32oz,30,2.90,3,20,112
+2026-11-08,Oat Milk 32oz,32,2.90,3,20,112
+2026-11-09,Oat Milk 32oz,36,2.90,3,20,112
+2026-11-10,Oat Milk 32oz,24,2.90,3,20,112
+2026-11-11,Oat Milk 32oz,28,2.90,3,20,112
+2026-11-12,Oat Milk 32oz,39,2.90,3,20,112
+2026-11-13,Oat Milk 32oz,42,2.90,3,20,112
+2026-11-14,Oat Milk 32oz,37,2.90,3,20,112
+2026-11-15,Oat Milk 32oz,29,2.90,3,20,112
+2026-05-18,Whole Milk Gallon,17,3.40,2,15,59
+2026-05-19,Whole Milk Gallon,17,3.40,2,15,59
+2026-05-20,Whole Milk Gallon,16,3.40,2,15,59
+2026-05-21,Whole Milk Gallon,10,3.40,2,15,59
+2026-05-22,Whole Milk Gallon,20,3.40,2,15,59
+2026-05-23,Whole Milk Gallon,13,3.40,2,15,59
+2026-05-24,Whole Milk Gallon,11,3.40,2,15,59
+2026-05-25,Whole Milk Gallon,17,3.40,2,15,59
+2026-05-26,Whole Milk Gallon,16,3.40,2,15,59
+2026-05-27,Whole Milk Gallon,22,3.40,2,15,59
+2026-05-28,Whole Milk Gallon,10,3.40,2,15,59
+2026-05-29,Whole Milk Gallon,20,3.40,2,15,59
+2026-05-30,Whole Milk Gallon,10,3.40,2,15,59
+2026-05-31,Whole Milk Gallon,8,3.40,2,15,59
+2026-06-01,Whole Milk Gallon,18,3.40,2,15,59
+2026-06-02,Whole Milk Gallon,16,3.40,2,15,59
+2026-06-03,Whole Milk Gallon,11,3.40,2,15,59
+2026-06-04,Whole Milk Gallon,15,3.40,2,15,59
+2026-06-05,Whole Milk Gallon,25,3.40,2,15,59
+2026-06-06,Whole Milk Gallon,8,3.40,2,15,59
+2026-06-07,Whole Milk Gallon,15,3.40,2,15,59
+2026-06-08,Whole Milk Gallon,17,3.40,2,15,59
+2026-06-09,Whole Milk Gallon,9,3.40,2,15,59
+2026-06-10,Whole Milk Gallon,23,3.40,2,15,59
+2026-06-11,Whole Milk Gallon,22,3.40,2,15,59
+2026-06-12,Whole Milk Gallon,12,3.40,2,15,59
+2026-06-13,Whole Milk Gallon,19,3.40,2,15,59
+2026-06-14,Whole Milk Gallon,11,3.40,2,15,59
+2026-06-15,Whole Milk Gallon,23,3.40,2,15,59
+2026-06-16,Whole Milk Gallon,16,3.40,2,15,59
+2026-06-17,Whole Milk Gallon,9,3.40,2,15,59
+2026-06-18,Whole Milk Gallon,11,3.40,2,15,59
+2026-06-19,Whole Milk Gallon,17,3.40,2,15,59
+2026-06-20,Whole Milk Gallon,10,3.40,2,15,59
+2026-06-21,Whole Milk Gallon,12,3.40,2,15,59
+2026-06-22,Whole Milk Gallon,17,3.40,2,15,59
+2026-06-23,Whole Milk Gallon,10,3.40,2,15,59
+2026-06-24,Whole Milk Gallon,13,3.40,2,15,59
+2026-06-25,Whole Milk Gallon,14,3.40,2,15,59
+2026-06-26,Whole Milk Gallon,19,3.40,2,15,59
+2026-06-27,Whole Milk Gallon,10,3.40,2,15,59
+2026-06-28,Whole Milk Gallon,16,3.40,2,15,59
+2026-06-29,Whole Milk Gallon,18,3.40,2,15,59
+2026-06-30,Whole Milk Gallon,8,3.40,2,15,59
+2026-07-01,Whole Milk Gallon,17,3.40,2,15,59
+2026-07-02,Whole Milk Gallon,15,3.40,2,15,59
+2026-07-03,Whole Milk Gallon,15,3.40,2,15,59
+2026-07-04,Whole Milk Gallon,16,3.40,2,15,59
+2026-07-05,Whole Milk Gallon,13,3.40,2,15,59
+2026-07-06,Whole Milk Gallon,11,3.40,2,15,59
+2026-07-07,Whole Milk Gallon,13,3.40,2,15,59
+2026-07-08,Whole Milk Gallon,16,3.40,2,15,59
+2026-07-09,Whole Milk Gallon,15,3.40,2,15,59
+2026-07-10,Whole Milk Gallon,19,3.40,2,15,59
+2026-07-11,Whole Milk Gallon,16,3.40,2,15,59
+2026-07-12,Whole Milk Gallon,12,3.40,2,15,59
+2026-07-13,Whole Milk Gallon,21,3.40,2,15,59
+2026-07-14,Whole Milk Gallon,12,3.40,2,15,59
+2026-07-15,Whole Milk Gallon,9,3.40,2,15,59
+2026-07-16,Whole Milk Gallon,12,3.40,2,15,59
+2026-07-17,Whole Milk Gallon,11,3.40,2,15,59
+2026-07-18,Whole Milk Gallon,12,3.40,2,15,59
+2026-07-19,Whole Milk Gallon,9,3.40,2,15,59
+2026-07-20,Whole Milk Gallon,20,3.40,2,15,59
+2026-07-21,Whole Milk Gallon,14,3.40,2,15,59
+2026-07-22,Whole Milk Gallon,15,3.40,2,15,59
+2026-07-23,Whole Milk Gallon,15,3.40,2,15,59
+2026-07-24,Whole Milk Gallon,19,3.40,2,15,59
+2026-07-25,Whole Milk Gallon,10,3.40,2,15,59
+2026-07-26,Whole Milk Gallon,15,3.40,2,15,59
+2026-07-27,Whole Milk Gallon,18,3.40,2,15,59
+2026-07-28,Whole Milk Gallon,17,3.40,2,15,59
+2026-07-29,Whole Milk Gallon,19,3.40,2,15,59
+2026-07-30,Whole Milk Gallon,8,3.40,2,15,59
+2026-07-31,Whole Milk Gallon,11,3.40,2,15,59
+2026-08-01,Whole Milk Gallon,17,3.40,2,15,59
+2026-08-02,Whole Milk Gallon,11,3.40,2,15,59
+2026-08-03,Whole Milk Gallon,14,3.40,2,15,59
+2026-08-04,Whole Milk Gallon,10,3.40,2,15,59
+2026-08-05,Whole Milk Gallon,8,3.40,2,15,59
+2026-08-06,Whole Milk Gallon,15,3.40,2,15,59
+2026-08-07,Whole Milk Gallon,13,3.40,2,15,59
+2026-08-08,Whole Milk Gallon,13,3.40,2,15,59
+2026-08-09,Whole Milk Gallon,8,3.40,2,15,59
+2026-08-10,Whole Milk Gallon,15,3.40,2,15,59
+2026-08-11,Whole Milk Gallon,15,3.40,2,15,59
+2026-08-12,Whole Milk Gallon,21,3.40,2,15,59
+2026-08-13,Whole Milk Gallon,16,3.40,2,15,59
+2026-08-14,Whole Milk Gallon,18,3.40,2,15,59
+2026-08-15,Whole Milk Gallon,18,3.40,2,15,59
+2026-08-16,Whole Milk Gallon,10,3.40,2,15,59
+2026-08-17,Whole Milk Gallon,15,3.40,2,15,59
+2026-08-18,Whole Milk Gallon,15,3.40,2,15,59
+2026-08-19,Whole Milk Gallon,9,3.40,2,15,59
+2026-08-20,Whole Milk Gallon,13,3.40,2,15,59
+2026-08-21,Whole Milk Gallon,20,3.40,2,15,59
+2026-08-22,Whole Milk Gallon,17,3.40,2,15,59
+2026-08-23,Whole Milk Gallon,12,3.40,2,15,59
+2026-08-24,Whole Milk Gallon,18,3.40,2,15,59
+2026-08-25,Whole Milk Gallon,15,3.40,2,15,59
+2026-08-26,Whole Milk Gallon,19,3.40,2,15,59
+2026-08-27,Whole Milk Gallon,19,3.40,2,15,59
+2026-08-28,Whole Milk Gallon,9,3.40,2,15,59
+2026-08-29,Whole Milk Gallon,8,3.40,2,15,59
+2026-08-30,Whole Milk Gallon,7,3.40,2,15,59
+2026-08-31,Whole Milk Gallon,12,3.40,2,15,59
+2026-09-01,Whole Milk Gallon,13,3.40,2,15,59
+2026-09-02,Whole Milk Gallon,16,3.40,2,15,59
+2026-09-03,Whole Milk Gallon,17,3.40,2,15,59
+2026-09-04,Whole Milk Gallon,18,3.40,2,15,59
+2026-09-05,Whole Milk Gallon,15,3.40,2,15,59
+2026-09-06,Whole Milk Gallon,8,3.40,2,15,59
+2026-09-07,Whole Milk Gallon,17,3.40,2,15,59
+2026-09-08,Whole Milk Gallon,17,3.40,2,15,59
+2026-09-09,Whole Milk Gallon,9,3.40,2,15,59
+2026-09-10,Whole Milk Gallon,19,3.40,2,15,59
+2026-09-11,Whole Milk Gallon,12,3.40,2,15,59
+2026-09-12,Whole Milk Gallon,23,3.40,2,15,59
+2026-09-13,Whole Milk Gallon,18,3.40,2,15,59
+2026-09-14,Whole Milk Gallon,12,3.40,2,15,59
+2026-09-15,Whole Milk Gallon,19,3.40,2,15,59
+2026-09-16,Whole Milk Gallon,9,3.40,2,15,59
+2026-09-17,Whole Milk Gallon,7,3.40,2,15,59
+2026-09-18,Whole Milk Gallon,19,3.40,2,15,59
+2026-09-19,Whole Milk Gallon,17,3.40,2,15,59
+2026-09-20,Whole Milk Gallon,6,3.40,2,15,59
+2026-09-21,Whole Milk Gallon,16,3.40,2,15,59
+2026-09-22,Whole Milk Gallon,12,3.40,2,15,59
+2026-09-23,Whole Milk Gallon,19,3.40,2,15,59
+2026-09-24,Whole Milk Gallon,15,3.40,2,15,59
+2026-09-25,Whole Milk Gallon,13,3.40,2,15,59
+2026-09-26,Whole Milk Gallon,20,3.40,2,15,59
+2026-09-27,Whole Milk Gallon,12,3.40,2,15,59
+2026-09-28,Whole Milk Gallon,19,3.40,2,15,59
+2026-09-29,Whole Milk Gallon,9,3.40,2,15,59
+2026-09-30,Whole Milk Gallon,10,3.40,2,15,59
+2026-10-01,Whole Milk Gallon,19,3.40,2,15,59
+2026-10-02,Whole Milk Gallon,14,3.40,2,15,59
+2026-10-03,Whole Milk Gallon,23,3.40,2,15,59
+2026-10-04,Whole Milk Gallon,9,3.40,2,15,59
+2026-10-05,Whole Milk Gallon,17,3.40,2,15,59
+2026-10-06,Whole Milk Gallon,16,3.40,2,15,59
+2026-10-07,Whole Milk Gallon,16,3.40,2,15,59
+2026-10-08,Whole Milk Gallon,19,3.40,2,15,59
+2026-10-09,Whole Milk Gallon,21,3.40,2,15,59
+2026-10-10,Whole Milk Gallon,20,3.40,2,15,59
+2026-10-11,Whole Milk Gallon,7,3.40,2,15,59
+2026-10-12,Whole Milk Gallon,13,3.40,2,15,59
+2026-10-13,Whole Milk Gallon,14,3.40,2,15,59
+2026-10-14,Whole Milk Gallon,13,3.40,2,15,59
+2026-10-15,Whole Milk Gallon,21,3.40,2,15,59
+2026-10-16,Whole Milk Gallon,27,3.40,2,15,59
+2026-10-17,Whole Milk Gallon,20,3.40,2,15,59
+2026-10-18,Whole Milk Gallon,12,3.40,2,15,59
+2026-10-19,Whole Milk Gallon,30,3.40,2,15,59
+2026-10-20,Whole Milk Gallon,16,3.40,2,15,59
+2026-10-21,Whole Milk Gallon,10,3.40,2,15,59
+2026-10-22,Whole Milk Gallon,17,3.40,2,15,59
+2026-10-23,Whole Milk Gallon,11,3.40,2,15,59
+2026-10-24,Whole Milk Gallon,11,3.40,2,15,59
+2026-10-25,Whole Milk Gallon,8,3.40,2,15,59
+2026-10-26,Whole Milk Gallon,8,3.40,2,15,59
+2026-10-27,Whole Milk Gallon,14,3.40,2,15,59
+2026-10-28,Whole Milk Gallon,17,3.40,2,15,59
+2026-10-29,Whole Milk Gallon,11,3.40,2,15,59
+2026-10-30,Whole Milk Gallon,6,3.40,2,15,59
+2026-10-31,Whole Milk Gallon,23,3.40,2,15,59
+2026-11-01,Whole Milk Gallon,10,3.40,2,15,59
+2026-11-02,Whole Milk Gallon,16,3.40,2,15,59
+2026-11-03,Whole Milk Gallon,13,3.40,2,15,59
+2026-11-04,Whole Milk Gallon,11,3.40,2,15,59
+2026-11-05,Whole Milk Gallon,15,3.40,2,15,59
+2026-11-06,Whole Milk Gallon,15,3.40,2,15,59
+2026-11-07,Whole Milk Gallon,15,3.40,2,15,59
+2026-11-08,Whole Milk Gallon,8,3.40,2,15,59
+2026-11-09,Whole Milk Gallon,17,3.40,2,15,59
+2026-11-10,Whole Milk Gallon,13,3.40,2,15,59
+2026-11-11,Whole Milk Gallon,17,3.40,2,15,59
+2026-11-12,Whole Milk Gallon,10,3.40,2,15,59
+2026-11-13,Whole Milk Gallon,19,3.40,2,15,59
+2026-11-14,Whole Milk Gallon,13,3.40,2,15,59
+2026-11-15,Whole Milk Gallon,10,3.40,2,15,59
+2026-05-18,Espresso Beans 5lb,2,42.00,7,30,49
+2026-05-19,Espresso Beans 5lb,3,42.00,7,30,49
+2026-05-20,Espresso Beans 5lb,3,42.00,7,30,49
+2026-05-21,Espresso Beans 5lb,6,42.00,7,30,49
+2026-05-22,Espresso Beans 5lb,6,42.00,7,30,49
+2026-05-23,Espresso Beans 5lb,1,42.00,7,30,49
+2026-05-24,Espresso Beans 5lb,1,42.00,7,30,49
+2026-05-25,Espresso Beans 5lb,5,42.00,7,30,49
+2026-05-26,Espresso Beans 5lb,3,42.00,7,30,49
+2026-05-27,Espresso Beans 5lb,3,42.00,7,30,49
+2026-05-28,Espresso Beans 5lb,2,42.00,7,30,49
+2026-05-29,Espresso Beans 5lb,6,42.00,7,30,49
+2026-05-30,Espresso Beans 5lb,6,42.00,7,30,49
+2026-06-01,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-02,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-03,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-04,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-05,Espresso Beans 5lb,6,42.00,7,30,49
+2026-06-06,Espresso Beans 5lb,10,42.00,7,30,49
+2026-06-07,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-08,Espresso Beans 5lb,8,42.00,7,30,49
+2026-06-09,Espresso Beans 5lb,7,42.00,7,30,49
+2026-06-10,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-11,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-13,Espresso Beans 5lb,5,42.00,7,30,49
+2026-06-14,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-15,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-16,Espresso Beans 5lb,3,42.00,7,30,49
+2026-06-17,Espresso Beans 5lb,4,42.00,7,30,49
+2026-06-18,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-19,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-20,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-21,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-22,Espresso Beans 5lb,2,42.00,7,30,49
+2026-06-23,Espresso Beans 5lb,4,42.00,7,30,49
+2026-06-24,Espresso Beans 5lb,7,42.00,7,30,49
+2026-06-25,Espresso Beans 5lb,3,42.00,7,30,49
+2026-06-26,Espresso Beans 5lb,3,42.00,7,30,49
+2026-06-27,Espresso Beans 5lb,6,42.00,7,30,49
+2026-06-28,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-29,Espresso Beans 5lb,1,42.00,7,30,49
+2026-06-30,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-01,Espresso Beans 5lb,7,42.00,7,30,49
+2026-07-02,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-03,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-04,Espresso Beans 5lb,6,42.00,7,30,49
+2026-07-05,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-06,Espresso Beans 5lb,6,42.00,7,30,49
+2026-07-07,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-08,Espresso Beans 5lb,3,42.00,7,30,49
+2026-07-09,Espresso Beans 5lb,3,42.00,7,30,49
+2026-07-10,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-11,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-12,Espresso Beans 5lb,3,42.00,7,30,49
+2026-07-14,Espresso Beans 5lb,3,42.00,7,30,49
+2026-07-15,Espresso Beans 5lb,6,42.00,7,30,49
+2026-07-16,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-17,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-18,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-19,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-20,Espresso Beans 5lb,5,42.00,7,30,49
+2026-07-21,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-22,Espresso Beans 5lb,6,42.00,7,30,49
+2026-07-23,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-24,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-25,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-26,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-27,Espresso Beans 5lb,5,42.00,7,30,49
+2026-07-28,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-29,Espresso Beans 5lb,2,42.00,7,30,49
+2026-07-30,Espresso Beans 5lb,4,42.00,7,30,49
+2026-07-31,Espresso Beans 5lb,3,42.00,7,30,49
+2026-08-01,Espresso Beans 5lb,5,42.00,7,30,49
+2026-08-02,Espresso Beans 5lb,4,42.00,7,30,49
+2026-08-03,Espresso Beans 5lb,6,42.00,7,30,49
+2026-08-05,Espresso Beans 5lb,5,42.00,7,30,49
+2026-08-06,Espresso Beans 5lb,6,42.00,7,30,49
+2026-08-07,Espresso Beans 5lb,6,42.00,7,30,49
+2026-08-09,Espresso Beans 5lb,2,42.00,7,30,49
+2026-08-10,Espresso Beans 5lb,2,42.00,7,30,49
+2026-08-11,Espresso Beans 5lb,1,42.00,7,30,49
+2026-08-12,Espresso Beans 5lb,4,42.00,7,30,49
+2026-08-13,Espresso Beans 5lb,3,42.00,7,30,49
+2026-08-14,Espresso Beans 5lb,4,42.00,7,30,49
+2026-08-15,Espresso Beans 5lb,1,42.00,7,30,49
+2026-08-16,Espresso Beans 5lb,2,42.00,7,30,49
+2026-08-17,Espresso Beans 5lb,3,42.00,7,30,49
+2026-08-18,Espresso Beans 5lb,4,42.00,7,30,49
+2026-08-19,Espresso Beans 5lb,3,42.00,7,30,49
+2026-08-20,Espresso Beans 5lb,4,42.00,7,30,49
+2026-08-21,Espresso Beans 5lb,9,42.00,7,30,49
+2026-08-22,Espresso Beans 5lb,5,42.00,7,30,49
+2026-08-23,Espresso Beans 5lb,2,42.00,7,30,49
+2026-08-24,Espresso Beans 5lb,5,42.00,7,30,49
+2026-08-25,Espresso Beans 5lb,2,42.00,7,30,49
+2026-08-26,Espresso Beans 5lb,4,42.00,7,30,49
+2026-08-27,Espresso Beans 5lb,3,42.00,7,30,49
+2026-08-28,Espresso Beans 5lb,5,42.00,7,30,49
+2026-08-29,Espresso Beans 5lb,3,42.00,7,30,49
+2026-08-30,Espresso Beans 5lb,2,42.00,7,30,49
+2026-08-31,Espresso Beans 5lb,2,42.00,7,30,49
+2026-09-01,Espresso Beans 5lb,2,42.00,7,30,49
+2026-09-02,Espresso Beans 5lb,3,42.00,7,30,49
+2026-09-03,Espresso Beans 5lb,6,42.00,7,30,49
+2026-09-04,Espresso Beans 5lb,2,42.00,7,30,49
+2026-09-05,Espresso Beans 5lb,3,42.00,7,30,49
+2026-09-06,Espresso Beans 5lb,4,42.00,7,30,49
+2026-09-07,Espresso Beans 5lb,7,42.00,7,30,49
+2026-09-08,Espresso Beans 5lb,4,42.00,7,30,49
+2026-09-09,Espresso Beans 5lb,4,42.00,7,30,49
+2026-09-10,Espresso Beans 5lb,2,42.00,7,30,49
+2026-09-11,Espresso Beans 5lb,1,42.00,7,30,49
+2026-09-12,Espresso Beans 5lb,5,42.00,7,30,49
+2026-09-13,Espresso Beans 5lb,1,42.00,7,30,49
+2026-09-14,Espresso Beans 5lb,6,42.00,7,30,49
+2026-09-15,Espresso Beans 5lb,1,42.00,7,30,49
+2026-09-16,Espresso Beans 5lb,1,42.00,7,30,49
+2026-09-17,Espresso Beans 5lb,1,42.00,7,30,49
+2026-09-18,Espresso Beans 5lb,9,42.00,7,30,49
+2026-09-20,Espresso Beans 5lb,1,42.00,7,30,49
+2026-09-21,Espresso Beans 5lb,4,42.00,7,30,49
+2026-09-22,Espresso Beans 5lb,3,42.00,7,30,49
+2026-09-23,Espresso Beans 5lb,5,42.00,7,30,49
+2026-09-24,Espresso Beans 5lb,5,42.00,7,30,49
+2026-09-25,Espresso Beans 5lb,6,42.00,7,30,49
+2026-09-26,Espresso Beans 5lb,4,42.00,7,30,49
+2026-09-28,Espresso Beans 5lb,3,42.00,7,30,49
+2026-09-29,Espresso Beans 5lb,2,42.00,7,30,49
+2026-09-30,Espresso Beans 5lb,8,42.00,7,30,49
+2026-10-01,Espresso Beans 5lb,4,42.00,7,30,49
+2026-10-02,Espresso Beans 5lb,3,42.00,7,30,49
+2026-10-03,Espresso Beans 5lb,5,42.00,7,30,49
+2026-10-04,Espresso Beans 5lb,4,42.00,7,30,49
+2026-10-05,Espresso Beans 5lb,1,42.00,7,30,49
+2026-10-06,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-08,Espresso Beans 5lb,5,42.00,7,30,49
+2026-10-09,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-10,Espresso Beans 5lb,1,42.00,7,30,49
+2026-10-11,Espresso Beans 5lb,4,42.00,7,30,49
+2026-10-13,Espresso Beans 5lb,5,42.00,7,30,49
+2026-10-14,Espresso Beans 5lb,3,42.00,7,30,49
+2026-10-15,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-16,Espresso Beans 5lb,8,42.00,7,30,49
+2026-10-17,Espresso Beans 5lb,3,42.00,7,30,49
+2026-10-18,Espresso Beans 5lb,1,42.00,7,30,49
+2026-10-19,Espresso Beans 5lb,6,42.00,7,30,49
+2026-10-20,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-21,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-22,Espresso Beans 5lb,1,42.00,7,30,49
+2026-10-23,Espresso Beans 5lb,5,42.00,7,30,49
+2026-10-24,Espresso Beans 5lb,1,42.00,7,30,49
+2026-10-25,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-26,Espresso Beans 5lb,3,42.00,7,30,49
+2026-10-27,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-29,Espresso Beans 5lb,6,42.00,7,30,49
+2026-10-30,Espresso Beans 5lb,2,42.00,7,30,49
+2026-10-31,Espresso Beans 5lb,4,42.00,7,30,49
+2026-11-01,Espresso Beans 5lb,2,42.00,7,30,49
+2026-11-02,Espresso Beans 5lb,6,42.00,7,30,49
+2026-11-03,Espresso Beans 5lb,2,42.00,7,30,49
+2026-11-04,Espresso Beans 5lb,4,42.00,7,30,49
+2026-11-05,Espresso Beans 5lb,4,42.00,7,30,49
+2026-11-06,Espresso Beans 5lb,5,42.00,7,30,49
+2026-11-07,Espresso Beans 5lb,6,42.00,7,30,49
+2026-11-08,Espresso Beans 5lb,2,42.00,7,30,49
+2026-11-09,Espresso Beans 5lb,3,42.00,7,30,49
+2026-11-10,Espresso Beans 5lb,1,42.00,7,30,49
+2026-11-11,Espresso Beans 5lb,4,42.00,7,30,49
+2026-11-13,Espresso Beans 5lb,2,42.00,7,30,49
+2026-11-14,Espresso Beans 5lb,4,42.00,7,30,49
+2026-11-15,Espresso Beans 5lb,2,42.00,7,30,49
+2026-05-18,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-05-19,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-05-20,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-05-21,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-05-22,Paper Cups 12oz (sleeve),15,4.10,6,35,347
+2026-05-23,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-05-24,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-05-25,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-05-26,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-05-27,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-05-28,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-05-29,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-05-30,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-05-31,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-06-01,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-06-02,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-06-03,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-06-04,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-06-05,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-06-06,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-06-07,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-06-08,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-06-09,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-06-10,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-06-11,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-06-12,Paper Cups 12oz (sleeve),19,4.10,6,35,347
+2026-06-13,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-06-14,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-06-15,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-06-16,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-06-17,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-06-18,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-06-19,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-06-20,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-06-21,Paper Cups 12oz (sleeve),2,4.10,6,35,347
+2026-06-22,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-06-23,Paper Cups 12oz (sleeve),4,4.10,6,35,347
+2026-06-24,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-06-25,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-06-26,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-06-27,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-06-28,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-06-29,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-06-30,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-07-01,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-07-02,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-07-03,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-07-04,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-07-05,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-07-06,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-07-07,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-07-08,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-07-09,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-07-10,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-07-11,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-07-12,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-07-13,Paper Cups 12oz (sleeve),17,4.10,6,35,347
+2026-07-14,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-07-15,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-07-16,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-07-17,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-07-18,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-07-19,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-07-20,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-07-21,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-07-22,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-07-23,Paper Cups 12oz (sleeve),15,4.10,6,35,347
+2026-07-24,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-07-25,Paper Cups 12oz (sleeve),4,4.10,6,35,347
+2026-07-26,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-07-27,Paper Cups 12oz (sleeve),18,4.10,6,35,347
+2026-07-28,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-07-29,Paper Cups 12oz (sleeve),3,4.10,6,35,347
+2026-07-30,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-07-31,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-08-01,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-08-02,Paper Cups 12oz (sleeve),4,4.10,6,35,347
+2026-08-03,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-08-04,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-08-05,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-08-06,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-08-07,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-08-08,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-08-09,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-08-10,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-08-11,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-08-12,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-08-13,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-08-14,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-08-15,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-08-16,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-08-17,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-08-18,Paper Cups 12oz (sleeve),4,4.10,6,35,347
+2026-08-19,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-08-20,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-08-21,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-08-22,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-08-23,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-08-24,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-08-25,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-08-26,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-08-27,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-08-28,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-08-29,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-08-30,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-08-31,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-09-01,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-09-02,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-09-03,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-09-04,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-09-05,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-09-06,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-09-07,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-09-08,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-09-09,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-09-10,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-09-11,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-09-12,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-09-13,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-09-14,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-09-15,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-09-16,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-09-17,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-09-18,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-09-19,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-09-20,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-09-21,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-09-22,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-09-23,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-09-24,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-09-25,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-09-26,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-09-27,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-09-28,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-09-29,Paper Cups 12oz (sleeve),15,4.10,6,35,347
+2026-09-30,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-10-01,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-10-02,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-03,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-04,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-10-05,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-10-06,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-10-07,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-08,Paper Cups 12oz (sleeve),12,4.10,6,35,347
+2026-10-09,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-10-10,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-10-11,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-10-12,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-13,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-10-14,Paper Cups 12oz (sleeve),4,4.10,6,35,347
+2026-10-15,Paper Cups 12oz (sleeve),6,4.10,6,35,347
+2026-10-16,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-10-17,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-18,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-10-19,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-10-20,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-21,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-10-22,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-10-23,Paper Cups 12oz (sleeve),18,4.10,6,35,347
+2026-10-24,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-10-25,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-10-26,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-10-27,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-10-28,Paper Cups 12oz (sleeve),13,4.10,6,35,347
+2026-10-29,Paper Cups 12oz (sleeve),7,4.10,6,35,347
+2026-10-30,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-10-31,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-11-01,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-11-02,Paper Cups 12oz (sleeve),15,4.10,6,35,347
+2026-11-03,Paper Cups 12oz (sleeve),14,4.10,6,35,347
+2026-11-04,Paper Cups 12oz (sleeve),5,4.10,6,35,347
+2026-11-05,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-11-06,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-11-07,Paper Cups 12oz (sleeve),9,4.10,6,35,347
+2026-11-08,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-11-09,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-11-10,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-11-11,Paper Cups 12oz (sleeve),16,4.10,6,35,347
+2026-11-12,Paper Cups 12oz (sleeve),8,4.10,6,35,347
+2026-11-13,Paper Cups 12oz (sleeve),15,4.10,6,35,347
+2026-11-14,Paper Cups 12oz (sleeve),10,4.10,6,35,347
+2026-11-15,Paper Cups 12oz (sleeve),11,4.10,6,35,347
+2026-05-18,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-05-19,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-05-20,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-05-21,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-05-22,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-05-23,Lids 12oz (sleeve),15,2.20,6,35,357
+2026-05-24,Lids 12oz (sleeve),15,2.20,6,35,357
+2026-05-25,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-05-26,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-05-27,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-05-28,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-05-29,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-05-30,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-05-31,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-06-01,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-06-02,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-06-03,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-06-04,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-06-05,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-06-06,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-06-07,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-06-08,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-06-09,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-06-10,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-06-11,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-06-12,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-06-13,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-06-14,Lids 12oz (sleeve),3,2.20,6,35,357
+2026-06-15,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-06-16,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-06-17,Lids 12oz (sleeve),16,2.20,6,35,357
+2026-06-18,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-06-19,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-06-20,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-06-21,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-06-22,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-06-23,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-06-24,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-06-25,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-06-26,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-06-27,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-06-28,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-06-29,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-06-30,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-07-01,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-07-02,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-07-03,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-07-04,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-07-05,Lids 12oz (sleeve),3,2.20,6,35,357
+2026-07-06,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-07-07,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-07-08,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-07-09,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-07-10,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-07-11,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-07-12,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-07-13,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-07-14,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-07-15,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-07-16,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-07-17,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-07-18,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-07-19,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-07-20,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-07-21,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-07-22,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-07-23,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-07-24,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-07-25,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-07-26,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-07-27,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-07-28,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-07-29,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-07-30,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-07-31,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-08-01,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-08-02,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-08-03,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-08-04,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-08-05,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-08-06,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-08-07,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-08-08,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-08-09,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-08-10,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-08-11,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-08-12,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-08-13,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-08-14,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-08-15,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-08-16,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-08-17,Lids 12oz (sleeve),15,2.20,6,35,357
+2026-08-18,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-08-19,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-08-20,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-08-21,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-08-22,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-08-23,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-08-24,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-08-25,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-08-26,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-08-27,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-08-28,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-08-29,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-08-30,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-08-31,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-09-01,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-09-02,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-09-03,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-09-04,Lids 12oz (sleeve),16,2.20,6,35,357
+2026-09-05,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-09-06,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-09-07,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-09-08,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-09-09,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-09-10,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-09-11,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-09-12,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-09-13,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-09-14,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-09-15,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-09-16,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-09-17,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-09-18,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-09-19,Lids 12oz (sleeve),20,2.20,6,35,357
+2026-09-20,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-09-21,Lids 12oz (sleeve),16,2.20,6,35,357
+2026-09-22,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-09-23,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-09-24,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-09-25,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-09-26,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-09-27,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-09-28,Lids 12oz (sleeve),12,2.20,6,35,357
+2026-09-29,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-09-30,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-10-01,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-10-02,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-10-03,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-10-04,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-10-05,Lids 12oz (sleeve),4,2.20,6,35,357
+2026-10-06,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-10-07,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-10-08,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-10-09,Lids 12oz (sleeve),14,2.20,6,35,357
+2026-10-10,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-10-11,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-10-12,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-10-13,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-10-14,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-10-15,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-10-16,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-10-17,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-10-18,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-10-19,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-10-20,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-10-21,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-10-22,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-10-23,Lids 12oz (sleeve),16,2.20,6,35,357
+2026-10-24,Lids 12oz (sleeve),5,2.20,6,35,357
+2026-10-25,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-10-26,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-10-27,Lids 12oz (sleeve),13,2.20,6,35,357
+2026-10-28,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-10-29,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-10-30,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-10-31,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-11-01,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-11-02,Lids 12oz (sleeve),11,2.20,6,35,357
+2026-11-03,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-11-04,Lids 12oz (sleeve),6,2.20,6,35,357
+2026-11-05,Lids 12oz (sleeve),15,2.20,6,35,357
+2026-11-06,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-11-07,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-11-08,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-11-09,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-11-10,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-11-11,Lids 12oz (sleeve),8,2.20,6,35,357
+2026-11-12,Lids 12oz (sleeve),10,2.20,6,35,357
+2026-11-13,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-11-14,Lids 12oz (sleeve),9,2.20,6,35,357
+2026-11-15,Lids 12oz (sleeve),7,2.20,6,35,357
+2026-05-18,Butter Croissant,26,1.10,1,10,80
+2026-05-19,Butter Croissant,26,1.10,1,10,80
+2026-05-20,Butter Croissant,43,1.10,1,10,80
+2026-05-21,Butter Croissant,28,1.10,1,10,80
+2026-05-22,Butter Croissant,46,1.10,1,10,80
+2026-05-23,Butter Croissant,79,1.10,1,10,80
+2026-05-24,Butter Croissant,56,1.10,1,10,80
+2026-05-25,Butter Croissant,24,1.10,1,10,80
+2026-05-26,Butter Croissant,24,1.10,1,10,80
+2026-05-27,Butter Croissant,43,1.10,1,10,80
+2026-05-28,Butter Croissant,45,1.10,1,10,80
+2026-05-29,Butter Croissant,48,1.10,1,10,80
+2026-05-30,Butter Croissant,68,1.10,1,10,80
+2026-05-31,Butter Croissant,47,1.10,1,10,80
+2026-06-01,Butter Croissant,29,1.10,1,10,80
+2026-06-02,Butter Croissant,22,1.10,1,10,80
+2026-06-03,Butter Croissant,37,1.10,1,10,80
+2026-06-04,Butter Croissant,35,1.10,1,10,80
+2026-06-05,Butter Croissant,34,1.10,1,10,80
+2026-06-06,Butter Croissant,56,1.10,1,10,80
+2026-06-07,Butter Croissant,62,1.10,1,10,80
+2026-06-08,Butter Croissant,25,1.10,1,10,80
+2026-06-09,Butter Croissant,24,1.10,1,10,80
+2026-06-10,Butter Croissant,33,1.10,1,10,80
+2026-06-11,Butter Croissant,18,1.10,1,10,80
+2026-06-12,Butter Croissant,62,1.10,1,10,80
+2026-06-13,Butter Croissant,60,1.10,1,10,80
+2026-06-14,Butter Croissant,25,1.10,1,10,80
+2026-06-15,Butter Croissant,30,1.10,1,10,80
+2026-06-16,Butter Croissant,44,1.10,1,10,80
+2026-06-17,Butter Croissant,27,1.10,1,10,80
+2026-06-18,Butter Croissant,23,1.10,1,10,80
+2026-06-19,Butter Croissant,34,1.10,1,10,80
+2026-06-20,Butter Croissant,65,1.10,1,10,80
+2026-06-21,Butter Croissant,45,1.10,1,10,80
+2026-06-22,Butter Croissant,17,1.10,1,10,80
+2026-06-23,Butter Croissant,28,1.10,1,10,80
+2026-06-24,Butter Croissant,27,1.10,1,10,80
+2026-06-25,Butter Croissant,22,1.10,1,10,80
+2026-06-26,Butter Croissant,51,1.10,1,10,80
+2026-06-27,Butter Croissant,52,1.10,1,10,80
+2026-06-28,Butter Croissant,41,1.10,1,10,80
+2026-06-29,Butter Croissant,30,1.10,1,10,80
+2026-06-30,Butter Croissant,44,1.10,1,10,80
+2026-07-01,Butter Croissant,35,1.10,1,10,80
+2026-07-02,Butter Croissant,29,1.10,1,10,80
+2026-07-03,Butter Croissant,55,1.10,1,10,80
+2026-07-04,Butter Croissant,62,1.10,1,10,80
+2026-07-05,Butter Croissant,49,1.10,1,10,80
+2026-07-06,Butter Croissant,19,1.10,1,10,80
+2026-07-07,Butter Croissant,28,1.10,1,10,80
+2026-07-08,Butter Croissant,20,1.10,1,10,80
+2026-07-09,Butter Croissant,21,1.10,1,10,80
+2026-07-10,Butter Croissant,35,1.10,1,10,80
+2026-07-11,Butter Croissant,62,1.10,1,10,80
+2026-07-12,Butter Croissant,62,1.10,1,10,80
+2026-07-13,Butter Croissant,23,1.10,1,10,80
+2026-07-14,Butter Croissant,31,1.10,1,10,80
+2026-07-15,Butter Croissant,48,1.10,1,10,80
+2026-07-16,Butter Croissant,46,1.10,1,10,80
+2026-07-17,Butter Croissant,49,1.10,1,10,80
+2026-07-18,Butter Croissant,53,1.10,1,10,80
+2026-07-19,Butter Croissant,68,1.10,1,10,80
+2026-07-20,Butter Croissant,38,1.10,1,10,80
+2026-07-21,Butter Croissant,18,1.10,1,10,80
+2026-07-22,Butter Croissant,21,1.10,1,10,80
+2026-07-23,Butter Croissant,27,1.10,1,10,80
+2026-07-24,Butter Croissant,65,1.10,1,10,80
+2026-07-25,Butter Croissant,42,1.10,1,10,80
+2026-07-26,Butter Croissant,48,1.10,1,10,80
+2026-07-27,Butter Croissant,23,1.10,1,10,80
+2026-07-28,Butter Croissant,21,1.10,1,10,80
+2026-07-29,Butter Croissant,27,1.10,1,10,80
+2026-07-30,Butter Croissant,39,1.10,1,10,80
+2026-07-31,Butter Croissant,48,1.10,1,10,80
+2026-08-01,Butter Croissant,69,1.10,1,10,80
+2026-08-02,Butter Croissant,47,1.10,1,10,80
+2026-08-03,Butter Croissant,20,1.10,1,10,80
+2026-08-04,Butter Croissant,38,1.10,1,10,80
+2026-08-05,Butter Croissant,29,1.10,1,10,80
+2026-08-06,Butter Croissant,30,1.10,1,10,80
+2026-08-07,Butter Croissant,40,1.10,1,10,80
+2026-08-08,Butter Croissant,44,1.10,1,10,80
+2026-08-09,Butter Croissant,56,1.10,1,10,80
+2026-08-10,Butter Croissant,18,1.10,1,10,80
+2026-08-11,Butter Croissant,21,1.10,1,10,80
+2026-08-12,Butter Croissant,25,1.10,1,10,80
+2026-08-13,Butter Croissant,31,1.10,1,10,80
+2026-08-14,Butter Croissant,53,1.10,1,10,80
+2026-08-15,Butter Croissant,75,1.10,1,10,80
+2026-08-16,Butter Croissant,46,1.10,1,10,80
+2026-08-17,Butter Croissant,23,1.10,1,10,80
+2026-08-18,Butter Croissant,26,1.10,1,10,80
+2026-08-19,Butter Croissant,25,1.10,1,10,80
+2026-08-20,Butter Croissant,29,1.10,1,10,80
+2026-08-21,Butter Croissant,36,1.10,1,10,80
+2026-08-22,Butter Croissant,67,1.10,1,10,80
+2026-08-23,Butter Croissant,53,1.10,1,10,80
+2026-08-24,Butter Croissant,24,1.10,1,10,80
+2026-08-25,Butter Croissant,17,1.10,1,10,80
+2026-08-26,Butter Croissant,29,1.10,1,10,80
+2026-08-27,Butter Croissant,24,1.10,1,10,80
+2026-08-28,Butter Croissant,53,1.10,1,10,80
+2026-08-29,Butter Croissant,74,1.10,1,10,80
+2026-08-30,Butter Croissant,58,1.10,1,10,80
+2026-08-31,Butter Croissant,27,1.10,1,10,80
+2026-09-01,Butter Croissant,22,1.10,1,10,80
+2026-09-02,Butter Croissant,36,1.10,1,10,80
+2026-09-03,Butter Croissant,33,1.10,1,10,80
+2026-09-04,Butter Croissant,45,1.10,1,10,80
+2026-09-05,Butter Croissant,33,1.10,1,10,80
+2026-09-06,Butter Croissant,54,1.10,1,10,80
+2026-09-07,Butter Croissant,27,1.10,1,10,80
+2026-09-08,Butter Croissant,33,1.10,1,10,80
+2026-09-09,Butter Croissant,29,1.10,1,10,80
+2026-09-10,Butter Croissant,52,1.10,1,10,80
+2026-09-11,Butter Croissant,48,1.10,1,10,80
+2026-09-12,Butter Croissant,55,1.10,1,10,80
+2026-09-13,Butter Croissant,60,1.10,1,10,80
+2026-09-14,Butter Croissant,26,1.10,1,10,80
+2026-09-15,Butter Croissant,34,1.10,1,10,80
+2026-09-16,Butter Croissant,25,1.10,1,10,80
+2026-09-17,Butter Croissant,24,1.10,1,10,80
+2026-09-18,Butter Croissant,49,1.10,1,10,80
+2026-09-19,Butter Croissant,68,1.10,1,10,80
+2026-09-20,Butter Croissant,59,1.10,1,10,80
+2026-09-21,Butter Croissant,25,1.10,1,10,80
+2026-09-22,Butter Croissant,23,1.10,1,10,80
+2026-09-23,Butter Croissant,28,1.10,1,10,80
+2026-09-24,Butter Croissant,30,1.10,1,10,80
+2026-09-25,Butter Croissant,56,1.10,1,10,80
+2026-09-26,Butter Croissant,62,1.10,1,10,80
+2026-09-27,Butter Croissant,61,1.10,1,10,80
+2026-09-28,Butter Croissant,25,1.10,1,10,80
+2026-09-29,Butter Croissant,25,1.10,1,10,80
+2026-09-30,Butter Croissant,32,1.10,1,10,80
+2026-10-01,Butter Croissant,35,1.10,1,10,80
+2026-10-02,Butter Croissant,34,1.10,1,10,80
+2026-10-03,Butter Croissant,68,1.10,1,10,80
+2026-10-04,Butter Croissant,43,1.10,1,10,80
+2026-10-05,Butter Croissant,25,1.10,1,10,80
+2026-10-06,Butter Croissant,23,1.10,1,10,80
+2026-10-07,Butter Croissant,16,1.10,1,10,80
+2026-10-08,Butter Croissant,55,1.10,1,10,80
+2026-10-09,Butter Croissant,48,1.10,1,10,80
+2026-10-10,Butter Croissant,64,1.10,1,10,80
+2026-10-11,Butter Croissant,71,1.10,1,10,80
+2026-10-12,Butter Croissant,26,1.10,1,10,80
+2026-10-13,Butter Croissant,29,1.10,1,10,80
+2026-10-14,Butter Croissant,30,1.10,1,10,80
+2026-10-15,Butter Croissant,29,1.10,1,10,80
+2026-10-16,Butter Croissant,38,1.10,1,10,80
+2026-10-17,Butter Croissant,51,1.10,1,10,80
+2026-10-18,Butter Croissant,52,1.10,1,10,80
+2026-10-19,Butter Croissant,15,1.10,1,10,80
+2026-10-20,Butter Croissant,27,1.10,1,10,80
+2026-10-21,Butter Croissant,25,1.10,1,10,80
+2026-10-22,Butter Croissant,46,1.10,1,10,80
+2026-10-23,Butter Croissant,38,1.10,1,10,80
+2026-10-24,Butter Croissant,76,1.10,1,10,80
+2026-10-25,Butter Croissant,50,1.10,1,10,80
+2026-10-26,Butter Croissant,27,1.10,1,10,80
+2026-10-27,Butter Croissant,29,1.10,1,10,80
+2026-10-28,Butter Croissant,28,1.10,1,10,80
+2026-10-29,Butter Croissant,37,1.10,1,10,80
+2026-10-30,Butter Croissant,65,1.10,1,10,80
+2026-10-31,Butter Croissant,69,1.10,1,10,80
+2026-11-01,Butter Croissant,41,1.10,1,10,80
+2026-11-02,Butter Croissant,33,1.10,1,10,80
+2026-11-03,Butter Croissant,31,1.10,1,10,80
+2026-11-04,Butter Croissant,22,1.10,1,10,80
+2026-11-05,Butter Croissant,30,1.10,1,10,80
+2026-11-06,Butter Croissant,42,1.10,1,10,80
+2026-11-07,Butter Croissant,82,1.10,1,10,80
+2026-11-08,Butter Croissant,54,1.10,1,10,80
+2026-11-09,Butter Croissant,29,1.10,1,10,80
+2026-11-10,Butter Croissant,18,1.10,1,10,80
+2026-11-11,Butter Croissant,43,1.10,1,10,80
+2026-11-12,Butter Croissant,27,1.10,1,10,80
+2026-11-13,Butter Croissant,50,1.10,1,10,80
+2026-11-14,Butter Croissant,57,1.10,1,10,80
+2026-11-15,Butter Croissant,57,1.10,1,10,80
+2026-05-18,Blueberry Muffin,25,0.95,1,10,51
+2026-05-19,Blueberry Muffin,12,0.95,1,10,51
+2026-05-20,Blueberry Muffin,22,0.95,1,10,51
+2026-05-21,Blueberry Muffin,16,0.95,1,10,51
+2026-05-22,Blueberry Muffin,32,0.95,1,10,51
+2026-05-23,Blueberry Muffin,45,0.95,1,10,51
+2026-05-24,Blueberry Muffin,42,0.95,1,10,51
+2026-05-25,Blueberry Muffin,18,0.95,1,10,51
+2026-05-26,Blueberry Muffin,15,0.95,1,10,51
+2026-05-27,Blueberry Muffin,13,0.95,1,10,51
+2026-05-28,Blueberry Muffin,23,0.95,1,10,51
+2026-05-29,Blueberry Muffin,33,0.95,1,10,51
+2026-05-30,Blueberry Muffin,37,0.95,1,10,51
+2026-05-31,Blueberry Muffin,26,0.95,1,10,51
+2026-06-01,Blueberry Muffin,21,0.95,1,10,51
+2026-06-02,Blueberry Muffin,16,0.95,1,10,51
+2026-06-03,Blueberry Muffin,16,0.95,1,10,51
+2026-06-04,Blueberry Muffin,14,0.95,1,10,51
+2026-06-05,Blueberry Muffin,47,0.95,1,10,51
+2026-06-06,Blueberry Muffin,39,0.95,1,10,51
+2026-06-07,Blueberry Muffin,34,0.95,1,10,51
+2026-06-08,Blueberry Muffin,11,0.95,1,10,51
+2026-06-09,Blueberry Muffin,20,0.95,1,10,51
+2026-06-10,Blueberry Muffin,20,0.95,1,10,51
+2026-06-11,Blueberry Muffin,15,0.95,1,10,51
+2026-06-12,Blueberry Muffin,30,0.95,1,10,51
+2026-06-13,Blueberry Muffin,35,0.95,1,10,51
+2026-06-14,Blueberry Muffin,41,0.95,1,10,51
+2026-06-15,Blueberry Muffin,15,0.95,1,10,51
+2026-06-16,Blueberry Muffin,19,0.95,1,10,51
+2026-06-17,Blueberry Muffin,12,0.95,1,10,51
+2026-06-18,Blueberry Muffin,13,0.95,1,10,51
+2026-06-19,Blueberry Muffin,26,0.95,1,10,51
+2026-06-20,Blueberry Muffin,51,0.95,1,10,51
+2026-06-21,Blueberry Muffin,36,0.95,1,10,51
+2026-06-22,Blueberry Muffin,18,0.95,1,10,51
+2026-06-23,Blueberry Muffin,17,0.95,1,10,51
+2026-06-24,Blueberry Muffin,14,0.95,1,10,51
+2026-06-25,Blueberry Muffin,21,0.95,1,10,51
+2026-06-26,Blueberry Muffin,27,0.95,1,10,51
+2026-06-27,Blueberry Muffin,39,0.95,1,10,51
+2026-06-28,Blueberry Muffin,31,0.95,1,10,51
+2026-06-29,Blueberry Muffin,14,0.95,1,10,51
+2026-06-30,Blueberry Muffin,24,0.95,1,10,51
+2026-07-01,Blueberry Muffin,18,0.95,1,10,51
+2026-07-02,Blueberry Muffin,22,0.95,1,10,51
+2026-07-03,Blueberry Muffin,38,0.95,1,10,51
+2026-07-04,Blueberry Muffin,36,0.95,1,10,51
+2026-07-05,Blueberry Muffin,29,0.95,1,10,51
+2026-07-06,Blueberry Muffin,14,0.95,1,10,51
+2026-07-07,Blueberry Muffin,22,0.95,1,10,51
+2026-07-08,Blueberry Muffin,26,0.95,1,10,51
+2026-07-09,Blueberry Muffin,21,0.95,1,10,51
+2026-07-10,Blueberry Muffin,38,0.95,1,10,51
+2026-07-11,Blueberry Muffin,35,0.95,1,10,51
+2026-07-12,Blueberry Muffin,25,0.95,1,10,51
+2026-07-13,Blueberry Muffin,10,0.95,1,10,51
+2026-07-14,Blueberry Muffin,16,0.95,1,10,51
+2026-07-15,Blueberry Muffin,8,0.95,1,10,51
+2026-07-16,Blueberry Muffin,18,0.95,1,10,51
+2026-07-17,Blueberry Muffin,26,0.95,1,10,51
+2026-07-18,Blueberry Muffin,42,0.95,1,10,51
+2026-07-19,Blueberry Muffin,28,0.95,1,10,51
+2026-07-20,Blueberry Muffin,23,0.95,1,10,51
+2026-07-21,Blueberry Muffin,20,0.95,1,10,51
+2026-07-22,Blueberry Muffin,22,0.95,1,10,51
+2026-07-23,Blueberry Muffin,28,0.95,1,10,51
+2026-07-24,Blueberry Muffin,16,0.95,1,10,51
+2026-07-25,Blueberry Muffin,33,0.95,1,10,51
+2026-07-26,Blueberry Muffin,45,0.95,1,10,51
+2026-07-27,Blueberry Muffin,15,0.95,1,10,51
+2026-07-28,Blueberry Muffin,10,0.95,1,10,51
+2026-07-29,Blueberry Muffin,20,0.95,1,10,51
+2026-07-30,Blueberry Muffin,19,0.95,1,10,51
+2026-07-31,Blueberry Muffin,24,0.95,1,10,51
+2026-08-01,Blueberry Muffin,26,0.95,1,10,51
+2026-08-02,Blueberry Muffin,27,0.95,1,10,51
+2026-08-03,Blueberry Muffin,18,0.95,1,10,51
+2026-08-04,Blueberry Muffin,20,0.95,1,10,51
+2026-08-05,Blueberry Muffin,18,0.95,1,10,51
+2026-08-06,Blueberry Muffin,25,0.95,1,10,51
+2026-08-07,Blueberry Muffin,46,0.95,1,10,51
+2026-08-08,Blueberry Muffin,38,0.95,1,10,51
+2026-08-09,Blueberry Muffin,25,0.95,1,10,51
+2026-08-10,Blueberry Muffin,18,0.95,1,10,51
+2026-08-11,Blueberry Muffin,20,0.95,1,10,51
+2026-08-12,Blueberry Muffin,11,0.95,1,10,51
+2026-08-13,Blueberry Muffin,28,0.95,1,10,51
+2026-08-14,Blueberry Muffin,19,0.95,1,10,51
+2026-08-15,Blueberry Muffin,32,0.95,1,10,51
+2026-08-16,Blueberry Muffin,27,0.95,1,10,51
+2026-08-17,Blueberry Muffin,11,0.95,1,10,51
+2026-08-18,Blueberry Muffin,15,0.95,1,10,51
+2026-08-19,Blueberry Muffin,12,0.95,1,10,51
+2026-08-20,Blueberry Muffin,24,0.95,1,10,51
+2026-08-21,Blueberry Muffin,28,0.95,1,10,51
+2026-08-22,Blueberry Muffin,33,0.95,1,10,51
+2026-08-23,Blueberry Muffin,36,0.95,1,10,51
+2026-08-24,Blueberry Muffin,12,0.95,1,10,51
+2026-08-25,Blueberry Muffin,14,0.95,1,10,51
+2026-08-26,Blueberry Muffin,14,0.95,1,10,51
+2026-08-27,Blueberry Muffin,22,0.95,1,10,51
+2026-08-28,Blueberry Muffin,26,0.95,1,10,51
+2026-08-29,Blueberry Muffin,33,0.95,1,10,51
+2026-08-30,Blueberry Muffin,26,0.95,1,10,51
+2026-08-31,Blueberry Muffin,22,0.95,1,10,51
+2026-09-01,Blueberry Muffin,21,0.95,1,10,51
+2026-09-02,Blueberry Muffin,17,0.95,1,10,51
+2026-09-03,Blueberry Muffin,17,0.95,1,10,51
+2026-09-04,Blueberry Muffin,20,0.95,1,10,51
+2026-09-05,Blueberry Muffin,24,0.95,1,10,51
+2026-09-06,Blueberry Muffin,27,0.95,1,10,51
+2026-09-07,Blueberry Muffin,5,0.95,1,10,51
+2026-09-08,Blueberry Muffin,14,0.95,1,10,51
+2026-09-09,Blueberry Muffin,19,0.95,1,10,51
+2026-09-10,Blueberry Muffin,20,0.95,1,10,51
+2026-09-11,Blueberry Muffin,30,0.95,1,10,51
+2026-09-12,Blueberry Muffin,28,0.95,1,10,51
+2026-09-13,Blueberry Muffin,24,0.95,1,10,51
+2026-09-14,Blueberry Muffin,23,0.95,1,10,51
+2026-09-15,Blueberry Muffin,21,0.95,1,10,51
+2026-09-16,Blueberry Muffin,8,0.95,1,10,51
+2026-09-17,Blueberry Muffin,29,0.95,1,10,51
+2026-09-18,Blueberry Muffin,37,0.95,1,10,51
+2026-09-19,Blueberry Muffin,48,0.95,1,10,51
+2026-09-20,Blueberry Muffin,31,0.95,1,10,51
+2026-09-21,Blueberry Muffin,20,0.95,1,10,51
+2026-09-22,Blueberry Muffin,20,0.95,1,10,51
+2026-09-23,Blueberry Muffin,13,0.95,1,10,51
+2026-09-24,Blueberry Muffin,13,0.95,1,10,51
+2026-09-25,Blueberry Muffin,29,0.95,1,10,51
+2026-09-26,Blueberry Muffin,33,0.95,1,10,51
+2026-09-27,Blueberry Muffin,29,0.95,1,10,51
+2026-09-28,Blueberry Muffin,15,0.95,1,10,51
+2026-09-29,Blueberry Muffin,12,0.95,1,10,51
+2026-09-30,Blueberry Muffin,20,0.95,1,10,51
+2026-10-01,Blueberry Muffin,21,0.95,1,10,51
+2026-10-02,Blueberry Muffin,29,0.95,1,10,51
+2026-10-03,Blueberry Muffin,25,0.95,1,10,51
+2026-10-04,Blueberry Muffin,32,0.95,1,10,51
+2026-10-05,Blueberry Muffin,16,0.95,1,10,51
+2026-10-06,Blueberry Muffin,15,0.95,1,10,51
+2026-10-07,Blueberry Muffin,13,0.95,1,10,51
+2026-10-08,Blueberry Muffin,19,0.95,1,10,51
+2026-10-09,Blueberry Muffin,31,0.95,1,10,51
+2026-10-10,Blueberry Muffin,31,0.95,1,10,51
+2026-10-11,Blueberry Muffin,27,0.95,1,10,51
+2026-10-12,Blueberry Muffin,20,0.95,1,10,51
+2026-10-13,Blueberry Muffin,18,0.95,1,10,51
+2026-10-14,Blueberry Muffin,11,0.95,1,10,51
+2026-10-15,Blueberry Muffin,25,0.95,1,10,51
+2026-10-16,Blueberry Muffin,29,0.95,1,10,51
+2026-10-17,Blueberry Muffin,29,0.95,1,10,51
+2026-10-18,Blueberry Muffin,35,0.95,1,10,51
+2026-10-19,Blueberry Muffin,14,0.95,1,10,51
+2026-10-20,Blueberry Muffin,14,0.95,1,10,51
+2026-10-21,Blueberry Muffin,16,0.95,1,10,51
+2026-10-22,Blueberry Muffin,26,0.95,1,10,51
+2026-10-23,Blueberry Muffin,17,0.95,1,10,51
+2026-10-24,Blueberry Muffin,28,0.95,1,10,51
+2026-10-25,Blueberry Muffin,37,0.95,1,10,51
+2026-10-26,Blueberry Muffin,19,0.95,1,10,51
+2026-10-27,Blueberry Muffin,16,0.95,1,10,51
+2026-10-28,Blueberry Muffin,30,0.95,1,10,51
+2026-10-29,Blueberry Muffin,23,0.95,1,10,51
+2026-10-30,Blueberry Muffin,36,0.95,1,10,51
+2026-10-31,Blueberry Muffin,47,0.95,1,10,51
+2026-11-01,Blueberry Muffin,41,0.95,1,10,51
+2026-11-02,Blueberry Muffin,19,0.95,1,10,51
+2026-11-03,Blueberry Muffin,20,0.95,1,10,51
+2026-11-04,Blueberry Muffin,18,0.95,1,10,51
+2026-11-05,Blueberry Muffin,17,0.95,1,10,51
+2026-11-06,Blueberry Muffin,26,0.95,1,10,51
+2026-11-07,Blueberry Muffin,26,0.95,1,10,51
+2026-11-08,Blueberry Muffin,29,0.95,1,10,51
+2026-11-09,Blueberry Muffin,15,0.95,1,10,51
+2026-11-10,Blueberry Muffin,21,0.95,1,10,51
+2026-11-11,Blueberry Muffin,17,0.95,1,10,51
+2026-11-12,Blueberry Muffin,24,0.95,1,10,51
+2026-11-13,Blueberry Muffin,17,0.95,1,10,51
+2026-11-14,Blueberry Muffin,39,0.95,1,10,51
+2026-11-15,Blueberry Muffin,23,0.95,1,10,51
+2026-05-19,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-05-21,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-05-22,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-05-23,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-05-24,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-05-25,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-05-26,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-05-29,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-05-30,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-05-31,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-06-01,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-02,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-03,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-04,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-05,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-07,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-08,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-09,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-10,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-11,Vanilla Syrup 750ml,5,7.80,9,30,36
+2026-06-12,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-13,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-14,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-06-15,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-06-16,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-18,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-19,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-06-20,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-21,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-06-22,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-23,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-26,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-06-27,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-28,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-29,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-06-30,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-07-01,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-07-02,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-03,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-07-06,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-07-07,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-07-08,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-07-09,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-07-10,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-07-11,Vanilla Syrup 750ml,6,7.80,9,30,36
+2026-07-12,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-07-13,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-07-14,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-15,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-16,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-20,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-22,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-07-24,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-25,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-07-26,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-07-28,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-07-29,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-07-31,Vanilla Syrup 750ml,5,7.80,9,30,36
+2026-08-01,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-02,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-03,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-08-04,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-06,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-07,Vanilla Syrup 750ml,5,7.80,9,30,36
+2026-08-08,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-10,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-11,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-12,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-13,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-08-14,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-15,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-18,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-19,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-20,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-08-21,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-22,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-08-24,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-25,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-26,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-27,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-08-28,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-08-30,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-09-01,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-02,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-09-03,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-09-04,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-05,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-06,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-07,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-09-08,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-09-10,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-11,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-09-12,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-09-13,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-15,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-17,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-09-18,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-19,Vanilla Syrup 750ml,5,7.80,9,30,36
+2026-09-21,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-22,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-23,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-09-24,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-09-25,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-09-26,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-09-27,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-09-28,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-29,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-09-30,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-01,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-02,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-03,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-04,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-05,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-06,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-10-08,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-10-10,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-11,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-12,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-13,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-10-15,Vanilla Syrup 750ml,4,7.80,9,30,36
+2026-10-16,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-17,Vanilla Syrup 750ml,5,7.80,9,30,36
+2026-10-19,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-20,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-21,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-10-22,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-23,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-24,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-25,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-10-27,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-29,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-30,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-10-31,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-11-01,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-11-02,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-11-03,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-11-04,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-11-05,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-11-06,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-11-08,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-11-09,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-11-10,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-11-11,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-11-12,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-11-13,Vanilla Syrup 750ml,1,7.80,9,30,36
+2026-11-14,Vanilla Syrup 750ml,3,7.80,9,30,36
+2026-11-15,Vanilla Syrup 750ml,2,7.80,9,30,36
+2026-05-20,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-05-21,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-05-24,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-05-26,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-05-27,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-05-28,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-05-29,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-05-30,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-01,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-05,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-06,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-06-07,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-06-08,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-10,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-06-11,Caramel Syrup 750ml,4,7.80,9,30,262
+2026-06-12,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-13,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-15,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-16,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-06-17,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-06-19,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-06-20,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-06-21,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-23,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-24,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-25,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-26,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-27,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-28,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-06-29,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-06-30,Caramel Syrup 750ml,5,7.80,9,30,262
+2026-07-01,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-02,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-03,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-04,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-07-05,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-07-06,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-07,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-08,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-10,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-07-11,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-14,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-07-15,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-07-16,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-07-19,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-20,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-22,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-07-24,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-27,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-07-30,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-01,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-02,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-08-03,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-04,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-05,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-06,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-09,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-10,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-12,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-13,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-15,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-16,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-18,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-19,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-20,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-08-22,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-24,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-25,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-27,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-28,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-08-30,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-08-31,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-03,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-04,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-09-05,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-06,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-07,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-09,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-10,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-11,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-12,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-13,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-15,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-09-18,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-09-20,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-09-21,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-28,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-09-30,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-02,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-03,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-05,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-06,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-10-07,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-08,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-09,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-10,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-11,Caramel Syrup 750ml,4,7.80,9,30,262
+2026-10-14,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-16,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-17,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-18,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-19,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-21,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-22,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-23,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-25,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-26,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-27,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-10-30,Caramel Syrup 750ml,2,7.80,9,30,262
+2026-10-31,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-11-02,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-11-06,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-11-09,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-11-11,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-11-12,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-11-13,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-11-14,Caramel Syrup 750ml,3,7.80,9,30,262
+2026-11-15,Caramel Syrup 750ml,1,7.80,9,30,262
+2026-05-18,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-05-19,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-05-20,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-05-21,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-05-22,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-05-23,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-05-24,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-05-25,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-05-26,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-05-27,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-05-28,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-05-29,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-05-30,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-05-31,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-01,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-06-02,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-03,Chai Concentrate 32oz,6,5.60,8,30,328
+2026-06-04,Chai Concentrate 32oz,6,5.60,8,30,328
+2026-06-05,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-06-07,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-06-08,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-06-09,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-06-10,Chai Concentrate 32oz,6,5.60,8,30,328
+2026-06-11,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-06-12,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-13,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-06-14,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-15,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-16,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-17,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-18,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-06-19,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-20,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-06-22,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-06-23,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-24,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-06-25,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-26,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-06-28,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-29,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-06-30,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-01,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-02,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-03,Chai Concentrate 32oz,5,5.60,8,30,328
+2026-07-04,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-05,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-06,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-07,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-08,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-09,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-10,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-07-11,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-12,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-13,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-07-14,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-15,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-16,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-17,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-07-18,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-19,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-20,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-21,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-22,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-23,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-07-24,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-07-25,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-26,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-28,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-29,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-07-30,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-07-31,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-08-01,Chai Concentrate 32oz,6,5.60,8,30,328
+2026-08-02,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-08-03,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-04,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-05,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-08-08,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-08-09,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-08-10,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-08-11,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-12,Chai Concentrate 32oz,6,5.60,8,30,328
+2026-08-13,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-14,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-08-15,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-08-16,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-17,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-08-19,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-08-20,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-21,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-22,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-23,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-08-24,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-08-26,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-08-27,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-08-28,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-08-29,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-08-30,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-08-31,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-02,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-03,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-04,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-05,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-06,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-07,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-08,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-09,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-10,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-11,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-12,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-13,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-14,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-15,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-16,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-17,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-18,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-19,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-20,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-22,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-23,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-24,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-09-25,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-26,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-27,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-09-28,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-09-29,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-09-30,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-10-01,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-02,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-04,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-05,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-06,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-07,Chai Concentrate 32oz,5,5.60,8,30,328
+2026-10-08,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-09,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-10,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-11,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-10-12,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-13,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-14,Chai Concentrate 32oz,5,5.60,8,30,328
+2026-10-15,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-10-16,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-17,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-10-18,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-19,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-20,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-10-21,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-10-23,Chai Concentrate 32oz,4,5.60,8,30,328
+2026-10-24,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-25,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-27,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-10-28,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-10-29,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-10-30,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-11-01,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-11-02,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-11-03,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-11-04,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-11-05,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-11-06,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-11-10,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-11-11,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-11-12,Chai Concentrate 32oz,2,5.60,8,30,328
+2026-11-13,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-11-14,Chai Concentrate 32oz,3,5.60,8,30,328
+2026-11-15,Chai Concentrate 32oz,1,5.60,8,30,328
+2026-05-19,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-05-23,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-05-24,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-05-25,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-05-29,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-05-30,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-05-31,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-01,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-02,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-06-05,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-06-06,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-06-11,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-06-13,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-06-15,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-16,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-18,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-19,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-06-22,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-23,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-06-24,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-25,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-06-27,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-06-28,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-06-30,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-01,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-07-03,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-06,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-07,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-08,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-07-09,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-11,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-07-12,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-07-14,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-15,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-07-16,Cold Brew Filters (pack),4,11.00,12,30,11
+2026-07-17,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-07-19,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-07-20,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-21,Cold Brew Filters (pack),5,11.00,12,30,11
+2026-07-22,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-07-24,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-25,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-07-26,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-07-27,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-07-28,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-29,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-30,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-07-31,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-01,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-02,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-03,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-05,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-06,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-07,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-08-08,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-11,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-12,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-08-13,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-08-14,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-15,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-18,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-08-19,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-20,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-21,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-08-22,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-23,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-08-24,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-25,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-26,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-08-27,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-08-28,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-29,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-30,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-31,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-01,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-02,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-03,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-04,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-05,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-09-07,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-08,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-09,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-11,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-14,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-15,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-18,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-20,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-21,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-22,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-23,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-25,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-09-28,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-09-30,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-01,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-02,Cold Brew Filters (pack),4,11.00,12,30,11
+2026-10-03,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-04,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-05,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-06,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-07,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-08,Cold Brew Filters (pack),4,11.00,12,30,11
+2026-10-09,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-10,Cold Brew Filters (pack),5,11.00,12,30,11
+2026-10-11,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-12,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-13,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-10-14,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-15,Cold Brew Filters (pack),4,11.00,12,30,11
+2026-10-16,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-20,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-21,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-10-23,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-27,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-10-28,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-10-30,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-10-31,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-11-01,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-11-02,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-11-03,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-11-06,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-11-07,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-11-08,Cold Brew Filters (pack),3,11.00,12,30,11
+2026-11-09,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-11-10,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-11-11,Cold Brew Filters (pack),2,11.00,12,30,11
+2026-11-14,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-11-15,Cold Brew Filters (pack),1,11.00,12,30,11
+2026-08-27,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-08-28,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-08-29,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-08-30,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-08-31,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-09-01,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-09-02,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-09-03,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-09-04,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-09-05,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-09-06,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-09-07,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-09-08,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-09-09,Pumpkin Spice Sauce,9,9.40,10,30,37
+2026-09-10,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-09-11,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-09-12,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-09-13,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-09-14,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-09-15,Pumpkin Spice Sauce,13,9.40,10,30,37
+2026-09-16,Pumpkin Spice Sauce,9,9.40,10,30,37
+2026-09-17,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-09-18,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-09-19,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-09-20,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-09-21,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-09-22,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-09-23,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-09-24,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-09-25,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-09-26,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-09-27,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-09-28,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-09-29,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-09-30,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-10-01,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-10-02,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-10-03,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-10-04,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-10-05,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-10-06,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-10-07,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-10-08,Pumpkin Spice Sauce,13,9.40,10,30,37
+2026-10-09,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-10-10,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-10-11,Pumpkin Spice Sauce,13,9.40,10,30,37
+2026-10-12,Pumpkin Spice Sauce,9,9.40,10,30,37
+2026-10-13,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-10-14,Pumpkin Spice Sauce,1,9.40,10,30,37
+2026-10-15,Pumpkin Spice Sauce,9,9.40,10,30,37
+2026-10-16,Pumpkin Spice Sauce,9,9.40,10,30,37
+2026-10-17,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-10-18,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-10-19,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-10-20,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-10-21,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-10-22,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-10-23,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-10-24,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-10-25,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-10-26,Pumpkin Spice Sauce,2,9.40,10,30,37
+2026-10-27,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-10-28,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-10-29,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-10-30,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-10-31,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-11-01,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-11-02,Pumpkin Spice Sauce,9,9.40,10,30,37
+2026-11-03,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-11-04,Pumpkin Spice Sauce,6,9.40,10,30,37
+2026-11-05,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-11-06,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-11-07,Pumpkin Spice Sauce,5,9.40,10,30,37
+2026-11-08,Pumpkin Spice Sauce,10,9.40,10,30,37
+2026-11-09,Pumpkin Spice Sauce,7,9.40,10,30,37
+2026-11-10,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-11-11,Pumpkin Spice Sauce,3,9.40,10,30,37
+2026-11-12,Pumpkin Spice Sauce,12,9.40,10,30,37
+2026-11-13,Pumpkin Spice Sauce,8,9.40,10,30,37
+2026-11-14,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-11-15,Pumpkin Spice Sauce,4,9.40,10,30,37
+2026-05-19,Napkins (case),1,28.00,7,35,145
+2026-05-27,Napkins (case),1,28.00,7,35,145
+2026-05-29,Napkins (case),1,28.00,7,35,145
+2026-05-30,Napkins (case),1,28.00,7,35,145
+2026-06-06,Napkins (case),1,28.00,7,35,145
+2026-06-12,Napkins (case),1,28.00,7,35,145
+2026-06-14,Napkins (case),1,28.00,7,35,145
+2026-06-15,Napkins (case),3,28.00,7,35,145
+2026-06-17,Napkins (case),1,28.00,7,35,145
+2026-06-18,Napkins (case),2,28.00,7,35,145
+2026-06-20,Napkins (case),2,28.00,7,35,145
+2026-06-24,Napkins (case),1,28.00,7,35,145
+2026-07-07,Napkins (case),2,28.00,7,35,145
+2026-07-08,Napkins (case),2,28.00,7,35,145
+2026-07-09,Napkins (case),1,28.00,7,35,145
+2026-07-12,Napkins (case),2,28.00,7,35,145
+2026-07-13,Napkins (case),1,28.00,7,35,145
+2026-07-17,Napkins (case),1,28.00,7,35,145
+2026-07-28,Napkins (case),1,28.00,7,35,145
+2026-08-03,Napkins (case),1,28.00,7,35,145
+2026-08-04,Napkins (case),1,28.00,7,35,145
+2026-08-05,Napkins (case),1,28.00,7,35,145
+2026-08-09,Napkins (case),1,28.00,7,35,145
+2026-08-13,Napkins (case),2,28.00,7,35,145
+2026-08-16,Napkins (case),1,28.00,7,35,145
+2026-08-19,Napkins (case),1,28.00,7,35,145
+2026-08-20,Napkins (case),1,28.00,7,35,145
+2026-08-23,Napkins (case),2,28.00,7,35,145
+2026-08-24,Napkins (case),1,28.00,7,35,145
+2026-08-25,Napkins (case),1,28.00,7,35,145
+2026-08-27,Napkins (case),1,28.00,7,35,145
+2026-08-31,Napkins (case),1,28.00,7,35,145
+2026-09-03,Napkins (case),1,28.00,7,35,145
+2026-09-04,Napkins (case),1,28.00,7,35,145
+2026-09-05,Napkins (case),1,28.00,7,35,145
+2026-09-12,Napkins (case),1,28.00,7,35,145
+2026-09-14,Napkins (case),1,28.00,7,35,145
+2026-09-18,Napkins (case),1,28.00,7,35,145
+2026-09-19,Napkins (case),1,28.00,7,35,145
+2026-09-21,Napkins (case),1,28.00,7,35,145
+2026-09-25,Napkins (case),2,28.00,7,35,145
+2026-09-27,Napkins (case),1,28.00,7,35,145
+2026-09-28,Napkins (case),1,28.00,7,35,145
+2026-10-04,Napkins (case),1,28.00,7,35,145
+2026-10-05,Napkins (case),1,28.00,7,35,145
+2026-10-07,Napkins (case),1,28.00,7,35,145
+2026-10-08,Napkins (case),1,28.00,7,35,145
+2026-10-13,Napkins (case),3,28.00,7,35,145
+2026-10-14,Napkins (case),1,28.00,7,35,145
+2026-10-17,Napkins (case),1,28.00,7,35,145
+2026-10-19,Napkins (case),2,28.00,7,35,145
+2026-10-23,Napkins (case),1,28.00,7,35,145
+2026-10-24,Napkins (case),2,28.00,7,35,145
+2026-10-27,Napkins (case),1,28.00,7,35,145
+2026-10-29,Napkins (case),2,28.00,7,35,145
+2026-10-30,Napkins (case),2,28.00,7,35,145
+2026-11-02,Napkins (case),1,28.00,7,35,145
+2026-11-03,Napkins (case),2,28.00,7,35,145
+2026-11-04,Napkins (case),1,28.00,7,35,145
+2026-11-07,Napkins (case),1,28.00,7,35,145
+2026-11-08,Napkins (case),1,28.00,7,35,145
+2026-11-10,Napkins (case),2,28.00,7,35,145
+2026-11-13,Napkins (case),3,28.00,7,35,145
+2026-11-14,Napkins (case),2,28.00,7,35,145
+2026-11-15,Napkins (case),1,28.00,7,35,145
+2026-05-19,Matcha Powder 1lb,1,24.00,14,30,18
+2026-05-20,Matcha Powder 1lb,1,24.00,14,30,18
+2026-05-23,Matcha Powder 1lb,2,24.00,14,30,18
+2026-05-24,Matcha Powder 1lb,1,24.00,14,30,18
+2026-05-26,Matcha Powder 1lb,1,24.00,14,30,18
+2026-05-27,Matcha Powder 1lb,1,24.00,14,30,18
+2026-05-29,Matcha Powder 1lb,2,24.00,14,30,18
+2026-05-30,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-01,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-04,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-05,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-07,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-08,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-09,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-10,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-11,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-12,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-13,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-14,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-15,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-16,Matcha Powder 1lb,2,24.00,14,30,18
+2026-06-19,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-21,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-22,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-24,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-28,Matcha Powder 1lb,1,24.00,14,30,18
+2026-06-30,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-02,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-03,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-05,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-06,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-07,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-08,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-09,Matcha Powder 1lb,2,24.00,14,30,18
+2026-07-12,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-13,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-14,Matcha Powder 1lb,2,24.00,14,30,18
+2026-07-16,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-18,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-20,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-21,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-23,Matcha Powder 1lb,3,24.00,14,30,18
+2026-07-28,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-29,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-30,Matcha Powder 1lb,1,24.00,14,30,18
+2026-07-31,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-02,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-03,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-04,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-06,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-09,Matcha Powder 1lb,2,24.00,14,30,18
+2026-08-12,Matcha Powder 1lb,2,24.00,14,30,18
+2026-08-13,Matcha Powder 1lb,2,24.00,14,30,18
+2026-08-15,Matcha Powder 1lb,2,24.00,14,30,18
+2026-08-17,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-18,Matcha Powder 1lb,4,24.00,14,30,18
+2026-08-19,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-21,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-25,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-26,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-27,Matcha Powder 1lb,2,24.00,14,30,18
+2026-08-29,Matcha Powder 1lb,1,24.00,14,30,18
+2026-08-31,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-01,Matcha Powder 1lb,2,24.00,14,30,18
+2026-09-02,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-04,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-05,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-07,Matcha Powder 1lb,3,24.00,14,30,18
+2026-09-08,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-09,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-12,Matcha Powder 1lb,2,24.00,14,30,18
+2026-09-14,Matcha Powder 1lb,2,24.00,14,30,18
+2026-09-19,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-22,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-25,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-26,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-27,Matcha Powder 1lb,1,24.00,14,30,18
+2026-09-30,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-02,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-05,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-06,Matcha Powder 1lb,2,24.00,14,30,18
+2026-10-07,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-08,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-09,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-12,Matcha Powder 1lb,2,24.00,14,30,18
+2026-10-16,Matcha Powder 1lb,3,24.00,14,30,18
+2026-10-18,Matcha Powder 1lb,2,24.00,14,30,18
+2026-10-19,Matcha Powder 1lb,2,24.00,14,30,18
+2026-10-20,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-21,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-22,Matcha Powder 1lb,2,24.00,14,30,18
+2026-10-24,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-25,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-26,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-27,Matcha Powder 1lb,2,24.00,14,30,18
+2026-10-29,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-30,Matcha Powder 1lb,1,24.00,14,30,18
+2026-10-31,Matcha Powder 1lb,1,24.00,14,30,18
+2026-11-03,Matcha Powder 1lb,2,24.00,14,30,18
+2026-11-04,Matcha Powder 1lb,2,24.00,14,30,18
+2026-11-05,Matcha Powder 1lb,1,24.00,14,30,18
+2026-11-06,Matcha Powder 1lb,1,24.00,14,30,18
+2026-11-08,Matcha Powder 1lb,3,24.00,14,30,18
+2026-11-09,Matcha Powder 1lb,1,24.00,14,30,18
+2026-11-10,Matcha Powder 1lb,2,24.00,14,30,18
+2026-11-13,Matcha Powder 1lb,1,24.00,14,30,18
+2026-11-14,Matcha Powder 1lb,1,24.00,14,30,18
+2026-11-15,Matcha Powder 1lb,2,24.00,14,30,18
+2026-13-40,Oat Milk 32oz,12,2.90,3,20,77
+2026-09-03,,5,1.10,1,10,0
+2026-09-04,Whole Milk Gallon,twelve,3.40,2,15,59
+2026-09-12,Butter Croissant,-6,1.10,1,10,80
