@@ -1,0 +1,5919 @@
+{
+ "generated": "2026-11-17 01:31 UTC",
+ "environment": {
+  "python": "3.13.18",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "statsmodels": "0.15.0",
+  "node": "v22.23.4"
+ },
+ "summary": {
+  "calculators": 93,
+  "passed": 93,
+  "examples": 186,
+  "examplesPassed": 186,
+  "crossCases": 186000,
+  "crossComparisons": 2333251,
+  "crossMismatches": 0,
+  "properties": 514,
+  "propertiesPassed": 514,
+  "otherTests": 54,
+  "otherTestsPassed": 54,
+  "simulations": 30,
+  "simulationsPassed": 30,
+  "simulatedTrials": 146520764,
+  "withSimulation": 42,
+  "totalTests": 847,
+  "totalTestsPassed": 847
+ },
+ "calculators": [
+  {
+   "id": "eoq",
+   "name": "Economic Order Quantity (EOQ)",
+   "cat": "inv-order",
+   "claim": "EOQ gives the lowest total annual cost of any order quantity.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Hypodermic needles",
+     "Holding cost as a percentage"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 13,
+    "passed": 13,
+    "titles": [
+     "Q rises when D rises",
+     "Q rises when S rises",
+     "Q falls when H rises",
+     "TC rises when D rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "ordering cost equals holding cost at the optimum",
+     "no neighbouring quantity is cheaper",
+     "same answer whatever time unit the inputs use",
+     "warns about mixed units and explains the fix",
+     "percent and dollar holding cost agree",
+     "rejects zero or negative inputs with a message"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Brute-force search: no order quantity has a lower total cost than the EOQ",
+     "detail": "250 random demand, ordering-cost and holding-cost combinations. Total cost was evaluated at every whole-unit order quantity up to four times the EOQ.",
+     "n": 250,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Cases where some grid quantity beat the EOQ cost, or the cheapest grid quantity was more than 1 unit from the EOQ",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "Largest gap between best whole-unit cost and EOQ cost (relative)",
+       "predicted": 0,
+       "simulated": 1.5419225866995184e-05,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "eoq"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "total-inventory-cost",
+   "name": "Total Annual Inventory Cost",
+   "cat": "inv-order",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Ordering at the EOQ",
+     "Ordering half the EOQ"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "orderCost rises when D rises",
+     "holdCost rises when Q rises",
+     "orderCost falls when Q rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "epq",
+   "name": "Production Order Quantity (EPQ / POQ)",
+   "cat": "inv-order",
+   "claim": "The production order quantity gives the lowest total setup plus holding cost of any batch size.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Hubcap production",
+     "Annual rates"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 20000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 10,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "Q rises when S rises",
+     "Q falls when H rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "approaches the EOQ as the production rate grows",
+     "rejects a production rate at or below demand"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Brute-force search: no batch size has a lower cost than the production order quantity",
+     "detail": "250 random cases. Setup plus holding cost was evaluated at every whole-unit batch size up to four times the answer.",
+     "n": 250,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Cases where a grid batch size beat the answer",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "Largest relative gap to the best whole-unit cost",
+       "predicted": 0,
+       "simulated": 4.2442901895496306e-05,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "epq"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quantity-discount",
+   "name": "Quantity Discount Model (All-Units)",
+   "cat": "inv-order",
+   "claim": "The chosen quantity has the lowest total annual cost of any quantity on the price schedule.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Toy race cars",
+     "Discount beats the EOQ"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 16001,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "a single price tier reduces to the EOQ",
+     "never costs more than ordering at the base price",
+     "rejects an empty or non-positive price schedule"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Brute-force search over the whole price schedule",
+     "detail": "200 random price schedules with 2 to 4 tiers. Total annual cost (purchase + ordering + holding) was evaluated on a half-unit grid plus every break quantity.",
+     "n": 200,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Cases where a grid quantity was cheaper than the answer",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "Largest relative gap to the best grid cost",
+       "predicted": 0,
+       "simulated": 5.796717731558651e-08,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "quantity-discount"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "backorder-eoq",
+   "name": "EOQ with Planned Backorders",
+   "cat": "inv-order",
+   "claim": "The (Q, b) pair gives the lowest total cost of any order size and backorder level.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Cheap backorders",
+     "Radio components"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "Q falls when B rises",
+     "b falls when B rises",
+     "Q rises when D rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "approaches the EOQ as backorder cost grows",
+     "cost parts add up and beat the plain EOQ cost"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Numerical optimisation over order size and backorder level",
+     "detail": "150 random cases. A derivative-free optimiser (Nelder-Mead, three starting points) minimised ordering + holding + backorder cost over both the order quantity and the maximum backorder level.",
+     "n": 150,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Cases where the optimiser found a cheaper policy",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "Largest relative difference between optimiser cost and formula cost",
+       "predicted": 0,
+       "simulated": 4.1327328689840024e-16,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "backorder-eoq"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "orders-per-year",
+   "name": "Number of Orders per Year",
+   "cat": "inv-order",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Needles",
+     "Weekly seller"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "N rises when D rises",
+     "N falls when Q rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "time-between-orders",
+   "name": "Time Between Orders",
+   "cat": "inv-order",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Needles, 250-day year",
+     "Calendar year"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "Tdays rises when Q rises",
+     "Tdays falls when D rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "reorder-point",
+   "name": "Reorder Point (Constant Demand)",
+   "cat": "inv-service",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Phone distributor",
+     "Daily demand"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 4000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 2,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "ROP rises when d rises",
+     "ROP rises when L rises",
+     "ROP rises when ss rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "zero lead time means reorder at the safety stock"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "safety-stock-demand",
+   "name": "Safety Stock: Variable Demand",
+   "cat": "inv-service",
+   "claim": "A reorder point of mean lead-time demand plus z\u00b7\u03c3\u00b7\u221aL avoids a stockout in the stated share of cycles.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Variable daily demand",
+     "Hospital supplies"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 13,
+    "passed": 13,
+    "titles": [
+     "ss rises when SL rises",
+     "ss rises when sd rises",
+     "ss rises when L rises",
+     "ROP rises when d rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "zero variability needs zero safety stock",
+     "zero lead time needs zero safety stock",
+     "50% service level needs zero safety stock; below 50% it is negative",
+     "100% service level is rejected with an explanation",
+     "quadrupling lead time doubles safety stock",
+     "unit conversion: daily and weekly inputs agree"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 100,000 order cycles per case: share of cycles with no stockout",
+     "detail": "Each cycle draws a separate normal demand for every day of the lead time and adds them up. A stockout occurs when lead-time demand exceeds the reorder point.",
+     "n": 600000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=100, \u03c3=20, L=4, target 95%",
+       "predicted": 95.0,
+       "simulated": 94.901,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=15, \u03c3=5, L=2, target 90%",
+       "predicted": 90.0,
+       "simulated": 90.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=350, \u03c3=90, L=9, target 99%",
+       "predicted": 99.0,
+       "simulated": 99.009,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=40, \u03c3=12, L=1, target 85%",
+       "predicted": 85.0,
+       "simulated": 85.077,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=500, \u03c3=60, L=16, target 97.5%",
+       "predicted": 97.5,
+       "simulated": 97.378,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=75, \u03c3=30, L=5, target 92%",
+       "predicted": 92.0,
+       "simulated": 91.92099999999999,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "safety-stock-demand"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "safety-stock-lead-time",
+   "name": "Safety Stock: Variable Lead Time",
+   "cat": "inv-service",
+   "claim": "With constant demand and normal lead times, ROP = d\u00b7L + z\u00b7d\u00b7\u03c3_LT avoids a stockout in the stated share of cycles.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Unreliable supplier",
+     "Weekly data"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "ss rises when SL rises",
+     "ss rises when sL rises",
+     "ss rises when d rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 100,000 order cycles per case with random lead times",
+     "detail": "Demand per day is constant; each cycle draws a normally distributed lead time.",
+     "n": 400000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=10, L=6, \u03c3LT=3, target 98%",
+       "predicted": 98.0,
+       "simulated": 98.006,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=50, L=14, \u03c3LT=2, target 95%",
+       "predicted": 95.0,
+       "simulated": 95.047,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=200, L=5, \u03c3LT=1.5, target 90%",
+       "predicted": 90.0,
+       "simulated": 90.098,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=30, L=20, \u03c3LT=6, target 99%",
+       "predicted": 99.0,
+       "simulated": 98.99799999999999,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "safety-stock-lead-time"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "safety-stock-combined",
+   "name": "Safety Stock: Variable Demand and Lead Time",
+   "cat": "inv-service",
+   "claim": "ROP = d\u00b7L + z\u00b7\u221a(L\u00b7\u03c3d\u00b2 + d\u00b2\u00b7\u03c3L\u00b2) avoids a stockout in the stated share of cycles when demand and lead time both vary.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Both vary",
+     "Computer assembler"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "ss rises when SL rises",
+     "ss rises when sd rises",
+     "ss rises when sL rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "reduces to the single-source formulas",
+     "variance shares add to 100%"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 100,000 order cycles per case with random demand and random lead time",
+     "detail": "Each cycle draws a lead time, then demand over that lead time. The formula for the standard deviation is exact; treating the total as normal is an approximation, so the service level is allowed 1.5 points of error.",
+     "n": 400000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=150, \u03c3d=16, L=5, \u03c3LT=1, target 95%",
+       "predicted": 95.0,
+       "simulated": 95.109,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   standard deviation of lead-time demand",
+       "predicted": 154.20765220960988,
+       "simulated": 154.02478874737685,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "d=100, \u03c3d=30, L=10, \u03c3LT=2, target 90%",
+       "predicted": 90.0,
+       "simulated": 89.775,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   standard deviation of lead-time demand",
+       "predicted": 221.35943621178654,
+       "simulated": 221.07400031009902,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "d=40, \u03c3d=10, L=20, \u03c3LT=3, target 97.5%",
+       "predicted": 97.5,
+       "simulated": 97.365,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   standard deviation of lead-time demand",
+       "predicted": 128.06248474865697,
+       "simulated": 127.54787528643702,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "d=2500, \u03c3d=500, L=7, \u03c3LT=1.5, target 90%",
+       "predicted": 90.0,
+       "simulated": 89.836,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   standard deviation of lead-time demand",
+       "predicted": 3976.4934301467165,
+       "simulated": 3987.858214927709,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "safety-stock-combined"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cycle-service-level",
+   "name": "Cycle Service Level",
+   "cat": "inv-service",
+   "claim": "The computed service level matches the share of simulated cycles that end without a stockout.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Weekly demand",
+     "Daily demand"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "CSL rises when ROP rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "is 50% when the reorder point equals mean lead-time demand",
+     "inverts the safety stock calculation",
+     "handles zero variability without dividing by zero"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 100,000 cycles per case for a given reorder point",
+     "detail": "Share of simulated cycles in which lead-time demand stayed at or below the reorder point.",
+     "n": 400000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=2500, \u03c3=500, L=2, ROP=6000",
+       "predicted": 92.13503964748574,
+       "simulated": 92.258,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=100, \u03c3=20, L=4, ROP=460",
+       "predicted": 93.3192798731142,
+       "simulated": 93.269,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=800, \u03c3=300, L=3, ROP=2500",
+       "predicted": 57.63051701566428,
+       "simulated": 57.779,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=60, \u03c3=25, L=6, ROP=330",
+       "predicted": 31.210305738320287,
+       "simulated": 31.144,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "cycle-service-level"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fill-rate",
+   "name": "Fill Rate and Expected Shortage per Cycle",
+   "cat": "inv-service",
+   "claim": "The computed fill rate matches the long-run share of demand filled from stock in simulation.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Fill rate from a reorder point",
+     "Daily demand"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18000,
+    "mismatches": 0,
+    "tolerance": 1e-07,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 9,
+    "passed": 9,
+    "titles": [
+     "fillRate rises when ROP rises",
+     "fillRate rises when Q rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "approaches 100% as the reorder point grows and never exceeds it",
+     "is at least the cycle service level for sensible order sizes",
+     "solving for safety stock inverts solving for fill rate",
+     "explains the zero-variability case"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Discrete-event simulation of an (s, Q) inventory system",
+     "detail": "A full inventory system (demand arriving in 24 slices per day, orders of Q placed when stock reaches s, backorders filled on arrival) was run for 60,000 days per case. Cycle service level is the share of cycles ending without a backorder; fill rate is one minus backordered units over total demand. Expected shortage per cycle was also checked against 2,000,000 Monte Carlo draws.",
+     "n": 17724,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=100, \u03c3=20, L=4: cycle service level (%)",
+       "predicted": 95.0,
+       "simulated": 95.60193373422945,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), (s, Q) calculator",
+       "predicted": 99.88181157593912,
+       "simulated": 99.89661847808003,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), fill rate calculator",
+       "predicted": 99.88181157593912,
+       "simulated": 99.89661847808003,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=100, \u03c3=30, L=9: cycle service level (%)",
+       "predicted": 90.0,
+       "simulated": 89.8566703417861,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), (s, Q) calculator",
+       "predicted": 99.678091205374,
+       "simulated": 99.68485700300802,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), fill rate calculator",
+       "predicted": 99.678091205374,
+       "simulated": 99.68485700300802,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=40, \u03c3=15, L=5: cycle service level (%)",
+       "predicted": 85.0,
+       "simulated": 83.85726423109601,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), (s, Q) calculator",
+       "predicted": 99.48849807251537,
+       "simulated": 99.42831313083708,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), fill rate calculator",
+       "predicted": 99.48849807251537,
+       "simulated": 99.42831313083708,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "expected shortage per cycle, ROP=6000",
+       "predicted": 25.127270830006115,
+       "simulated": 25.263647086341017,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "expected shortage per cycle, ROP=460",
+       "predicted": 1.1722717505041846,
+       "simulated": 1.1762474356034005,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "expected shortage per cycle, ROP=950",
+       "predicted": 60.30635688549804,
+       "simulated": 60.42118766766056,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "fill-rate",
+      "continuous-review"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "newsvendor",
+   "name": "Newsvendor (Single-Period) Model",
+   "cat": "inv-service",
+   "claim": "The critical-ratio quantity earns the highest average profit of any order quantity in simulation.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Newsstand",
+     "Wetsuit season"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 22000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "Q rises when mu rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "equal underage and overage costs give the mean",
+     "zero variability orders exactly the mean and earns the maximum profit",
+     "sales plus lost sales equals mean demand; leftover is never negative",
+     "rejects impossible prices with a reason"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 400,000 selling seasons: profit at the recommended quantity versus every alternative",
+     "detail": "The same 400,000 simulated demands were used to score the recommended quantity and 241 alternatives spanning three standard deviations either side of the mean.",
+     "n": 1600000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "\u03bc=120, \u03c3=15, CR=0.579: expected profit",
+       "predicted": 60.42675321639112,
+       "simulated": 60.42752131100638,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   best profit on a 241-point grid minus profit at Q* (as a share of profit)",
+       "predicted": 0.0,
+       "simulated": 1.272248914429333e-07,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   quantity with the best simulated profit vs Q* (in \u03c3)",
+       "predicted": 0.0,
+       "simulated": 0.000798675210733298,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   expected lost sales",
+       "predicted": 4.608461931445566,
+       "simulated": 4.620966962019245,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   expected leftover",
+       "predicted": 7.596481803284561,
+       "simulated": 7.595673282636921,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "\u03bc=3192, \u03c3=1181, CR=0.800: expected profit",
+       "predicted": 222296.49719983782,
+       "simulated": 222430.386935308,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   best profit on a 241-point grid minus profit at Q* (as a share of profit)",
+       "predicted": 0.0,
+       "simulated": 0.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   quantity with the best simulated profit vs Q* (in \u03c3)",
+       "predicted": 0.0,
+       "simulated": 0.008378766427085023,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   expected lost sales",
+       "predicted": 131.84409263169923,
+       "simulated": 132.5172953304571,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   expected leftover",
+       "predicted": 1125.7987694813114,
+       "simulated": 1124.4598721266098,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "\u03bc=500, \u03c3=150, CR=0.286: expected profit",
+       "predicted": 3215.495993922943,
+       "simulated": 3217.0763201987324,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   best profit on a 241-point grid minus profit at Q* (as a share of profit)",
+       "predicted": 0.0,
+       "simulated": 0.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   quantity with the best simulated profit vs Q* (in \u03c3)",
+       "predicted": 0.0,
+       "simulated": 0.009051178067136713,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   expected lost sales",
+       "predicted": 111.62320252357982,
+       "simulated": 111.7521718998743,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   expected leftover",
+       "predicted": 26.73087923365034,
+       "simulated": 26.685727054342074,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "\u03bc=1000, \u03c3=250, CR=0.800: expected profit",
+       "predicted": 7300.09519898048,
+       "simulated": 7296.64265886982,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   best profit on a 241-point grid minus profit at Q* (as a share of profit)",
+       "predicted": 0.0,
+       "simulated": 0.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   quantity with the best simulated profit vs Q* (in \u03c3)",
+       "predicted": 0.0,
+       "simulated": 0.008378766427085793,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   expected lost sales",
+       "predicted": 27.909418423306352,
+       "simulated": 27.824341983753982,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   expected leftover",
+       "predicted": 238.31472681653486,
+       "simulated": 238.6599808276009,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "newsvendor"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "periodic-review",
+   "name": "Periodic Review (Order-Up-To Level)",
+   "cat": "inv-service",
+   "claim": "Ordering up to d(T+L) + z\u00b7\u03c3\u00b7\u221a(T+L) avoids a stockout in the stated share of review cycles.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Monthly review",
+     "Weekly demand"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 9,
+    "passed": 9,
+    "titles": [
+     "OUL rises when SL rises",
+     "OUL rises when T rises",
+     "OUL rises when L rises",
+     "Q falls when onHand rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "needs more safety stock than continuous review with the same lead time",
+     "never orders a negative quantity"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 100,000 review cycles per case",
+     "detail": "An order raises the inventory position to the order-up-to level. It must cover demand over one review period plus one lead time, simulated period by period.",
+     "n": 300000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=10, \u03c3=3, T=30, L=14, target 98%",
+       "predicted": 98.0,
+       "simulated": 98.03,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=2500, \u03c3=500, T=4, L=2, target 90%",
+       "predicted": 90.0,
+       "simulated": 90.133,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=60, \u03c3=25, T=7, L=3, target 95%",
+       "predicted": 95.0,
+       "simulated": 95.026,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "periodic-review"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "continuous-review",
+   "name": "Continuous Review (s, Q) Policy",
+   "cat": "inv-service",
+   "claim": "The (s, Q) policy achieves its stated cycle service level and fill rate in a simulated inventory system.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Daily data, annual holding cost",
+     "Weekly data"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 22000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "s rises when SL rises",
+     "Q rises when S rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "matches EOQ and safety stock calculators"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Discrete-event simulation of an (s, Q) inventory system",
+     "detail": "A full inventory system (demand arriving in 24 slices per day, orders of Q placed when stock reaches s, backorders filled on arrival) was run for 60,000 days per case. Cycle service level is the share of cycles ending without a backorder; fill rate is one minus backordered units over total demand. Expected shortage per cycle was also checked against 2,000,000 Monte Carlo draws.",
+     "n": 17724,
+     "passed": true,
+     "rows": [
+      {
+       "label": "d=100, \u03c3=20, L=4: cycle service level (%)",
+       "predicted": 95.0,
+       "simulated": 95.60193373422945,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), (s, Q) calculator",
+       "predicted": 99.88181157593912,
+       "simulated": 99.89661847808003,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), fill rate calculator",
+       "predicted": 99.88181157593912,
+       "simulated": 99.89661847808003,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=100, \u03c3=30, L=9: cycle service level (%)",
+       "predicted": 90.0,
+       "simulated": 89.8566703417861,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), (s, Q) calculator",
+       "predicted": 99.678091205374,
+       "simulated": 99.68485700300802,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), fill rate calculator",
+       "predicted": 99.678091205374,
+       "simulated": 99.68485700300802,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "d=40, \u03c3=15, L=5: cycle service level (%)",
+       "predicted": 85.0,
+       "simulated": 83.85726423109601,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), (s, Q) calculator",
+       "predicted": 99.48849807251537,
+       "simulated": 99.42831313083708,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   fill rate (%), fill rate calculator",
+       "predicted": 99.48849807251537,
+       "simulated": 99.42831313083708,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "expected shortage per cycle, ROP=6000",
+       "predicted": 25.127270830006115,
+       "simulated": 25.263647086341017,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "expected shortage per cycle, ROP=460",
+       "predicted": 1.1722717505041846,
+       "simulated": 1.1762474356034005,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "expected shortage per cycle, ROP=950",
+       "predicted": 60.30635688549804,
+       "simulated": 60.42118766766056,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "fill-rate",
+      "continuous-review"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "risk-pooling",
+   "name": "Risk Pooling (Square-Root Law)",
+   "cat": "inv-service",
+   "claim": "Pooled safety stock sized by the square-root law achieves the same service level as separate buffers in simulation.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Four independent warehouses",
+     "Correlated stores"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 14000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "savedPct rises when n rises",
+     "ssCen rises when rho rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "perfect correlation saves nothing; one location saves nothing",
+     "independent locations follow the square-root law",
+     "rejects impossible negative correlation"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated correlated demand at several locations, 200,000 periods per case",
+     "detail": "Demand at the locations is drawn from a multivariate normal with the stated correlation. The pooled buffer and each separate buffer are tested for the share of lead times they cover.",
+     "n": 800000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "n=4, \u03c1=0: pooled service level (%)",
+       "predicted": 95.0,
+       "simulated": 94.9785,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   each separate location service level (%)",
+       "predicted": 95.0,
+       "simulated": 95.0275,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "n=9, \u03c1=0.5: pooled service level (%)",
+       "predicted": 97.5,
+       "simulated": 97.45049999999999,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   each separate location service level (%)",
+       "predicted": 97.5,
+       "simulated": 97.46050000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "n=16, \u03c1=0.2: pooled service level (%)",
+       "predicted": 90.0,
+       "simulated": 89.982,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   each separate location service level (%)",
+       "predicted": 90.0,
+       "simulated": 90.01249999999999,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "n=3, \u03c1=0.8: pooled service level (%)",
+       "predicted": 99.0,
+       "simulated": 99.00999999999999,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   each separate location service level (%)",
+       "predicted": 99.0,
+       "simulated": 98.9965,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "risk-pooling"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "inventory-turnover",
+   "name": "Inventory Turnover",
+   "cat": "inv-perf",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Distributor",
+     "Retailer"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "turns rises when cogs rises",
+     "turns falls when inv rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "turns times days of supply is 365"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "days-of-supply",
+   "name": "Days of Supply (DIO)",
+   "cat": "inv-perf",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "From financials",
+     "From units"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "days rises when inv rises",
+     "days falls when cogs rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "average-inventory",
+   "name": "Average Inventory",
+   "cat": "inv-perf",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "From an order policy",
+     "From balances"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "avg rises when Q rises",
+     "avg rises when ss rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "holding-cost",
+   "name": "Holding (Carrying) Cost",
+   "cat": "inv-perf",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Building the rate",
+     "Low-cost item"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "H rises when capital rises",
+     "H rises when C rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "abc-classification",
+   "name": "ABC Classification",
+   "cat": "inv-perf",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Ten stock items",
+     "Four-item shop"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 65714,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 10,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "class counts cover every item and shares add to 100%",
+     "handles empty and malformed lists"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "gmroi",
+   "name": "GMROI (Gross Margin Return on Inventory)",
+   "cat": "inv-perf",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Specialty retailer",
+     "Hardware store"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "gmroi rises when sales rises",
+     "gmroi falls when inv rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "moving-average",
+   "name": "Simple Moving Average",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Garden shed sales",
+     "Short history"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 32916,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "a constant series forecasts the constant with zero error",
+     "equals a weighted moving average with equal weights",
+     "rejects too little data, empty data, and text"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "weighted-moving-average",
+   "name": "Weighted Moving Average",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Weights 3, 2, 1",
+     "Weights adding to 1"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 30029,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "exponential-smoothing",
+   "name": "Exponential Smoothing",
+   "cat": "forecast",
+   "claim": "The optimized \u03b1 has the lowest error of any \u03b1 on the search grid (confirmed by brute force).",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Port unloading, \u03b1 = 0.10",
+     "Port unloading, \u03b1 = 0.50"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 40981,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 8,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "alpha = 1 is the naive forecast; alpha = 0 never moves",
+     "the optimized alpha is at least as good as any other grid value"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Brute force and statsmodels: the optimised \u03b1 is the best on the grid, and fitted values match an independent library",
+     "detail": "30 random demand histories. For each, MAD and MSE were recomputed in Python for all 99 values of \u03b1. Separately, forecasts with \u03b1 = 0.3 were compared with statsmodels SimpleExpSmoothing.",
+     "n": 60,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Histories where a different \u03b1 had a lower error",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "Largest difference from statsmodels fitted values",
+       "predicted": 0,
+       "simulated": 1.1368683772161603e-13,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "exponential-smoothing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "holt",
+   "name": "Trend-Adjusted Exponential Smoothing (Holt)",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Pollution-control equipment",
+     "First three months only"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 95905,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 12,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "tracks a perfect linear trend with zero error",
+     "beta = 0 and zero trend equals simple exponential smoothing"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Independent libraries: statsmodels Holt and OLS regression",
+     "detail": "25 random trending histories. Holt forecasts were compared with statsmodels Holt (known initial level and trend, fixed \u03b1 and \u03b2). Regression coefficients, r\u00b2 and standard error were compared with statsmodels OLS.",
+     "n": 50,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Largest difference from statsmodels Holt forecasts",
+       "predicted": 0,
+       "simulated": 0.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "Largest difference from statsmodels OLS (a, b, r\u00b2, Syx)",
+       "predicted": 0,
+       "simulated": 1.1368683772161603e-13,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "holt",
+      "linear-regression"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seasonal-indices",
+   "name": "Seasonal Indices",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Two years of quarters",
+     "Three-season business"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 40733,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "indices average to one and forecasts add to the annual total",
+     "rejects partial years"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "holt-winters",
+   "name": "Holt-Winters (Trend and Seasonality)",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Two quarterly cycles, responsive settings",
+     "Same data, calmer settings"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 36888,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "reproduces a perfectly repeating seasonal pattern",
+     "needs two full cycles"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "linear-regression",
+   "name": "Linear Regression / Trend Projection",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Electrical power demand",
+     "Sales against advertising"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 22000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "fits an exact line exactly",
+     "residuals sum to zero",
+     "rejects mismatched or constant x"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Independent libraries: statsmodels Holt and OLS regression",
+     "detail": "25 random trending histories. Holt forecasts were compared with statsmodels Holt (known initial level and trend, fixed \u03b1 and \u03b2). Regression coefficients, r\u00b2 and standard error were compared with statsmodels OLS.",
+     "n": 50,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Largest difference from statsmodels Holt forecasts",
+       "predicted": 0,
+       "simulated": 0.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "Largest difference from statsmodels OLS (a, b, r\u00b2, Syx)",
+       "predicted": 0,
+       "simulated": 1.1368683772161603e-13,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "holt",
+      "linear-regression"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mad",
+   "name": "Mean Absolute Deviation (MAD)",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Bakery forecasts",
+     "Port unloading"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 57592,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "mse",
+   "name": "Mean Squared Error (MSE)",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Port unloading",
+     "Bakery forecasts"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 58612,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "mape",
+   "name": "Mean Absolute Percent Error (MAPE)",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Port unloading",
+     "Bakery forecasts"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 59394,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 12,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "forecast-bias",
+   "name": "Forecast Bias",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Bakery forecasts",
+     "Forecast minus actual"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 58114,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "tracking-signal",
+   "name": "Tracking Signal",
+   "cat": "forecast",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Bakery forecasts",
+     "Persistent under-forecast"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 57490,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "flips sign with the error convention; MAD does not change",
+     "a perfect forecast has zero error and a zero signal",
+     "MSE is at least MAD squared; RMSE is at least MAD",
+     "rejects different-length series and zero actuals for MAPE"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "littles-law",
+   "name": "Little's Law",
+   "cat": "process",
+   "claim": "Average inventory equals throughput times flow time in a simulated process.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Coffee shop",
+     "Order backlog"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 4,
+    "passed": 4,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "the three forms are consistent"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 3,000,000 customers per case through a single-server queue",
+     "detail": "Exponential interarrival and service times. Waiting times come from the Lindley recursion. The number in the system is measured independently by sampling random instants, which is what makes the Little's Law comparison a real test.",
+     "n": 9000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "\u03bb=2.0, \u03bc=3.0: average wait in line Wq",
+       "predicted": 0.6666666666666665,
+       "simulated": 0.671117015826147,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in system Ls (sampled at 300,000 random instants)",
+       "predicted": 1.9999999999999996,
+       "simulated": 2.0083966666666666,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   Little's Law: sampled number in system vs arrival rate \u00d7 time in system",
+       "predicted": 2.0086155802735326,
+       "simulated": 2.0083966666666666,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability the server is idle P0",
+       "predicted": 0.3333333333333333,
+       "simulated": 0.33352893978577636,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=10.0, \u03bc=12.0: average wait in line Wq",
+       "predicted": 0.4166666666666668,
+       "simulated": 0.4122822048957506,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in system Ls (sampled at 300,000 random instants)",
+       "predicted": 5.000000000000001,
+       "simulated": 4.963176666666667,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   Little's Law: sampled number in system vs arrival rate \u00d7 time in system",
+       "predicted": 4.9563318392667695,
+       "simulated": 4.963176666666667,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability the server is idle P0",
+       "predicted": 0.16666666666666663,
+       "simulated": 0.1665501582742619,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=5.0, \u03bc=10.0: average wait in line Wq",
+       "predicted": 0.1,
+       "simulated": 0.0995731901516129,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in system Ls (sampled at 300,000 random instants)",
+       "predicted": 1.0,
+       "simulated": 0.9937533333333334,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   Little's Law: sampled number in system vs arrival rate \u00d7 time in system",
+       "predicted": 0.9973491701945665,
+       "simulated": 0.9937533333333334,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability the server is idle P0",
+       "predicted": 0.5,
+       "simulated": 0.5004254626790785,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "mm1",
+      "littles-law"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "takt-time",
+   "name": "Takt Time",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Single shift",
+     "Two shifts"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "taktMin falls when demand rises",
+     "taktMin rises when shift rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "cycle-time",
+   "name": "Process Cycle Time and Flow Time",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Three-step line",
+     "Parallel workers"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 15950,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "throughput",
+   "name": "Throughput Rate",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Demand-constrained",
+     "Capacity-constrained with scrap"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "rate rises when capacity rises",
+     "rate rises when demand rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "bottleneck",
+   "name": "Bottleneck Identification",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Three steps",
+     "Four steps"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 31817,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "process capacity equals the smallest step capacity and utilizations never exceed 100%",
+     "matches the cycle time calculator",
+     "rejects zero times and empty processes"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "utilization",
+   "name": "Capacity Utilization",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Bakery line",
+     "Machine shop"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 4000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 2,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "util rises when actual rises",
+     "util falls when design rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "efficiency",
+   "name": "Efficiency",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Bakery line",
+     "Packing cell"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 4000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 2,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "eff rises when actual rises",
+     "eff falls when effective rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "effective-capacity",
+   "name": "Effective Capacity and Expected Output",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Percent allowances",
+     "Bakery expansion"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "expected rises when design rises",
+     "expected rises when eff rises",
+     "expected falls when lossPct rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "oee",
+   "name": "Overall Equipment Effectiveness (OEE)",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Packaging line",
+     "Molding press"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "is the product of its parts and never above its weakest part",
+     "rejects impossible counts"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "line-balancing",
+   "name": "Assembly Line Balancing",
+   "cat": "process",
+   "claim": "Every assignment respects precedence and cycle time. On small lines the result is compared with the true minimum from exhaustive search (the rule is a heuristic, so the report shows how often it is optimal).",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Wing component",
+     "Toy wagon"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 28218,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 8,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "assignments respect precedence and cycle time, and use at least the theoretical minimum",
+     "explains loops, unknown predecessors, duplicates, and oversized tasks"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Feasibility audit and exhaustive search for the true minimum number of stations",
+     "detail": "300 random lines with 4 to 9 tasks. Every assignment was checked for precedence and cycle-time violations, and the true minimum number of stations was found by dynamic programming over all task subsets.",
+     "n": 300,
+     "passed": true,
+     "rows": [
+      {
+       "label": "assignments that break precedence or exceed the cycle time",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "lines where the answer used fewer stations than the true minimum (impossible)",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "share of lines where the heuristic found the true minimum (%)",
+       "predicted": 100,
+       "simulated": 95.0,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "largest excess over the true minimum (stations)",
+       "predicted": 0,
+       "simulated": 1,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "line-balancing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "learning-curve",
+   "name": "Learning Curve",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Shipbuilding",
+     "Eight units at 80%"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "Tn rises when T1 rises",
+     "Tn falls when n rises",
+     "Tn rises when rate rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "each doubling multiplies unit time by the learning rate",
+     "a 100% rate means no learning"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "capacity-break-even",
+   "name": "Break-Even Analysis for Capacity",
+   "cat": "process",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Small manufacturer",
+     "Two process options"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "bepUnits rises when F rises",
+     "bepUnits falls when P rises",
+     "bepUnits rises when V rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "profit is zero at break-even and both break-even forms agree",
+     "rejects price at or below variable cost"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "mm1",
+   "name": "M/M/1 Queue (Single Server)",
+   "cat": "queue",
+   "claim": "M/M/1 formulas match the average line length and wait in a simulated single-server queue.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Muffler shop",
+     "Help desk"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 14000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "Lq rises when lambda rises",
+     "Lq falls when mu rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "satisfies Little\u2019s Law and equals M/M/s with one server",
+     "explains an unstable queue"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 3,000,000 customers per case through a single-server queue",
+     "detail": "Exponential interarrival and service times. Waiting times come from the Lindley recursion. The number in the system is measured independently by sampling random instants, which is what makes the Little's Law comparison a real test.",
+     "n": 9000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "\u03bb=2.0, \u03bc=3.0: average wait in line Wq",
+       "predicted": 0.6666666666666665,
+       "simulated": 0.671117015826147,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in system Ls (sampled at 300,000 random instants)",
+       "predicted": 1.9999999999999996,
+       "simulated": 2.0083966666666666,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   Little's Law: sampled number in system vs arrival rate \u00d7 time in system",
+       "predicted": 2.0086155802735326,
+       "simulated": 2.0083966666666666,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability the server is idle P0",
+       "predicted": 0.3333333333333333,
+       "simulated": 0.33352893978577636,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=10.0, \u03bc=12.0: average wait in line Wq",
+       "predicted": 0.4166666666666668,
+       "simulated": 0.4122822048957506,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in system Ls (sampled at 300,000 random instants)",
+       "predicted": 5.000000000000001,
+       "simulated": 4.963176666666667,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   Little's Law: sampled number in system vs arrival rate \u00d7 time in system",
+       "predicted": 4.9563318392667695,
+       "simulated": 4.963176666666667,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability the server is idle P0",
+       "predicted": 0.16666666666666663,
+       "simulated": 0.1665501582742619,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=5.0, \u03bc=10.0: average wait in line Wq",
+       "predicted": 0.1,
+       "simulated": 0.0995731901516129,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in system Ls (sampled at 300,000 random instants)",
+       "predicted": 1.0,
+       "simulated": 0.9937533333333334,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   Little's Law: sampled number in system vs arrival rate \u00d7 time in system",
+       "predicted": 0.9973491701945665,
+       "simulated": 0.9937533333333334,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability the server is idle P0",
+       "predicted": 0.5,
+       "simulated": 0.5004254626790785,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "mm1",
+      "littles-law"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mms",
+   "name": "M/M/s Queue (Multiple Servers, Erlang C)",
+   "cat": "queue",
+   "claim": "M/M/s (Erlang C) results match the simulated wait, line length, and probability of waiting.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Two mechanics",
+     "Bank tellers"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "Lq falls when s rises",
+     "Lq rises when lambda rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "stays stable for many servers",
+     "probabilities sum to one",
+     "the lowest-cost staffing beats its neighbours"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated the multi-server queue as a Markov chain, 1,500,000 events per case",
+     "detail": "The number in the system was simulated as a continuous-time Markov chain (arrivals at rate \u03bb, departures at rate min(n, s)\u00b7\u03bc). State probabilities are the share of simulated time spent in each state.",
+     "n": 6000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "\u03bb=2.0, \u03bc=3.0, s=2: average number in line Lq",
+       "predicted": 0.08333333333333331,
+       "simulated": 0.08310139709903122,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.04166666666666666,
+       "simulated": 0.04155069854951561,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.16666666666666666,
+       "simulated": 0.16703162672973035,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.5000000000000001,
+       "simulated": 0.50037458456416,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 2 in system",
+       "predicted": 0.11111111111111113,
+       "simulated": 0.1114357322942386,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 2 in system",
+       "predicted": 0.05555555555555536,
+       "simulated": 0.05559589443549178,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=40.0, \u03bc=15.0, s=3: average number in line Lq",
+       "predicted": 6.380062305295946,
+       "simulated": 6.516070771171079,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.15950155763239865,
+       "simulated": 0.16290176927927696,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.7975077881619937,
+       "simulated": 0.799473417403454,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.028037383177570107,
+       "simulated": 0.02781054558112071,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 5 in system",
+       "predicted": 0.07001440115551112,
+       "simulated": 0.06958167364894789,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 5 in system",
+       "predicted": 0.5601152092440889,
+       "simulated": 0.5640016154659111,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=18.0, \u03bc=4.0, s=6: average number in line Lq",
+       "predicted": 1.264956227417489,
+       "simulated": 1.2459028366457932,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.07027534596763828,
+       "simulated": 0.06921682425809962,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.4216520758058297,
+       "simulated": 0.41872412033014433,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.009140115108324645,
+       "simulated": 0.009339071956420942,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 7 in system",
+       "predicted": 0.07905976421359306,
+       "simulated": 0.07870998720204933,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 7 in system",
+       "predicted": 0.2371792926407792,
+       "simulated": 0.2346513564313976,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=2.0, \u03bc=3.0, s=1: average number in line Lq",
+       "predicted": 1.333333333333333,
+       "simulated": 1.3439140803210903,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.6666666666666665,
+       "simulated": 0.6719570401605451,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.6666666666666666,
+       "simulated": 0.6672877676355387,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.3333333333333333,
+       "simulated": 0.33271223236446157,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 3 in system",
+       "predicted": 0.0987654320987654,
+       "simulated": 0.09848580370261095,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 3 in system",
+       "predicted": 0.19753086419753085,
+       "simulated": 0.1990696577720106,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "M/M/1 \u03bb=2, \u03bc=3: probability the wait exceeds 0.5",
+       "predicted": 0.4043537731417556,
+       "simulated": 0.4053935,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "mms",
+      "queue-probabilities"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "md1",
+   "name": "M/D/1 Queue (Constant Service Time)",
+   "cat": "queue",
+   "claim": "M/D/1 results match a simulated queue with constant service times.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Recycling compactor",
+     "Car wash"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 14000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "Lq rises when lambda rises",
+     "Lq falls when mu rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "has exactly half the M/M/1 queue"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 3,000,000 customers per case with constant service time",
+     "detail": "Exponential interarrival times, identical service time for every customer.",
+     "n": 9000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "\u03bb=8.0, \u03bc=12.0: average wait in line Wq",
+       "predicted": 0.08333333333333333,
+       "simulated": 0.08345743210250614,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in line Lq",
+       "predicted": 0.6666666666666666,
+       "simulated": 0.6675915458611977,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "\u03bb=10.0, \u03bc=15.0: average wait in line Wq",
+       "predicted": 0.06666666666666667,
+       "simulated": 0.06693629750946603,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in line Lq",
+       "predicted": 0.6666666666666666,
+       "simulated": 0.6697765917202952,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "\u03bb=9.0, \u03bc=10.0: average wait in line Wq",
+       "predicted": 0.44999999999999996,
+       "simulated": 0.4561510873235329,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average number in line Lq",
+       "predicted": 4.05,
+       "simulated": 4.108284536188975,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "md1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kingman",
+   "name": "Kingman's Approximation (VUT)",
+   "cat": "queue",
+   "claim": "Kingman\u2019s approximation is within a stated tolerance of the simulated wait for general arrival and service distributions.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "One server, random arrivals",
+     "Call center"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 16000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 8,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "Wq rises when cva rises",
+     "Wq rises when cvp rises",
+     "Wq falls when m rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "equals M/M/1 when both CVs are 1 and M/D/1 when service is constant",
+     "no variability means no waiting"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated general queues (gamma-distributed times) against Kingman's approximation",
+     "detail": "Interarrival and service times follow gamma distributions with the stated coefficients of variation. With both CVs equal to 1 and one server the formula is exact (3% tolerance). Otherwise it is an approximation, most accurate at high utilisation: results must be within 20% and the actual gap is shown.",
+     "n": 8800000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "a=5, p=4, m=1, CVa=1, CVp=1 (u=0.80): wait in line",
+       "predicted": 16.000000000000004,
+       "simulated": 15.991549591182709,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "a=10, p=9, m=1, CVa=0.5, CVp=0.5 (u=0.90): wait in line",
+       "predicted": 20.250000000000004,
+       "simulated": 18.751233916618325,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "a=10, p=8.5, m=1, CVa=1.5, CVp=0.5 (u=0.85): wait in line",
+       "predicted": 60.20833333333333,
+       "simulated": 62.93305968724963,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "a=10, p=8, m=1, CVa=0.75, CVp=1.25 (u=0.80): wait in line",
+       "predicted": 34.00000000000001,
+       "simulated": 32.57800510365487,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "a=35, p=120, m=4, CVa=1, CVp=1 (u=0.86): wait in line",
+       "predicted": 150.4740974526613,
+       "simulated": 145.4072403438788,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "a=4, p=10, m=3, CVa=1.2, CVp=0.8 (u=0.83): wait in line",
+       "predicted": 14.903428793385883,
+       "simulated": 15.495837141439969,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "kingman"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "queue-probabilities",
+   "name": "Queue Probabilities: Waiting and Number in System",
+   "cat": "queue",
+   "claim": "State probabilities and the probability of waiting match their long-run frequencies in simulation.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Single mechanic",
+     "Two mechanics"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 40828,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "PmoreK falls when k rises",
+     "PwaitT falls when t rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "M/M/1 shortcuts hold"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated the multi-server queue as a Markov chain, 1,500,000 events per case",
+     "detail": "The number in the system was simulated as a continuous-time Markov chain (arrivals at rate \u03bb, departures at rate min(n, s)\u00b7\u03bc). State probabilities are the share of simulated time spent in each state.",
+     "n": 6000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "\u03bb=2.0, \u03bc=3.0, s=2: average number in line Lq",
+       "predicted": 0.08333333333333331,
+       "simulated": 0.08310139709903122,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.04166666666666666,
+       "simulated": 0.04155069854951561,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.16666666666666666,
+       "simulated": 0.16703162672973035,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.5000000000000001,
+       "simulated": 0.50037458456416,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 2 in system",
+       "predicted": 0.11111111111111113,
+       "simulated": 0.1114357322942386,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 2 in system",
+       "predicted": 0.05555555555555536,
+       "simulated": 0.05559589443549178,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=40.0, \u03bc=15.0, s=3: average number in line Lq",
+       "predicted": 6.380062305295946,
+       "simulated": 6.516070771171079,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.15950155763239865,
+       "simulated": 0.16290176927927696,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.7975077881619937,
+       "simulated": 0.799473417403454,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.028037383177570107,
+       "simulated": 0.02781054558112071,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 5 in system",
+       "predicted": 0.07001440115551112,
+       "simulated": 0.06958167364894789,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 5 in system",
+       "predicted": 0.5601152092440889,
+       "simulated": 0.5640016154659111,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=18.0, \u03bc=4.0, s=6: average number in line Lq",
+       "predicted": 1.264956227417489,
+       "simulated": 1.2459028366457932,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.07027534596763828,
+       "simulated": 0.06921682425809962,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.4216520758058297,
+       "simulated": 0.41872412033014433,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.009140115108324645,
+       "simulated": 0.009339071956420942,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 7 in system",
+       "predicted": 0.07905976421359306,
+       "simulated": 0.07870998720204933,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 7 in system",
+       "predicted": 0.2371792926407792,
+       "simulated": 0.2346513564313976,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "\u03bb=2.0, \u03bc=3.0, s=1: average number in line Lq",
+       "predicted": 1.333333333333333,
+       "simulated": 1.3439140803210903,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   average wait in line Wq (= Lq / \u03bb)",
+       "predicted": 0.6666666666666665,
+       "simulated": 0.6719570401605451,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   probability a customer waits (all servers busy)",
+       "predicted": 0.6666666666666666,
+       "simulated": 0.6672877676355387,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability the system is empty P0",
+       "predicted": 0.3333333333333333,
+       "simulated": 0.33271223236446157,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of exactly 3 in system",
+       "predicted": 0.0987654320987654,
+       "simulated": 0.09848580370261095,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   probability of more than 3 in system",
+       "predicted": 0.19753086419753085,
+       "simulated": 0.1990696577720106,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "M/M/1 \u03bb=2, \u03bc=3: probability the wait exceeds 0.5",
+       "predicted": 0.4043537731417556,
+       "simulated": 0.4053935,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "mms",
+      "queue-probabilities"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "xbar-r-chart",
+   "name": "X-bar and R Control Charts",
+   "cat": "quality",
+   "claim": "With an in-control normal process, about 0.27% of sample means fall outside the X-bar limits in simulation.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Bottling line from summaries",
+     "Raw measurements"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 75397,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 16,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "constant data gives zero-width limits",
+     "flags an obvious outlier sample",
+     "rejects ragged samples and unsupported sizes"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Control chart factors rebuilt from first principles, and false-alarm rate of an in-control process",
+     "detail": "d2 comes from numerical integration of the range distribution and d3 from 3,000,000 simulated samples per subgroup size; A2, D3 and D4 follow from them and must match the built-in table to rounding. Then limits were computed from 2,000 in-control samples and applied to 400,000 fresh ones: about 0.27% should fall outside.",
+     "n": 73200000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "largest gap, A2 table vs 3/(d2\u00b7\u221an)",
+       "predicted": 0.0,
+       "simulated": 0.00047262441720546944,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "largest gap, d2 table vs numerical integration",
+       "predicted": 0.0,
+       "simulated": 0.0004945383296521833,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "largest gap, D3 table vs simulated",
+       "predicted": 0.0,
+       "simulated": 0.0008837066752236805,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "largest gap, D4 table vs simulated",
+       "predicted": 0.0,
+       "simulated": 0.001717321976669517,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "rows where the engine table differs from the independently typed table",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "n=4: share of in-control sample means outside the limits (%)",
+       "predicted": 0.27,
+       "simulated": 0.244,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "n=5: share of in-control sample means outside the limits (%)",
+       "predicted": 0.27,
+       "simulated": 0.20850000000000002,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "n=8: share of in-control sample means outside the limits (%)",
+       "predicted": 0.27,
+       "simulated": 0.28125,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "xbar-r-chart"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p-chart",
+   "name": "p-Chart (Fraction Defective)",
+   "cat": "quality",
+   "claim": "With a stable defect rate, sample proportions fall inside the 3-sigma limits at the rate the binomial distribution predicts.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Data entry errors",
+     "Small samples"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 46724,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "limits stay within 0 and 1",
+     "rejects more defectives than the sample size"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated stable attribute processes against exact binomial and Poisson tail probabilities",
+     "detail": "Limits were computed by the engine from the first 400 samples, then 1,000,000 simulated samples were classified. The share outside is compared with the exact binomial or Poisson probability for those limits.",
+     "n": 6000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "p-chart n=100, p=0.04: share of samples outside the limits (%)",
+       "predicted": 0.2238545907469103,
+       "simulated": 0.22190000000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   centre line vs true defect rate",
+       "predicted": 0.04,
+       "simulated": 0.041925,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "p-chart n=50, p=0.05: share of samples outside the limits (%)",
+       "predicted": 0.3188343222297589,
+       "simulated": 0.3143,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   centre line vs true defect rate",
+       "predicted": 0.05,
+       "simulated": 0.05105,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "p-chart n=200, p=0.1: share of samples outside the limits (%)",
+       "predicted": 0.34009381925165616,
+       "simulated": 0.34359999999999996,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   centre line vs true defect rate",
+       "predicted": 0.1,
+       "simulated": 0.100675,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "c-chart mean 6: share of periods outside the limits (%)",
+       "predicted": 0.36284927387227806,
+       "simulated": 0.3569,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "c-chart mean 13: share of periods outside the limits (%)",
+       "predicted": 0.40034103307017593,
+       "simulated": 0.3966,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "c-chart mean 25: share of periods outside the limits (%)",
+       "predicted": 0.26220609107352594,
+       "simulated": 0.2572,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "p-chart",
+      "c-chart"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c-chart",
+   "name": "c-Chart (Count of Defects)",
+   "cat": "quality",
+   "claim": "For Poisson counts, the share of points outside the 3-sigma limits matches the Poisson tail probabilities.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Cab complaints",
+     "Fabric flaws"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 20240,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated stable attribute processes against exact binomial and Poisson tail probabilities",
+     "detail": "Limits were computed by the engine from the first 400 samples, then 1,000,000 simulated samples were classified. The share outside is compared with the exact binomial or Poisson probability for those limits.",
+     "n": 6000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "p-chart n=100, p=0.04: share of samples outside the limits (%)",
+       "predicted": 0.2238545907469103,
+       "simulated": 0.22190000000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   centre line vs true defect rate",
+       "predicted": 0.04,
+       "simulated": 0.041925,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "p-chart n=50, p=0.05: share of samples outside the limits (%)",
+       "predicted": 0.3188343222297589,
+       "simulated": 0.3143,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   centre line vs true defect rate",
+       "predicted": 0.05,
+       "simulated": 0.05105,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "p-chart n=200, p=0.1: share of samples outside the limits (%)",
+       "predicted": 0.34009381925165616,
+       "simulated": 0.34359999999999996,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   centre line vs true defect rate",
+       "predicted": 0.1,
+       "simulated": 0.100675,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "c-chart mean 6: share of periods outside the limits (%)",
+       "predicted": 0.36284927387227806,
+       "simulated": 0.3569,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "c-chart mean 13: share of periods outside the limits (%)",
+       "predicted": 0.40034103307017593,
+       "simulated": 0.3966,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "c-chart mean 25: share of periods outside the limits (%)",
+       "predicted": 0.26220609107352594,
+       "simulated": 0.2572,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "p-chart",
+      "c-chart"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "process-capability",
+   "name": "Process Capability (Cp and Cpk)",
+   "cat": "quality",
+   "claim": "The predicted out-of-spec rate matches the share of simulated normal output beyond the specification limits.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Centered process",
+     "Off-center process"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 8,
+    "passed": 8,
+    "titles": [
+     "cp falls when sigma rises",
+     "cp rises when usl rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "Cpk equals Cp when centered and is lower otherwise",
+     "a centered Cp of 1 leaves 2,700 ppm out of spec; Cp of 2 leaves 0.002 ppm",
+     "rejects reversed limits and zero sigma"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 5,000,000 units of normal output per case",
+     "detail": "Normal output was generated and compared unit by unit with the specification limits (capability) or scored with the quadratic loss (Taguchi).",
+     "n": 25000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Cpk=0.67: defects per million",
+       "predicted": 22751.66257491554,
+       "simulated": 22645.0,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Cpk=1.00: defects per million",
+       "predicted": 2699.796063260218,
+       "simulated": 2719.2000000000003,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Cpk=0.61: defects per million",
+       "predicted": 34656.43095502664,
+       "simulated": 34660.4,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Taguchi expected loss per unit, \u03bc=10.1, \u03c3=0.2",
+       "predicted": 3.9999999999999947,
+       "simulated": 3.99998821439781,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Taguchi expected loss per unit, \u03bc=50.6, \u03c3=1.3",
+       "predicted": 23.06250000000002,
+       "simulated": 23.061940135585186,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "process-capability",
+      "taguchi-loss"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dpmo-sigma",
+   "name": "DPMO and Sigma Level",
+   "cat": "quality",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Invoice errors",
+     "Six sigma benchmark"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "dpmo rises when defects rises",
+     "dpmo falls when units rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "standard sigma conversions",
+     "rejects more defects than opportunities"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "cost-of-quality",
+   "name": "Cost of Quality",
+   "cat": "quality",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Mid-size manufacturer",
+     "Service firm"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "total rises when internal rises",
+     "pctSales falls when sales rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "taguchi-loss",
+   "name": "Taguchi Loss Function",
+   "cat": "quality",
+   "claim": "The expected-loss formula matches the average loss over simulated normal output.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Shaft diameter",
+     "Fill weight"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "L rises when C rises",
+     "EL rises when sigma rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "loss is zero at target and equals C at the tolerance limit"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 5,000,000 units of normal output per case",
+     "detail": "Normal output was generated and compared unit by unit with the specification limits (capability) or scored with the quadratic loss (Taguchi).",
+     "n": 25000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "Cpk=0.67: defects per million",
+       "predicted": 22751.66257491554,
+       "simulated": 22645.0,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Cpk=1.00: defects per million",
+       "predicted": 2699.796063260218,
+       "simulated": 2719.2000000000003,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Cpk=0.61: defects per million",
+       "predicted": 34656.43095502664,
+       "simulated": 34660.4,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Taguchi expected loss per unit, \u03bc=10.1, \u03c3=0.2",
+       "predicted": 3.9999999999999947,
+       "simulated": 3.99998821439781,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "Taguchi expected loss per unit, \u03bc=50.6, \u03c3=1.3",
+       "predicted": 23.06250000000002,
+       "simulated": 23.061940135585186,
+       "ok": true,
+       "kind": "rel"
+      }
+     ],
+     "shared": [
+      "process-capability",
+      "taguchi-loss"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mrp-gross-to-net",
+   "name": "MRP Gross-to-Net Requirements",
+   "cat": "mrp",
+   "claim": "Every period satisfies the inventory balance equation and inventory never falls below safety stock.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Lot-for-lot record",
+     "Fixed lots with safety stock"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 74112,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "inventory balance holds every period and stock never falls below safety stock",
+     "no requirements means no orders",
+     "flags past-due releases"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Inventory balance audit and comparison with the optimal (Wagner-Whitin) plan",
+     "detail": "200 random requirement schedules. Each plan was replayed period by period to recompute inventory and cost, and compared with the minimum-cost plan from Wagner-Whitin dynamic programming. The lot-sizing rules are heuristics, so their average gap to the optimum is reported for information.",
+     "n": 1000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "periods where inventory went negative, or recomputed balance or cost differed",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "plans cheaper than the proven optimum (impossible)",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "MRP records that dipped below safety stock after an order, or lost units between receipt and release",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "lot-for-lot: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 45.002277499041526,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "fixed-order-quantity: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 73.28009239754479,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "poq-lot-sizing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 9.94205127903038,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "part-period-balancing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 11.00804831713947,
+       "ok": true,
+       "kind": "info"
+      }
+     ],
+     "shared": [
+      "lot-for-lot",
+      "fixed-order-quantity",
+      "poq-lot-sizing",
+      "part-period-balancing",
+      "mrp-gross-to-net"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lot-for-lot",
+   "name": "Lot-for-Lot Lot Sizing",
+   "cat": "mrp",
+   "claim": "Costs equal an independent period-by-period recomputation from the inventory balance.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Speaker kits",
+     "Eight-week schedule"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 58090,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 8,
+    "passed": true
+   },
+   "properties": {
+    "n": 4,
+    "passed": 4,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "lot sizing identities"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Inventory balance audit and comparison with the optimal (Wagner-Whitin) plan",
+     "detail": "200 random requirement schedules. Each plan was replayed period by period to recompute inventory and cost, and compared with the minimum-cost plan from Wagner-Whitin dynamic programming. The lot-sizing rules are heuristics, so their average gap to the optimum is reported for information.",
+     "n": 1000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "periods where inventory went negative, or recomputed balance or cost differed",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "plans cheaper than the proven optimum (impossible)",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "MRP records that dipped below safety stock after an order, or lost units between receipt and release",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "lot-for-lot: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 45.002277499041526,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "fixed-order-quantity: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 73.28009239754479,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "poq-lot-sizing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 9.94205127903038,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "part-period-balancing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 11.00804831713947,
+       "ok": true,
+       "kind": "info"
+      }
+     ],
+     "shared": [
+      "lot-for-lot",
+      "fixed-order-quantity",
+      "poq-lot-sizing",
+      "part-period-balancing",
+      "mrp-gross-to-net"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fixed-order-quantity",
+   "name": "Fixed Order Quantity (EOQ) Lot Sizing",
+   "cat": "mrp",
+   "claim": "Costs equal an independent period-by-period recomputation from the inventory balance.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Speaker kits with the EOQ",
+     "Eight weeks with a lot of 351"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 59625,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Inventory balance audit and comparison with the optimal (Wagner-Whitin) plan",
+     "detail": "200 random requirement schedules. Each plan was replayed period by period to recompute inventory and cost, and compared with the minimum-cost plan from Wagner-Whitin dynamic programming. The lot-sizing rules are heuristics, so their average gap to the optimum is reported for information.",
+     "n": 1000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "periods where inventory went negative, or recomputed balance or cost differed",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "plans cheaper than the proven optimum (impossible)",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "MRP records that dipped below safety stock after an order, or lost units between receipt and release",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "lot-for-lot: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 45.002277499041526,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "fixed-order-quantity: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 73.28009239754479,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "poq-lot-sizing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 9.94205127903038,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "part-period-balancing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 11.00804831713947,
+       "ok": true,
+       "kind": "info"
+      }
+     ],
+     "shared": [
+      "lot-for-lot",
+      "fixed-order-quantity",
+      "poq-lot-sizing",
+      "part-period-balancing",
+      "mrp-gross-to-net"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "poq-lot-sizing",
+   "name": "Periodic Order Quantity (POQ) Lot Sizing",
+   "cat": "mrp",
+   "claim": "Costs equal an independent period-by-period recomputation from the inventory balance.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Speaker kits",
+     "Eight-week schedule"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 62126,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 10,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Inventory balance audit and comparison with the optimal (Wagner-Whitin) plan",
+     "detail": "200 random requirement schedules. Each plan was replayed period by period to recompute inventory and cost, and compared with the minimum-cost plan from Wagner-Whitin dynamic programming. The lot-sizing rules are heuristics, so their average gap to the optimum is reported for information.",
+     "n": 1000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "periods where inventory went negative, or recomputed balance or cost differed",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "plans cheaper than the proven optimum (impossible)",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "MRP records that dipped below safety stock after an order, or lost units between receipt and release",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "lot-for-lot: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 45.002277499041526,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "fixed-order-quantity: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 73.28009239754479,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "poq-lot-sizing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 9.94205127903038,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "part-period-balancing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 11.00804831713947,
+       "ok": true,
+       "kind": "info"
+      }
+     ],
+     "shared": [
+      "lot-for-lot",
+      "fixed-order-quantity",
+      "poq-lot-sizing",
+      "part-period-balancing",
+      "mrp-gross-to-net"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-period-balancing",
+   "name": "Part-Period Balancing",
+   "cat": "mrp",
+   "claim": "Costs equal an independent recomputation and are compared with the optimal plan from Wagner-Whitin dynamic programming (the rule is a heuristic, so the report shows the average gap).",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Speaker kits",
+     "Eight-week schedule"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 59808,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Inventory balance audit and comparison with the optimal (Wagner-Whitin) plan",
+     "detail": "200 random requirement schedules. Each plan was replayed period by period to recompute inventory and cost, and compared with the minimum-cost plan from Wagner-Whitin dynamic programming. The lot-sizing rules are heuristics, so their average gap to the optimum is reported for information.",
+     "n": 1000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "periods where inventory went negative, or recomputed balance or cost differed",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "plans cheaper than the proven optimum (impossible)",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "MRP records that dipped below safety stock after an order, or lost units between receipt and release",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "lot-for-lot: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 45.002277499041526,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "fixed-order-quantity: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 73.28009239754479,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "poq-lot-sizing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 9.94205127903038,
+       "ok": true,
+       "kind": "info"
+      },
+      {
+       "label": "part-period-balancing: average cost above the optimal plan (%)",
+       "predicted": 0,
+       "simulated": 11.00804831713947,
+       "ok": true,
+       "kind": "info"
+      }
+     ],
+     "shared": [
+      "lot-for-lot",
+      "fixed-order-quantity",
+      "poq-lot-sizing",
+      "part-period-balancing",
+      "mrp-gross-to-net"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aggregate-planning",
+   "name": "Aggregate Planning: Chase vs Level vs Hybrid",
+   "cat": "mrp",
+   "claim": "Each plan meets all demand and its cost equals an independent recomputation from the period-by-period inventory balance.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Roofing supplier",
+     "Four quarters"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 26000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 13,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "level plan with flat demand has no inventory cost; chase has no change cost",
+     "best is the minimum of the three"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Period-by-period replay of each production plan",
+     "detail": "200 random demand plans. Each strategy was rebuilt independently with array arithmetic: level output with cumulative inventory, chase output with rate changes, and a base workforce at minimum demand with the remainder subcontracted. Every plan must meet total demand exactly.",
+     "n": 200,
+     "passed": true,
+     "rows": [
+      {
+       "label": "plans whose cost or ending inventory differed from the replay",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      }
+     ],
+     "shared": [
+      "aggregate-planning"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "landed-cost",
+   "name": "Landed Cost",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Container of housewares",
+     "Duty on CIF value"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 7,
+    "passed": 7,
+    "titles": [
+     "perUnit rises when duty rises",
+     "perUnit rises when freight rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "with no extras equals the unit price",
+     "CIF duty is never below FOB duty"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "center-of-gravity",
+   "name": "Center of Gravity Method",
+   "cat": "logistics",
+   "claim": "The center of gravity minimizes the volume-weighted sum of squared distances (confirmed by brute-force search).",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Four retail stores",
+     "Three plants"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "lies inside the bounding box and moving a point pulls it along",
+     "equal weights give the plain average; zero total weight is rejected"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Numerical minimisation of volume-weighted squared distance",
+     "detail": "200 random sets of 2 to 9 locations. A derivative-free optimiser searched for the point with the lowest volume-weighted sum of squared distances.",
+     "n": 200,
+     "passed": true,
+     "rows": [
+      {
+       "label": "largest distance between the optimiser\u2019s point and the center of gravity",
+       "predicted": 0.0,
+       "simulated": 1.3769280780822377e-06,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "center-of-gravity"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "load-distance",
+   "name": "Load-Distance Method",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Rectilinear distances",
+     "Straight-line distances"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10959,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "factor-rating",
+   "name": "Factor Rating Method",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Theme park site",
+     "Three sites, weights out of 10"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 20000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 10,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "location-break-even",
+   "name": "Location Break-Even Analysis",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Three European sites",
+     "Two sites at low volume"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 23176,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "freight-cost",
+   "name": "Freight Cost per Unit and per CWT",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "LTL shipment",
+     "With surcharges"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 14000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 7,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "total rises when rate rises",
+     "perUnit falls when units rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "cube-utilization",
+   "name": "Cube and Weight Utilization",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Light cartons in a 20-foot container",
+     "Dense cartons"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 4,
+    "passed": 4,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "utilizations never exceed 100% and one limit binds"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "in-transit-inventory",
+   "name": "In-Transit Inventory and Mode Trade-Off",
+   "cat": "logistics",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Truck versus rail",
+     "Air versus ocean"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 28000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 14,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "totalA rises when tA rises",
+     "totalB rises when rB rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "total-cost-of-ownership",
+   "name": "Total Cost of Ownership (TCO)",
+   "cat": "sourcing",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Local versus offshore",
+     "Three bids"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 18002,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "supplier-scorecard",
+   "name": "Weighted Supplier Scorecard",
+   "cat": "sourcing",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Three suppliers",
+     "Two suppliers"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 22000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 11,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "make-vs-buy",
+   "name": "Make vs Buy",
+   "cat": "sourcing",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Below the indifference point",
+     "Above the indifference point"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "indiff rises when Fm rises",
+     "buy rises when Pb rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "costs are equal at the indifference volume"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "price-break-analysis",
+   "name": "Price Break Analysis",
+   "cat": "sourcing",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Just below a break",
+     "Not worth rounding up"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 25044,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "cash-to-cash",
+   "name": "Cash-to-Cash Cycle",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "From the balance sheet",
+     "Negative cycle"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "c2c rises when inv rises",
+     "c2c falls when ap rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "equals DIO + DSO \u2212 DPO from the component calculators"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "dso",
+   "name": "Days Sales Outstanding (DSO)",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Wholesaler",
+     "Manufacturer"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "DSO rises when ar rises",
+     "DSO falls when revenue rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "dpo",
+   "name": "Days Payable Outstanding (DPO)",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Distributor",
+     "Retail chain"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "DPO rises when ap rises",
+     "DPO falls when cogs rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "dupont-roa",
+   "name": "Supply Chain DuPont Model (ROA)",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Mid-size distributor",
+     "Larger firm"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 10000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 5,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "roa falls when inv rises",
+     "roa falls when cogs rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "margin times turnover equals profit over assets"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "perfect-order",
+   "name": "Perfect Order Rate",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Strong components",
+     "All at 90%"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "perfect rises when onTime rises",
+     "perfect rises when docs rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "never exceeds the weakest component; all-perfect is 100%"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "otif",
+   "name": "OTIF (On Time In Full)",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Monthly shipments",
+     "Smaller account"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "otif rises when both rises",
+     "otif falls when total rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "never exceeds either component and rejects inconsistent counts"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "order-fill-rate",
+   "name": "Order, Line, and Unit Fill Rate",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Weekly performance",
+     "Smaller warehouse"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 4,
+    "passed": 4,
+    "titles": [
+     "orderFill rises when ordersFilled rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "bullwhip-ratio",
+   "name": "Bullwhip Ratio",
+   "cat": "finance",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Retailer and its supplier",
+     "Milder amplification"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 12000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "is 1 when orders equal demand, and the square of the std. dev. ratio",
+     "explains constant demand"
+    ]
+   },
+   "simulations": []
+  },
+  {
+   "id": "cpm",
+   "name": "Critical Path Method (CPM)",
+   "cat": "project",
+   "claim": "The project duration equals the longest path found by exhaustive path enumeration.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Paper mill pollution project",
+     "Two critical paths"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 90132,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 9,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "slack is never negative; every critical path activity has zero slack; ES + duration = EF",
+     "a single activity is its own critical path; loops are explained"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Exhaustive path enumeration on 300 random project networks",
+     "detail": "Every start-to-finish path was enumerated by depth-first search and the longest was compared with the reported project duration.",
+     "n": 300,
+     "passed": true,
+     "rows": [
+      {
+       "label": "networks where the longest path differed from the project duration",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      }
+     ],
+     "shared": [
+      "cpm"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pert",
+   "name": "PERT Expected Time and Variance",
+   "cat": "project",
+   "claim": "Expected duration and variance match a Monte Carlo simulation of the project using activity times with the PERT means and variances.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Paper mill project",
+     "Three activities in series"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 118896,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 12,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "no spread means no variance and the CPM answer",
+     "rejects estimates out of order"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Monte Carlo simulation of project completion time, 500,000 runs per case",
+     "detail": "Activity times were drawn with the PERT means and variances and pushed through the network. For a single path the normal approximation is exact (0.5-point tolerance). With parallel paths the textbook method looks only at the critical path, so it is slightly optimistic: the gap is shown and must stay within 8 points.",
+     "n": 1000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "four activities in series: expected duration",
+       "predicted": 19.0,
+       "simulated": 18.998893115574056,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   project variance",
+       "predicted": 6.333333333333333,
+       "simulated": 6.34252820871374,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   expected duration with beta-distributed activity times",
+       "predicted": 19.0,
+       "simulated": 18.99951012940059,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "four activities in series: chance of finishing by 20.5 (%)",
+       "predicted": 72.57468822499267,
+       "simulated": 72.62180000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "four activities in series: chance of finishing by 22.8 (%)",
+       "predicted": 93.3192798731142,
+       "simulated": 93.30460000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "eight-activity network with parallel paths: chance of finishing by 16.0 (%)",
+       "predicted": 71.4624805970913,
+       "simulated": 69.3524,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "eight-activity network with parallel paths: chance of finishing by 18.0 (%)",
+       "predicted": 95.55134941490934,
+       "simulated": 95.3716,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "pert",
+      "pert-probability"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pert-probability",
+   "name": "Probability of Completing by a Deadline",
+   "cat": "project",
+   "claim": "The normal approximation is within a few points of the completion probability from Monte Carlo simulation of the full network.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Paper mill deadline",
+     "Deadline before the expected date"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 8000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 4,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "prob rises when deadline rises",
+     "dueFor rises when target rises",
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "is 50% at the expected time and round-trips the target"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Monte Carlo simulation of project completion time, 500,000 runs per case",
+     "detail": "Activity times were drawn with the PERT means and variances and pushed through the network. For a single path the normal approximation is exact (0.5-point tolerance). With parallel paths the textbook method looks only at the critical path, so it is slightly optimistic: the gap is shown and must stay within 8 points.",
+     "n": 1000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "four activities in series: expected duration",
+       "predicted": 19.0,
+       "simulated": 18.998893115574056,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   project variance",
+       "predicted": 6.333333333333333,
+       "simulated": 6.34252820871374,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "   expected duration with beta-distributed activity times",
+       "predicted": 19.0,
+       "simulated": 18.99951012940059,
+       "ok": true,
+       "kind": "rel"
+      },
+      {
+       "label": "four activities in series: chance of finishing by 20.5 (%)",
+       "predicted": 72.57468822499267,
+       "simulated": 72.62180000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "four activities in series: chance of finishing by 22.8 (%)",
+       "predicted": 93.3192798731142,
+       "simulated": 93.30460000000001,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "eight-activity network with parallel paths: chance of finishing by 16.0 (%)",
+       "predicted": 71.4624805970913,
+       "simulated": 69.3524,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "eight-activity network with parallel paths: chance of finishing by 18.0 (%)",
+       "predicted": 95.55134941490934,
+       "simulated": 95.3716,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "pert",
+      "pert-probability"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crashing",
+   "name": "Project Crashing",
+   "cat": "project",
+   "claim": "The crash cost equals the optimum from an independent linear-programming solver.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "Paper mill: 15 weeks down to 13",
+     "Four activities"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 22031,
+    "mismatches": 0,
+    "tolerance": 1e-06,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "costs nothing when the target is not below the normal duration",
+     "cost rises as the target tightens, down to the fully crashed duration",
+     "explains an impossible target"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Exhaustive enumeration of every crash plan on 80 small projects",
+     "detail": "80 random projects with 3 to 6 activities and whole-period crash limits. Every combination of crash amounts was tried, and the cheapest one that meets the target was compared with the linear-programming answer.",
+     "n": 80,
+     "passed": true,
+     "rows": [
+      {
+       "label": "projects where enumeration found a different minimum cost",
+       "predicted": 0,
+       "simulated": 0,
+       "ok": true,
+       "kind": "count"
+      }
+     ],
+     "shared": [
+      "crashing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "expected-value",
+   "name": "Expected Monetary Value (EMV)",
+   "cat": "decision",
+   "claim": "The alternative with the best EMV earns the best average payoff over simulated repetitions.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "New plant decision",
+     "Three states"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 20907,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 6,
+    "passed": 6,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "EVPI is never negative and EMV never beats perfect information",
+     "a dominant alternative makes information worthless",
+     "rejects probabilities that do not add to 1"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 1,000,000 repetitions of each decision",
+     "detail": "The state of nature was drawn 1,000,000 times. Each alternative was scored by its average payoff; perfect information was scored by always taking the best payoff for the state that occurred.",
+     "n": 3000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "2 states: average payoff of the recommended alternative (share of largest payoff)",
+       "predicted": 0.2,
+       "simulated": 0.2002556,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   alternative with the best simulated average",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "   value of perfect information (share of largest payoff)",
+       "predicted": 0.3,
+       "simulated": 0.30017039999999995,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "3 states: average payoff of the recommended alternative (share of largest payoff)",
+       "predicted": 0.48,
+       "simulated": 0.47989780000000004,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   alternative with the best simulated average",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "   value of perfect information (share of largest payoff)",
+       "predicted": 0.11,
+       "simulated": 0.1099832,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "4 states: average payoff of the recommended alternative (share of largest payoff)",
+       "predicted": 0.3861111111111111,
+       "simulated": 0.3859244444444444,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   alternative with the best simulated average",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "   value of perfect information (share of largest payoff)",
+       "predicted": 0.08333333333333333,
+       "simulated": 0.08344583333333336,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "expected-value",
+      "evpi"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "decision-tree",
+   "name": "Decision Tree",
+   "cat": "decision",
+   "claim": "The rollback value equals the average payoff of the optimal strategy over simulated paths through the tree.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "New plant decision",
+     "Test before launching"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 6000,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 3,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "a one-level tree equals the expected value calculator",
+     "rejects probabilities that do not add to 1 and empty branches"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 1,000,000 passes through a two-stage decision tree",
+     "detail": "The recommended strategy (test first, build only after a positive result) was played 1,000,000 times, along with the two alternatives it beat.",
+     "n": 1000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "average payoff of the recommended strategy",
+       "predicted": 45.4,
+       "simulated": 45.37844,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   \"build now\" earns less",
+       "predicted": 44.0,
+       "simulated": 44.06944,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   \"test, then build regardless\" earns less",
+       "predicted": 41.8,
+       "simulated": 41.8035,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   recommended first move is the best simulated one",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      }
+     ],
+     "shared": [
+      "decision-tree"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evpi",
+   "name": "Expected Value of Perfect Information (EVPI)",
+   "cat": "decision",
+   "claim": "EVPI equals the average gain from knowing the state in advance, over simulated repetitions.",
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "New plant decision",
+     "Three states"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 20973,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 6,
+    "passed": true
+   },
+   "properties": {
+    "n": 3,
+    "passed": 3,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic"
+    ]
+   },
+   "simulations": [
+    {
+     "title": "Simulated 1,000,000 repetitions of each decision",
+     "detail": "The state of nature was drawn 1,000,000 times. Each alternative was scored by its average payoff; perfect information was scored by always taking the best payoff for the state that occurred.",
+     "n": 3000000,
+     "passed": true,
+     "rows": [
+      {
+       "label": "2 states: average payoff of the recommended alternative (share of largest payoff)",
+       "predicted": 0.2,
+       "simulated": 0.2002556,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   alternative with the best simulated average",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "   value of perfect information (share of largest payoff)",
+       "predicted": 0.3,
+       "simulated": 0.30017039999999995,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "3 states: average payoff of the recommended alternative (share of largest payoff)",
+       "predicted": 0.48,
+       "simulated": 0.47989780000000004,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   alternative with the best simulated average",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "   value of perfect information (share of largest payoff)",
+       "predicted": 0.11,
+       "simulated": 0.1099832,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "4 states: average payoff of the recommended alternative (share of largest payoff)",
+       "predicted": 0.3861111111111111,
+       "simulated": 0.3859244444444444,
+       "ok": true,
+       "kind": "abs"
+      },
+      {
+       "label": "   alternative with the best simulated average",
+       "predicted": 2,
+       "simulated": 2,
+       "ok": true,
+       "kind": "count"
+      },
+      {
+       "label": "   value of perfect information (share of largest payoff)",
+       "predicted": 0.08333333333333333,
+       "simulated": 0.08344583333333336,
+       "ok": true,
+       "kind": "abs"
+      }
+     ],
+     "shared": [
+      "expected-value",
+      "evpi"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "decision-criteria",
+   "name": "Maximax, Maximin, and Minimax Regret",
+   "cat": "decision",
+   "claim": null,
+   "passed": true,
+   "examples": {
+    "n": 2,
+    "passed": 2,
+    "titles": [
+     "New plant decision",
+     "Three states"
+    ]
+   },
+   "crosscheck": {
+    "cases": 2000,
+    "comparisons": 75827,
+    "mismatches": 0,
+    "tolerance": 1e-09,
+    "outputs": 16,
+    "passed": true
+   },
+   "properties": {
+    "n": 5,
+    "passed": 5,
+    "titles": [
+     "never throws and always returns finite results or a helpful message",
+     "gives identical numbers under every textbook notation",
+     "is deterministic",
+     "minimax regret is zero when one alternative dominates",
+     "for costs the rules flip"
+    ]
+   },
+   "simulations": []
+  }
+ ]
+}

@@ -72,7 +72,7 @@ export const pert: CalcDef = calc({
   ],
   practice: { ask: ['T', 'variance'], gen: (r) => ({ acts: ['A', 'B', 'C'].map((id, i) => { const m = 3 + Math.floor(r() * 6); return { id, a: m - 1 - Math.floor(r() * 2), m, b: m + 2 + Math.floor(r() * 5), preds: i ? 'ABC'[i - 1] : '' }; }) }), prompt: (v) => `Three activities are done in sequence. Their optimistic, most likely, and pessimistic times are ${v.acts.map((a: any) => `${a.id}: (${a.a}, ${a.m}, ${a.b})`).join(', ')}. Find the expected project duration and its variance.` },
   gen: (r) => ({ acts: genNet(r).map((a) => { const m = 1 + Math.floor(r() * 20); return { ...a, a: Math.max(0, m - Math.floor(r() * m)), m, b: m + Math.floor(r() * 15) }; }) }),
-  uses: ['cpm'], claim: 'For a serial project, the mean and variance match a Monte Carlo simulation with beta-distributed activity times.',
+  uses: ['cpm'], claim: 'Expected duration and variance match a Monte Carlo simulation of the project using activity times with the PERT means and variances.',
 });
 
 export const pertProbability: CalcDef = calc({

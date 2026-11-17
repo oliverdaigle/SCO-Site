@@ -155,7 +155,7 @@ export const ppb: CalcDef = calc({
   ],
   practice: { ask: ['total'], gen: (r) => ({ gross: Array.from({ length: 6 }, () => 10 + Math.floor(r() * 7) * 10), onHand: 0, S: [80, 100, 150][Math.floor(r() * 3)], h: 1 }), prompt: (v, f) => `Requirements over ${v.gross.length} weeks are ${v.gross.join(', ')} with nothing on hand. Setup cost is ${f.money(v.S)} and holding cost is ${f.money(v.h)} per unit per week. Using part-period balancing (closest to EPP), what is the total cost?` },
   gen: (r) => ({ gross: genGross(r), onHand: Math.floor(r() * 100), S: 10 + Math.floor(r() * 300), h: +(0.05 + r() * 4).toFixed(2) }),
-  uses: ['lot-for-lot', 'poq-lot-sizing'], claim: 'Costs equal an independent recomputation, and the plan is never worse than both lot-for-lot and a single order on the test set.',
+  uses: ['lot-for-lot', 'poq-lot-sizing'], claim: 'Costs equal an independent recomputation and are compared with the optimal plan from Wagner-Whitin dynamic programming (the rule is a heuristic, so the report shows the average gap).',
 });
 
 const ROOF = { demand: [900, 700, 800, 1200, 1500, 1100], days: [22, 18, 21, 21, 22, 20] };

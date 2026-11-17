@@ -330,7 +330,7 @@ export const lineBalancing: CalcDef = calc({
   practice: { ask: ['Nmin'], gen: (r) => { const n = 5; const tasks = Array.from({ length: n }, (_, i) => ({ id: 'ABCDE'[i], time: 2 + Math.floor(r() * 8), preds: i === 0 ? '' : 'ABCDE'[Math.floor(r() * i)] })); return { tasks, avail: 480, demand: [40, 48, 60][Math.floor(r() * 3)] }; }, prompt: (v) => `An assembly line has tasks ${v.tasks.map((t: any) => `${t.id} (${t.time} min${t.preds ? ', after ' + t.preds : ''})`).join(', ')}. With ${v.avail} minutes available per day and required output of ${v.demand} units, what is the theoretical minimum number of workstations?` },
   gen: (r) => { const n = 3 + Math.floor(r() * 9); const tasks = Array.from({ length: n }, (_, i) => { const preds: string[] = []; for (let j = 0; j < i; j++) if (r() < 1.4 / Math.max(1, i)) preds.push(`T${j + 1}`); return { id: `T${i + 1}`, time: 1 + Math.floor(r() * 12), preds: preds.join(',') }; }); const maxT = Math.max(...tasks.map((t) => t.time)); const cyc = maxT + Math.floor(r() * 10); return { tasks, avail: 480, demand: +(480 / cyc).toFixed(6) }; },
   uses: ['takt-time', 'cycle-time'],
-  claim: 'Every assignment respects precedence and cycle time, and matches the true minimum station count on small lines checked by exhaustive search.',
+  claim: 'Every assignment respects precedence and cycle time. On small lines the result is compared with the true minimum from exhaustive search (the rule is a heuristic, so the report shows how often it is optimal).',
 });
 
 export const learningCurve: CalcDef = calc({
