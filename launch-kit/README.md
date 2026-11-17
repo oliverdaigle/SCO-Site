@@ -9,7 +9,7 @@ Everything here is written in your voice and ready to post. None of it uses em d
 | `linkedin.md` | Personal launch post | LinkedIn. Add one or two hashtags at the end if you like them. |
 | `tiktok-reels-script.md` | 40-second shot list with voiceover | TikTok, Instagram Reels, YouTube Shorts |
 | `classmate-email.md` | Short email asking classmates to try it and report differences | Course email list or group chat |
-| `demo-video.mp4` | 56-second screen capture of real use, with captions | Product Hunt, LinkedIn, the landing page, Reddit comments |
+| `demo-video.mp4` | 52-second screen capture of real use, with captions | Product Hunt, LinkedIn, the landing page, Reddit comments |
 | `screenshots/` | Five polished screenshots at 2x resolution | Product Hunt gallery, social cards, App directories |
 
 ## Order that tends to work
