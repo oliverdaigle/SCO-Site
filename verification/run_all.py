@@ -51,6 +51,10 @@ def main():
                      simulations=len(sims), simulationsPassed=sum(q['passed'] for q in sims), simulatedTrials=sum(q['n'] for q in sims), withSimulation=sum(1 for c in calcs if c['simulations']), totalTests=len(tests), totalTestsPassed=sum(t['status'] == 'passed' for t in tests)),
         calculators=calcs)
     json.dump(report, open(os.path.join(HERE, 'report.json'), 'w'), indent=1, default=lambda o: o.item() if hasattr(o, 'item') else str(o))
+    # Small summary the app bundles for the Verified badge on every calculator page.
+    slim = {'generated': report['generated'], 'summary': report['summary'], 'calcs': {c['id']: {'x': c['crosscheck']['cases'], 'e': c['examples']['n'], 'p': c['properties']['n'], 's': len(c['simulations']), 'ok': bool(c['passed'])} for c in report['calculators']}}
+    os.makedirs(os.path.join(ROOT, 'src', 'data'), exist_ok=True)
+    json.dump(slim, open(os.path.join(ROOT, 'src', 'data', 'verified-summary.json'), 'w'), separators=(',', ':'), default=lambda o: o.item() if hasattr(o, 'item') else str(o))
     write_md(report)
     s = report['summary']
     print(f"\n{s['passed']}/{s['calculators']} calculators verified | examples {s['examplesPassed']}/{s['examples']} | cross-check {s['crossCases']:,} cases, {s['crossMismatches']} mismatches | properties {s['propertiesPassed']}/{s['properties']} | simulations {s['simulationsPassed']}/{s['simulations']} ({s['simulatedTrials']:,} trials) | {time.time() - t0:.0f}s")

@@ -4,7 +4,7 @@ import type { Mode } from '@lotwise/engine';
 import { liveStreak, useStore } from '@/lib/store';
 import { modeFromPath, swapMode } from '@/lib/routes';
 import { track } from '@/lib/analytics';
-import { DEMO_MODE, BRAND } from '@/platform/env';
+import { DEMO_MODE, HAS_SUPABASE, BRAND } from '@/platform/env';
 import { Link, useNav, usePath } from '@/platform/nav';
 import { Icon, Wordmark } from '../icons';
 import { Switch, Toaster, cx } from '../ui';
@@ -22,6 +22,7 @@ export function Shell({ children }: { children: ReactNode }) {
   const setMode = useStore((s) => s.setMode); const theme = useStore((s) => s.theme); const setTheme = useStore((s) => s.setTheme); const hydrated = useStore((s) => s.hydrated); const user = useStore((s) => s.user); const plan = useStore((s) => s.plan); const setPlan = useStore((s) => s.setPlan); const streak = useStore((s) => s.streak);
   const [cmd, setCmd] = useState(false); const [menu, setMenu] = useState(false); const [mac, setMac] = useState(true);
   useEffect(() => { useStore.persist.rehydrate(); useStore.setState({ hydrated: true }); setMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)); }, []);
+  useEffect(() => { if (!HAS_SUPABASE) return; let off: (() => void) | undefined; let dead = false; import('@/lib/auth').then((m) => m.initAuth()).then((f) => { if (dead) f(); else off = f; }); return () => { dead = true; off?.(); }; }, []);
   useEffect(() => { if (!hydrated) return; document.documentElement.dataset.theme = theme; }, [theme, hydrated]);
   useEffect(() => { if (pathMode) { document.documentElement.dataset.mode = pathMode; if (hydrated && storeMode !== pathMode) setMode(pathMode); } else if (hydrated && storeMode) document.documentElement.dataset.mode = storeMode; }, [pathMode, storeMode, hydrated, setMode]);
   useEffect(() => { const onKey = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); setCmd((c) => !c); } else if (e.key === '/' && !/input|textarea|select/i.test((e.target as HTMLElement)?.tagName ?? '') && !(e.target as HTMLElement)?.isContentEditable) { e.preventDefault(); setCmd(true); } }; window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey); }, []);
