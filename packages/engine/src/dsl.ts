@@ -54,9 +54,12 @@ export function normalViz(mu: number, sigma: number, cut: number, opts: { xlabel
 /** Row and column of a printed z-table for a given z (for "table lookup shown"). */
 export function zLookupText(z: number, p?: number): string {
   if (!Number.isFinite(z)) return 'A 100% service level has no finite z-value: the normal curve never reaches exactly 100%.';
-  const a = Math.abs(z); const row = Math.floor(a * 10 + 1e-9) / 10; const colv = Math.round((a - row) * 100) / 100;
-  const area = normCdf(Math.round(z * 100) / 100);
-  return `Standard normal table: row ${z < 0 ? '-' : ''}${row.toFixed(1)}, column ${colv.toFixed(2)} gives area ${area.toFixed(4)}${p !== undefined ? ` (closest to the target ${p.toFixed(4)})` : ''}. z = ${z.toFixed(2)} to table precision; exact z = ${z.toFixed(4)}.`;
+  const sign = z < 0 ? '-' : ''; const a = Math.abs(z);
+  const cell = (x: number) => { const row = Math.floor(x * 10 + 1e-9) / 10; return `row ${sign}${row.toFixed(1)}, column ${(Math.round((x - row) * 100) / 100).toFixed(2)}`; };
+  const area = (x: number) => normCdf(z < 0 ? -x : x).toFixed(4);
+  if (Math.abs(a * 100 - Math.round(a * 100)) < 1e-6) return `Standard normal table: ${cell(a)} gives area ${area(a)}${p !== undefined ? ` for a target of ${p.toFixed(4)}` : ''}, so z = ${z.toFixed(2)}.`;
+  const lo = Math.floor(a * 100 + 1e-9) / 100, hi = lo + 0.01;
+  return `Standard normal table: ${p !== undefined ? `the target ${p.toFixed(4)}` : 'this value'} falls between z = ${sign}${lo.toFixed(2)} (${cell(lo)}, area ${area(lo)}) and z = ${sign}${hi.toFixed(2)} (area ${area(hi)}). Exact z = ${z.toFixed(4)}.`;
 }
 
 export const calc = (d: CalcDef): CalcDef => d;
