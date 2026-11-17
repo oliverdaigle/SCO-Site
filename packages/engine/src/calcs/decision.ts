@@ -131,10 +131,11 @@ export function rollback(n: TreeNode, s = 1): { value: number; viz: TreeViz; row
   return { value, viz: { id: n.id, type: n.type, label: n.label, value, prob: n.prob, children: kids.map((k, i) => ({ ...k.viz, best: i === bestK })) }, rows: [...kids.flatMap((k) => k.rows), [n.label, n.type === 'chance' ? 'Chance: probability-weighted average' : `Decision: choose "${n.children[bestK].label}"`, value]] };
 }
 export function treeError(n: TreeNode, isRoot = true): string | null {
-  if (!n || typeof n !== 'object') return 'The decision tree is empty.';
-  if (n.type === 'end') return typeof n.payoff !== 'number' || !Number.isFinite(n.payoff) ? `Outcome "${n.label}" needs a payoff.` : null;
-  if (!n.children?.length) return `"${n.label}" needs at least one branch.`;
-  if (n.type === 'chance') { const ps = n.children.map((c) => c.prob ?? NaN); if (ps.some((p) => !(p >= 0 && p <= 1))) return `Every branch of chance node "${n.label}" needs a probability between 0 and 1.`; const t = sum(ps); if (Math.abs(t - 1) > 1e-6) return `Probabilities at "${n.label}" must add to 1. They add to ${Number(t.toFixed(6))}.`; }
+  if (!n || typeof n !== 'object' || !['decision', 'chance', 'end'].includes(n.type)) return isRoot ? 'The decision tree is empty. Add a decision or chance node to start.' : 'A branch of the tree is incomplete.';
+  const name = n.label || 'This node';
+  if (n.type === 'end') return typeof n.payoff !== 'number' || !Number.isFinite(n.payoff) ? `Outcome "${name}" needs a payoff.` : null;
+  if (!n.children?.length) return `"${name}" needs at least one branch.`;
+  if (n.type === 'chance') { const ps = n.children.map((c) => c.prob ?? NaN); if (ps.some((p) => !(p >= 0 && p <= 1))) return `Every branch of chance node "${name}" needs a probability between 0 and 1.`; const t = sum(ps); if (Math.abs(t - 1) > 1e-6) return `Probabilities at "${name}" must add to 1. They add to ${Number(t.toFixed(6))}.`; }
   for (const c of n.children) { const e = treeError(c, false); if (e) return e; }
   return null;
 }

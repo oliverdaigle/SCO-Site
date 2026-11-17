@@ -211,7 +211,7 @@ export const bullwhip: CalcDef = calc({
   formula: () => `${tx('Bullwhip')} = ${fr('\\sigma^2_{orders}', '\\sigma^2_{demand}')}`,
   inputs: [series('demand', { label: 'Demand received each period', blabel: 'Customer demand each period', def: [100, 110, 90, 105, 95], minRows: 2, cues: ['demand', 'sales'] }), series('orders', { label: 'Orders placed each period', blabel: 'What you ordered from suppliers each period', def: [100, 130, 70, 115, 85], minRows: 2, cues: ['orders', 'orders placed'] })],
   outputs: [out('ratio', 'Bullwhip ratio (variance)', { primary: true, dp: 3 }), out('sdRatio', 'Ratio of standard deviations', { dp: 3 }), out('varD', 'Variance of demand', { dp: 2 }), out('varO', 'Variance of orders', { dp: 2 }), out('cvD', 'CV of demand', { dp: 3 }), out('cvO', 'CV of orders', { dp: 3 })],
-  check: (v) => (stdev(v.demand) === 0 ? 'Demand does not vary at all, so the ratio is undefined (division by zero). Any variation in orders is pure amplification.' : null),
+  check: (v) => (stdev(v.demand) === 0 ? 'Demand does not vary at all, so the ratio cannot be computed (it would divide by zero). Any variation in orders is pure amplification.' : null),
   compute: (v) => { const sd = stdev(v.demand), so = stdev(v.orders); return { varD: sd * sd, varO: so * so, ratio: (so * so) / (sd * sd), sdRatio: so / sd, cvD: sd / mean(v.demand), cvO: so / mean(v.orders) }; },
   steps: (v, o, c) => [
     { title: 'Variance of demand', tex: `\\sigma^2_{demand} = ${fr('\\sum (D_t - \\bar{D})^2', 'n - 1')} = ${c.f.t(o.varD, 2)}`, why: 'Sample variance of what customers actually bought.' },

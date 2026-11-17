@@ -176,7 +176,7 @@ export const seasonalIndices: CalcDef = calc({
   inputs: [dataIn([100, 150, 200, 150, 120, 170, 230, 160], { label: 'Demand by season (oldest first, whole years)', minRows: 2 }), int('m', { sym: 'm', label: 'Seasons per year', blabel: 'Periods in one cycle (4 = quarters, 12 = months)', def: 4, min: 2, max: 52, cues: ['seasons', 'quarters', 'quarterly', 'monthly'] }),
     num('nextTotal', { label: 'Total demand forecast for next year', blabel: 'Total you expect to sell next year', def: 720, min: 0, sens: true, cues: ['next year', 'annual demand of', 'total demand', 'forecast annual'] })],
   outputs: [out('peak', 'Highest seasonal index', { primary: true, dp: 3 }), out('low', 'Lowest seasonal index', { dp: 3 }), out('overall', 'Average demand per season', {}), out('peakSeason', 'Peak season number', { fmt: 'int' })],
-  check: (v) => (v.data.length < v.m ? `Enter at least one full year (${v.m} values).` : v.data.length % v.m !== 0 ? `The data must cover whole years: ${v.data.length} values is not a multiple of ${v.m}.` : mean(v.data) === 0 ? 'Average demand is zero, so seasonal indices are undefined.' : null),
+  check: (v) => (v.data.length < v.m ? `Enter at least one full year (${v.m} values).` : v.data.length % v.m !== 0 ? `The data must cover whole years: ${v.data.length} values is not a multiple of ${v.m}.` : mean(v.data) === 0 ? 'Average demand is zero, so seasonal indices cannot be computed.' : null),
   compute: (v) => {
     const a = v.data as number[], m = v.m, years = a.length / m; const avg = Array.from({ length: m }, (_, s) => mean(Array.from({ length: years }, (_, y) => a[y * m + s]))); const overall = mean(a); const idx = avg.map((x) => x / overall); const base = v.nextTotal / m;
     let pk = 0; idx.forEach((x, i) => { if (x > idx[pk]) pk = i; });
@@ -342,7 +342,7 @@ export const mape: CalcDef = calc({
   symptoms: ['forecast accuracy percentage', 'compare forecast accuracy across products', 'how accurate in percent'],
   formula: (s) => `MAPE = ${fr(`100`, 'n')} \\sum ${fr(`|${s.At} - ${s.Ft}|`, s.At)}`,
   inputs: accIns(), outputs: [out('MAPE', 'MAPE', { primary: true, fmt: 'pct', dp: 2 }), out('accuracy', 'Forecast accuracy (100% − MAPE)', { fmt: 'pct', dp: 2 }), out('MAD', 'MAD', { dp: 3 })],
-  check: (v) => accCheck(v) ?? ((v.actual as number[]).some((a) => a === 0) ? 'MAPE divides by actual demand, so a period with zero actual demand makes it undefined. Remove that period or use MAD instead.' : null),
+  check: (v) => accCheck(v) ?? ((v.actual as number[]).some((a) => a === 0) ? 'MAPE divides by actual demand, so it cannot be computed when a period has zero actual demand. Remove that period or use MAD instead.' : null),
   compute: (v) => { const o = accCompute(v); return { ...o, accuracy: 100 - o.MAPE }; },
   steps: (v, o, c) => [
     { title: 'Absolute percent error for each period', why: 'Divide each absolute error by that period’s actual demand.', table: accTable(v, o, c.f), eli: 'Being off by 10 matters a lot if you sell 20, and barely at all if you sell 2,000. Percentages make that fair.' },

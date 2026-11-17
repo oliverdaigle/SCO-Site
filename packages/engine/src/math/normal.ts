@@ -84,6 +84,7 @@ export function lossG(z: number): number {
 /** Inverse of the loss function: find z with G(z) = g (G is strictly decreasing). */
 export function lossInv(g: number): number {
   if (!(g > 0)) return Infinity;
+  if (g > 30) return -g; // far left tail: G(z) = -z to machine precision
   let lo = -40, hi = 40;
   for (let i = 0; i < 200; i++) {
     const mid = (lo + hi) / 2;
