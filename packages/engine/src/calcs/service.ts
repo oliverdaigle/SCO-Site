@@ -1,5 +1,5 @@
 // Inventory under uncertainty: reorder points, safety stock, service levels, newsvendor, review policies, pooling.
-import { calc, num, money, pct, int, sel, out, rate, dur, sdT, zModeInput, zLookupText, normalViz, sawtooth, fr, sq, tx } from '../dsl';
+import { calc, num, money, pct, int, sel, out, rate, dur, sdT, holdingInputs, getH, zModeInput, zLookupText, normalViz, sawtooth, fr, sq, tx } from '../dsl';
 import { normCdf, normInv, lossG, lossInv, zFor } from '../math/normal';
 import { periodsPerYear } from '../units';
 import type { CalcDef, Ctx, InputDef, Step, Vals } from '../types';
@@ -53,7 +53,7 @@ export const ssDemand: CalcDef = calc({
   symptoms: ['i keep running out of stock', 'stockouts', 'sales are unpredictable', 'how much buffer', 'demand is variable'],
   formula: (s) => `${s.ss} = z \\, ${s.sigd} ${sq(s.L)}`,
   basis: { from: 'd' },
-  inputs: [dIn({ def: 15 }), sdIn({ def: 5 }), LIn({ def: 2 }), slIn({ def: 90 }),
+  inputs: [dIn({ def: 15 }), sdIn({ def: 5, time: { ...sdT('day'), unless: ['sdGiven', 'leadtime'] } }), LIn({ def: 2 }), slIn({ def: 90 }),
     sel('sdGiven', 'Standard deviation is for', [['period', 'One period (scale by √L)'], ['leadtime', 'The whole lead time (use as is)']], 'period', { adv: true, help: 'Some problems give σ of demand during the lead time directly. Then do not multiply by √L again.' }), zModeInput()],
   outputs: [out('ss', 'Safety stock', { sym: 'ss', unit: 'units', primary: true }), out('ROP', 'Reorder point', { sym: 'ROP', unit: 'units' }), out('z', 'z-value', { sym: 'z', dp: 4 }), out('sigLT', 'Std. dev. of demand during lead time', { sym: 'sigdLT', unit: 'units' }), out('dlt', 'Average demand during lead time', { unit: 'units' })],
   check: slCheck,
@@ -198,7 +198,7 @@ export const fillRate: CalcDef = calc({
     const dlt = v.d * v.L, sigLT = v.sd * Math.sqrt(v.L);
     if (v.solve === 'ss') { const ESC = v.Q * (1 - v.target / 100); const G = ESC / sigLT; const z = lossInv(G); const ss = z * sigLT; return { dlt, sigLT, ESC, G, z, ss, ROPout: dlt + ss, fillRate: v.target, CSL: normCdf(z) * 100 }; }
     const ss = v.ROP - dlt, z = ss / sigLT, G = lossG(z), ESC = sigLT * G;
-    return { dlt, sigLT, ss, z, G, ESC, ROPout: v.ROP, fillRate: (1 - ESC / v.Q) * 100, CSL: normCdf(z) * 100 };
+    return { dlt, sigLT, ss, z, G, ESC, ROPout: v.ROP, fillRate: Math.max(0, 1 - ESC / v.Q) * 100, CSL: normCdf(z) * 100 };
   },
   steps: (v, o, c) => v.solve === 'ss' ? [
     { title: 'Allowed shortage per cycle', tex: `${c.s.ESC} = (1 - ${c.s.fr}) ${c.s.Q} = (1 - ${c.f.t(v.target / 100, 4)})(${c.f.t(v.Q)}) = ${c.f.t(o.ESC)}`, why: 'A fill rate target says what fraction of each order cycle\'s demand may go unfilled.' },
@@ -210,7 +210,7 @@ export const fillRate: CalcDef = calc({
     { title: 'Safety stock and z', tex: `${c.s.ss} = ${c.s.ROP} - ${c.s.d}${c.s.L} = ${c.f.t(o.ss)}, \\quad z = ${fr(c.s.ss, c.s.sigdLT)} = ${c.f.t(o.z, 4)}`, why: 'Express the buffer in standard deviations.' },
     { title: 'Unit normal loss function', tex: `${c.s.G} = \\phi(z) - z\\,[1 - \\Phi(z)] = ${c.f.t(o.G, 4)}`, lookup: `Unit normal loss table: z = ${o.z.toFixed(2)} gives ${lossG(Math.round(o.z * 100) / 100).toFixed(4)} (exact z gives ${o.G.toFixed(4)}).`, why: 'The loss function gives the expected number of standard deviations by which demand exceeds the reorder point.', eli: 'This table answers: when I do run out, how badly, on average?' },
     { title: 'Expected shortage per cycle', tex: `${c.s.ESC} = ${c.s.sigdLT} \\, ${c.s.G} = ${c.f.t(o.sigLT)} \\times ${c.f.t(o.G, 4)} = ${c.f.t(o.ESC)} ${tx(' units')}`, why: 'Scale the standardized shortage back to units.' },
-    { title: 'Fill rate', tex: `${c.s.fr} = 1 - ${fr(c.s.ESC, c.s.Q)} = 1 - ${fr(c.f.t(o.ESC), c.f.t(v.Q))} = ${c.f.t(o.fillRate / 100, 4)}`, why: 'Each cycle serves Q units of demand on average. The fraction not short is the fill rate.', eli: 'Of every 100 units customers want, this many are on the shelf when they ask.' },
+    { title: 'Fill rate', tex: `${c.s.fr} = 1 - ${fr(c.s.ESC, c.s.Q)} = 1 - ${fr(c.f.t(o.ESC), c.f.t(v.Q))} = ${c.f.t(o.fillRate / 100, 4)}`, why: `Each cycle serves Q units of demand on average. The fraction not short is the fill rate.${o.ESC > v.Q ? ' Here the expected shortage is larger than the order quantity, which means the reorder point is far below lead-time demand and almost nothing is filled from stock, so the fill rate is reported as 0%.' : ''}`, eli: 'Of every 100 units customers want, this many are on the shelf when they ask.' },
   ],
   biz: (v, o, f) => v.solve === 'ss'
     ? { headline: `To fill ${f.pct(v.target)} of demand from stock, keep ${f.int(Math.ceil(o.ss))} units of safety stock.`, meaning: [`Reorder at ${f.int(Math.ceil(o.ROPout))} units.`, `You will be short about ${f.num(o.ESC, 1)} units per order cycle on average.`, `Stockouts happen in ${f.pct(100 - o.CSL)} of cycles, but each one is small.`], actions: ['Use this reorder point if what you care about is units delivered, not the number of stockout events.', 'Larger order quantities raise fill rate for free, because there are fewer cycles to stock out in.'] }
@@ -318,15 +318,15 @@ export const continuousReview: CalcDef = calc({
   formula: (s) => `${s.Q} = ${sq(fr(`2${s.D}${s.S}`, s.H))}, \\quad s = ${s.d}${s.L} + z\\,${s.sigd}${sq(s.L)}`,
   basis: { from: 'd' },
   inputs: [dIn(), sdIn(), LIn(), money('S', { sym: 'S', label: 'Ordering cost per order', blabel: 'Cost to place one order', def: 50, min: 0.0001, rand: [10, 200, 5], sens: true, cues: ['ordering cost', 'order cost', 'cost per order', 'setup cost'] }),
-    money('H', { sym: 'H', label: 'Holding cost per unit', blabel: 'Cost to hold one unit', def: 7.3, min: 0.0001, time: rate('year'), rand: [1, 30, 0.5], sens: true, cues: ['holding cost', 'carrying cost'] }), slIn(),
+    ...holdingInputs('year', 7.3), slIn(),
     int('daysPerYear', { label: 'Operating days per year', def: 365, min: 1, max: 366, adv: true, cues: ['working days', 'operating days', 'days per year'] }), zModeInput()],
   outputs: [out('s', 'Reorder point', { sym: 'ROP', blabel: 'Reorder when stock falls to', unit: 'units', primary: true }), out('Q', 'Order quantity', { sym: 'Qopt', unit: 'units', primary: true }), out('ss', 'Safety stock', { sym: 'ss', unit: 'units' }), out('z', 'z-value', { dp: 4 }),
     out('avgInv', 'Average inventory', { unit: 'units' }), out('annualCost', 'Annual ordering + holding cost', { fmt: 'money' }), out('fillRate', 'Resulting fill rate', { fmt: 'pct', dp: 2 }), out('N', 'Orders per year', {})],
   check: slCheck,
   compute: (v) => {
-    const ppy = periodsPerYear(v._basis ?? 'day', v.daysPerYear ?? 365); const Q = Math.sqrt((2 * v.d * v.S) / v.H); const z = zFor(v.SL / 100, v.zMode); const sigLT = v.sd * Math.sqrt(v.L); const ss = z * sigLT;
-    const avgInv = Q / 2 + ss; const N = (v.d / Q) * ppy; const annualCost = N * v.S + avgInv * v.H * ppy;
-    return { Q, z, sigLT, ss, s: v.d * v.L + ss, avgInv, N, annualCost, annualD: v.d * ppy, annualH: v.H * ppy, fillRate: sigLT > 0 ? (1 - (sigLT * lossG(z)) / Q) * 100 : 100 };
+    const ppy = periodsPerYear(v._basis ?? 'day', v.daysPerYear ?? 365); const H = getH(v); const Q = Math.sqrt((2 * v.d * v.S) / H); const z = zFor(v.SL / 100, v.zMode); const sigLT = v.sd * Math.sqrt(v.L); const ss = z * sigLT;
+    const avgInv = Q / 2 + ss; const N = (v.d / Q) * ppy; const annualCost = N * v.S + avgInv * H * ppy;
+    return { Q, z, sigLT, ss, s: v.d * v.L + ss, avgInv, N, annualCost, annualD: v.d * ppy, annualH: H * ppy, fillRate: sigLT > 0 ? Math.max(0, 1 - (sigLT * lossG(z)) / Q) * 100 : 100 };
   },
   steps: (v, o, c) => [
     { title: 'Order quantity (EOQ)', tex: `${c.s.Q} = ${sq(fr(`2${c.s.D}${c.s.S}`, c.s.H))} = ${sq(fr(`2(${c.f.t(o.annualD)})(${c.f.t(v.S)})`, c.f.t(o.annualH, 4)))} = ${c.f.t(o.Q)}`, why: 'The order size comes from the EOQ, using annual demand and annual holding cost (any matching period gives the same answer).' },

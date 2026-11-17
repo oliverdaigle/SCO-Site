@@ -140,7 +140,8 @@ export function InputPanel({ def, values, onChange, mode, nota }: { def: CalcDef
     if (i.kind === 'series') return <SeriesField key={i.id} inp={i} value={values[i.id]} onChange={(v) => onChange({ [i.id]: v })} mode={mode} nota={nota} />;
     if (i.kind === 'table') return <TableField key={i.id} inp={i} value={values[i.id]} onChange={(v) => onChange({ [i.id]: v })} mode={mode} nota={nota} />;
     if (i.kind === 'tree') return (<div key={i.id}><FieldLabel inp={i} mode={mode} nota={nota} /><div className="scroll-x mt-1.5 rounded-[10px] border border-line-strong bg-sunken p-2"><div className="min-w-[30rem]"><TreeEditor node={values[i.id]} depth={0} onChange={(n) => onChange({ [i.id]: n })} /></div></div></div>);
-    return <NumberField key={i.id} inp={i} value={values[i.id]} unit={values[i.id + '_u']} onChange={(v) => onChange({ [i.id]: v })} onUnit={(u) => onChange({ [i.id + '_u']: u })} mode={mode} nota={nota} />;
+    const off = i.time?.unless && values[i.time.unless[0]] === i.time.unless[1]; // the unit picker is hidden when the number is used as entered
+    return <NumberField key={i.id} inp={off ? { ...i, time: undefined } : i} value={values[i.id]} unit={values[i.id + '_u']} onChange={(v) => onChange({ [i.id]: v })} onUnit={(u) => onChange({ [i.id + '_u']: u })} mode={mode} nota={nota} />;
   };
   const wide = (i: InputDef) => i.kind === 'table' || i.kind === 'series' || i.kind === 'tree';
   return (

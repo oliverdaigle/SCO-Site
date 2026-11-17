@@ -1,5 +1,5 @@
 // Inventory: order quantity models.
-import { calc, num, money, pct, int, table, col, out, rate, holdingInputs, getH, fr, sq, tx, sawtooth, costCurves, pts } from '../dsl';
+import { calc, sel, num, money, pct, int, table, col, out, rate, holdingInputs, getH, fr, sq, tx, sawtooth, costCurves, pts } from '../dsl';
 import { randStep, pick } from '../math/util';
 import type { CalcDef, Vals } from '../types';
 
@@ -164,18 +164,20 @@ export const quantityDiscount: CalcDef = calc({
   formula: (s) => `${s.TC} = ${s.D}${s.C} + ${fr(s.D, s.Q)}${s.S} + ${fr(s.Q, 2)}${s.I}${s.C}`,
   basis: 'year',
   inputs: [D({ def: 5000 }), money('S', { sym: 'S', label: 'Ordering cost per order', blabel: 'Cost to place one order', def: 49, min: 0.0001, rand: [10, 200, 1], cues: ['ordering cost', 'order cost', 'cost per order'] }),
-    pct('I', { sym: 'I', label: 'Holding rate (% of unit price per year)', blabel: 'Holding cost as % of item price', def: 20, min: 0.0001, max: 1000, time: rate('year'), rand: [10, 35, 1], cues: ['holding cost', 'carrying cost', 'carrying charge', 'percent of'] }),
+    sel('hMode', 'Holding cost given as', [['percent', '% of unit price (changes with each price)'], ['amount', '$ per unit per year (same at every price)']], 'percent', { blabel: 'How do you know your holding cost?', help: 'Most discount problems give holding cost as a percentage of price, so it falls as the price falls. Some give a fixed dollar amount per unit.' }),
+    pct('I', { sym: 'I', label: 'Holding rate (% of unit price per year)', blabel: 'Holding cost as % of item price', def: 20, min: 0.0001, max: 1000, time: rate('year'), rand: [10, 35, 1], show: (v) => v.hMode !== 'amount', cues: ['holding cost', 'carrying cost', 'carrying charge', 'percent of'] }),
+    money('H', { sym: 'H', label: 'Holding cost per unit per year', blabel: 'Cost to hold one unit for a year', def: 1, min: 0.0001, time: rate('year'), rand: [0.5, 20, 0.5], show: (v) => v.hMode === 'amount', cues: ['holding cost per unit', 'carrying cost per unit'] }),
     table('breaks', 'Price schedule', [col('min', 'Minimum order quantity'), col('price', 'Unit price ($)')], defaultBreaks, { minRows: 1, help: 'One row per price tier: the smallest quantity that earns the price, and the price. The first tier normally starts at 0.' })],
   outputs: [
     out('Q', 'Best order quantity', { sym: 'Qopt', unit: 'units', primary: true }), out('price', 'Unit price paid', { fmt: 'money', dp: 2 }),
-    out('TC', 'Total annual cost (incl. purchases)', { sym: 'TC', fmt: 'money' }), out('savings', 'Savings vs staying at the base price', { fmt: 'money' }),
+    out('TC', 'Total annual cost (incl. purchases)', { sym: 'TC', fmt: 'money' }), out('savings', 'Savings vs the best order at the base price', { fmt: 'money' }),
   ],
   check: (v) => { const b = v.breaks as any[]; if (!Array.isArray(b) || !b.length) return 'Add at least one price tier.'; if (b.some((r) => !(r.price > 0))) return 'Every tier needs a price greater than zero.'; return null; },
   compute: (v) => {
     const tiers = [...(v.breaks as { min: number; price: number }[])].map((t) => ({ min: Math.max(0, Number(t.min) || 0), price: Number(t.price) })).sort((a, b) => a.min - b.min);
     const rows = tiers.map((t, i) => {
       const hi = i + 1 < tiers.length ? tiers[i + 1].min : Infinity;
-      const h = (v.I / 100) * t.price; const qs = Math.sqrt((2 * v.D * v.S) / h);
+      const h = v.hMode === 'amount' ? v.H : (v.I / 100) * t.price; const qs = Math.sqrt((2 * v.D * v.S) / h);
       let q = qs, status = 'feasible';
       if (qs < t.min) { q = t.min; status = 'adjusted up'; } else if (qs >= hi) { status = 'infeasible'; }
       q = Math.max(q, 1e-9);
@@ -183,24 +185,26 @@ export const quantityDiscount: CalcDef = calc({
       return { min: t.min, price: t.price, h, qs, q, status, tc };
     });
     let best = 0; rows.forEach((r, i) => { if (r.tc < rows[best].tc) best = i; });
-    const base = rows.find((r) => r.status !== 'infeasible') ?? rows[best];
-    return { Q: rows[best].q, price: rows[best].price, TC: rows[best].tc, tier: best, savings: base.tc - rows[best].tc, tierQ: rows.map((r) => r.q), tierTC: rows.map((r) => (Number.isFinite(r.tc) ? r.tc : -1)), tierQs: rows.map((r) => r.qs), tierStatus: rows.map((r) => r.status) };
+    // Savings are measured against the best you could do without any discount: the first tier's price, ordering its EOQ or, if that EOQ would already earn the next price, the largest whole quantity that still pays the base price.
+    const r0 = rows[0]; const hi0 = rows.length > 1 ? rows[1].min : Infinity; const q0 = Math.max(r0.qs < hi0 ? Math.max(r0.qs, r0.min) : Math.max(r0.min, hi0 - 1), 1e-9);
+    const baseTC = v.D * r0.price + (v.D / q0) * v.S + (q0 / 2) * r0.h;
+    return { Q: rows[best].q, price: rows[best].price, TC: rows[best].tc, tier: best, savings: Math.max(0, baseTC - rows[best].tc), baseQ: q0, baseTC, tierQ: rows.map((r) => r.q), tierTC: rows.map((r) => (Number.isFinite(r.tc) ? r.tc : -1)), tierQs: rows.map((r) => r.qs), tierStatus: rows.map((r) => r.status) };
   },
   steps: (v, o, c) => {
     const tiers = [...(v.breaks as any[])].sort((a, b) => a.min - b.min);
     return [
-      { title: 'Compute an EOQ at each price', tex: `Q^* = ${sq(fr(`2${c.s.D}${c.s.S}`, `${c.s.I}${c.s.C}`))}`, why: 'Holding cost depends on the price paid (H = I × price), so each price tier has its own EOQ. Cheaper tiers have slightly larger EOQs.',
+      { title: 'Compute an EOQ at each price', tex: `Q^* = ${sq(fr(`2${c.s.D}${c.s.S}`, `${c.s.I}${c.s.C}`))}`, why: v.hMode === 'amount' ? 'Holding cost is a fixed amount per unit here, so the EOQ is the same at every price. What changes is which tier that quantity qualifies for.' : 'Holding cost depends on the price paid (H = I × price), so each price tier has its own EOQ. Cheaper tiers have slightly larger EOQs.',
         table: { columns: ['Tier', 'Min qty', 'Price', 'EOQ at this price', 'Status', 'Order qty used'], rows: tiers.map((t, i) => [i + 1, c.f.int(t.min), c.f.money(t.price, 2), c.f.num(o.tierQs[i], 1), o.tierStatus[i], o.tierStatus[i] === 'infeasible' ? 'n/a' : c.f.num(o.tierQ[i], 1)]), highlight: [o.tier] },
         eli: 'For each price the supplier offers, work out the ideal order size as if that were the only price.' },
       { title: 'Adjust each EOQ to qualify for its price', why: 'If the EOQ is below the minimum for the tier, raise it to the minimum (the cheapest quantity that earns the discount). If the EOQ is above the tier range, that tier is not the best place to be, since a lower price already applies.', eli: 'If the ideal size is too small to get that price, bump it up to the smallest order that earns it.' },
       { title: 'Total annual cost for each candidate', tex: `${c.s.TC} = ${c.s.D}${c.s.C} + ${fr(c.s.D, c.s.Q)}${c.s.S} + ${fr(c.s.Q, 2)}${c.s.I}${c.s.C}`, why: 'With price breaks the purchase cost changes with Q, so it must be included in the comparison.',
-        table: { columns: ['Tier', 'Order qty', 'Purchase', 'Ordering', 'Holding', 'Total'], rows: tiers.map((t, i) => o.tierStatus[i] === 'infeasible' ? [i + 1, 'n/a', '', '', '', 'not feasible'] : [i + 1, c.f.num(o.tierQ[i], 1), c.f.money(v.D * t.price), c.f.money((v.D / o.tierQ[i]) * v.S, 2), c.f.money((o.tierQ[i] / 2) * (v.I / 100) * t.price, 2), c.f.money(o.tierTC[i], 2)]), highlight: [o.tier] } },
+        table: { columns: ['Tier', 'Order qty', 'Purchase', 'Ordering', 'Holding', 'Total'], rows: tiers.map((t, i) => o.tierStatus[i] === 'infeasible' ? [i + 1, 'n/a', '', '', '', 'not feasible'] : [i + 1, c.f.num(o.tierQ[i], 1), c.f.money(v.D * t.price), c.f.money((v.D / o.tierQ[i]) * v.S, 2), c.f.money((o.tierQ[i] / 2) * (v.hMode === 'amount' ? v.H : (v.I / 100) * t.price), 2), c.f.money(o.tierTC[i], 2)]), highlight: [o.tier] } },
       { title: 'Pick the lowest total cost', tex: `${c.s.Qopt} = ${c.f.t(o.Q)} ${tx(' units at ')} ${c.f.money(o.price, 2)}, \\quad ${c.s.TC} = ${c.f.money(o.TC, 2)}`, why: 'The best quantity is whichever candidate has the smallest total annual cost.', eli: 'Compare the yearly bills and take the cheapest.' },
     ];
   },
   biz: (v, o, f) => ({
     headline: `Order ${f.int(o.Q)} units at a time at ${f.money(o.price, 2)} each.`,
-    meaning: [`Total yearly cost including purchases is ${f.money(o.TC)}.`, o.savings > 0.005 ? `That saves ${f.money(o.savings)} a year compared with ordering at the base price.` : 'The discount tiers are not worth the extra stock: the base price tier is already cheapest.', `You will place about ${f.num(v.D / o.Q, 1)} orders a year.`],
+    meaning: [`Total yearly cost including purchases is ${f.money(o.TC)}.`, o.savings > 0.005 ? `That saves ${f.money(o.savings)} a year compared with the best you could do at the base price (ordering ${f.int(o.baseQ)} at a time).` : 'The discount tiers are not worth the extra stock: the base price tier is already cheapest.', `You will place about ${f.num(v.D / o.Q, 1)} orders a year.`],
     actions: [o.tier > 0 ? 'Take the discount, and confirm you have the space and cash for the larger order.' : 'Skip the larger order unless the supplier improves the discount.', 'Ask the supplier whether the next tier threshold is negotiable.', 'Recheck if demand drops: discounts stop paying off quickly when volume falls.'],
   }),
   viz: (v, o) => {

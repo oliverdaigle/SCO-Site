@@ -39,13 +39,15 @@ export function releases(receipts: number[], lead: number): { rel: number[]; pas
   return { rel, pastDue };
 }
 
-export interface AggPlan { cost: number; labor: number; holding: number; backorder: number; change: number; sub: number; prod: number[]; inv: number[] }
+export interface AggPlan { cost: number; labor: number; holding: number; backorder: number; change: number; sub: number; prod: number[]; inv: number[]; rate?: number }
 export interface AggInput { demand: number[]; days: number[]; hrs: number; wage: number; hire: number; fire: number; hold: number; back: number; subCost: number; begInv: number; round: boolean }
 export function aggLevel(a: AggInput): AggPlan {
-  const totalDays = a.days.reduce((s, x) => s + x, 0); const rate = (a.demand.reduce((s, x) => s + x, 0) - a.begInv) / totalDays;
+  const totalDays = a.days.reduce((s, x) => s + x, 0); let rate = Math.max(0, (a.demand.reduce((s, x) => s + x, 0) - a.begInv) / totalDays);
+  // With no backorder cost given, shortages are not allowed: use the lowest constant rate that never runs out.
+  if (!(a.back > 0)) { let cd = 0, cdays = 0; a.demand.forEach((d, t) => { cd += d; cdays += a.days[t]; rate = Math.max(rate, (cd - a.begInv) / cdays); }); }
   let inv = a.begInv, holding = 0, backorder = 0, units = 0; const prod: number[] = [], invs: number[] = [];
   a.demand.forEach((d, t) => { const p = rate * a.days[t]; prod.push(p); units += p; inv += p - d; if (Math.abs(inv) < 1e-9) inv = 0; invs.push(inv); if (inv > 0) holding += inv * a.hold; else backorder += -inv * a.back; });
-  const labor = units * a.hrs * a.wage; return { cost: labor + holding + backorder, labor, holding, backorder, change: 0, sub: 0, prod, inv: invs };
+  const labor = units * a.hrs * a.wage; return { cost: labor + holding + backorder, labor, holding, backorder, change: 0, sub: 0, prod, inv: invs, rate };
 }
 export function aggChase(a: AggInput): AggPlan {
   let inv = a.begInv, hire = 0, fire = 0, units = 0, prev = NaN; const prod: number[] = [], invs: number[] = [];

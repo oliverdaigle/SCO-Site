@@ -78,7 +78,7 @@ export function normInv(p: number): number {
 export function lossG(z: number): number {
   if (z === Infinity) return 0;
   if (z === -Infinity) return Infinity;
-  return normPdf(z) - z * (1 - normCdf(z));
+  return Math.max(0, normPdf(z) - z * (1 - normCdf(z))); // floor at 0: far in the tail the subtraction can cancel to a tiny negative
 }
 
 /** Inverse of the loss function: find z with G(z) = g (G is strictly decreasing). */

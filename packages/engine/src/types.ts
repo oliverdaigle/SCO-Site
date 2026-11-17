@@ -19,7 +19,8 @@ export interface InputDef {
   help?: string;
   unit?: string;
   /** Time-dimensioned quantity. rate: per-period amount. dur: a length of time. sd: std dev of a per-period amount (scales with sqrt). */
-  time?: { role: 'rate' | 'dur' | 'sd'; unit: TimeUnit };
+  /** Time dimension. `unless: [inputId, value]` switches the conversion off when that input has that value (the number is then used as entered). */
+  time?: { role: 'rate' | 'dur' | 'sd'; unit: TimeUnit; unless?: [string, string] };
   def: any;
   min?: number; max?: number; step?: number;
   /** Range [lo, hi, step] used for practice problems and randomized cross-checks. */

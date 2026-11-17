@@ -1,6 +1,6 @@
 # Lotwise Verification Report
 
-Generated 2026-11-17 01:31 UTC by `npm run verify`. This file and the public Verified page are built from the same test run (`verification/report.json`).
+Generated 2026-11-17 07:04 UTC by `npm run verify`. This file and the public Verified page are built from the same test run (`verification/report.json`).
 
 ## Result
 
@@ -8,11 +8,11 @@ Generated 2026-11-17 01:31 UTC by `npm run verify`. This file and the public Ver
 
 | Layer | What it checks | Result |
 |---|---|---|
-| 1. Worked examples | Textbook-style problems with known answers, matched to the stated precision | 186 of 186 pass |
-| 2. Independent reference | A separate Python implementation (numpy, scipy, statsmodels) run on randomized inputs | 186,000 cases, 2,333,251 values compared, 0 mismatches |
+| 1. Worked examples | Textbook-style problems with known answers, matched to the stated precision | 187 of 187 pass |
+| 2. Independent reference | A separate Python implementation (numpy, scipy, statsmodels) run on randomized inputs | 186,000 cases, 2,348,859 values compared, 0 mismatches |
 | 3. Simulation proof | Monte Carlo, discrete-event simulation, and brute-force search for every calculator that makes a real-world claim | 30 of 30 suites pass, 146,520,764 simulated trials, covering 42 calculators |
 | Property tests | Monotonicity, limits, identities, edge cases, malformed input | 514 of 514 pass |
-| Catalog tests | Search, wizards reach every calculator, practice problems, problem parser | 54 of 54 pass |
+| Catalog tests | Search, wizards reach every calculator, practice problems, problem parser | 69 of 69 pass |
 
 ## How to read this
 
@@ -30,7 +30,7 @@ Environment: Python 3.13.18, numpy 2.5.3, scipy 1.18.1, statsmodels 0.15.0, Node
 | Economic Order Quantity (EOQ) | 2/2 | 2,000 | 18,000 | 13/13 | pass | Verified |
 | Total Annual Inventory Cost | 2/2 | 2,000 | 18,000 | 6/6 | n/a | Verified |
 | Production Order Quantity (EPQ / POQ) | 2/2 | 2,000 | 20,000 | 7/7 | pass | Verified |
-| Quantity Discount Model (All-Units) | 2/2 | 2,000 | 16,001 | 6/6 | pass | Verified |
+| Quantity Discount Model (All-Units) | 2/2 | 2,000 | 20,001 | 6/6 | pass | Verified |
 | EOQ with Planned Backorders | 2/2 | 2,000 | 18,000 | 8/8 | pass | Verified |
 | Number of Orders per Year | 2/2 | 2,000 | 6,000 | 5/5 | n/a | Verified |
 | Time Between Orders | 2/2 | 2,000 | 6,000 | 5/5 | n/a | Verified |
@@ -55,7 +55,7 @@ Environment: Python 3.13.18, numpy 2.5.3, scipy 1.18.1, statsmodels 0.15.0, Node
 | Exponential Smoothing | 2/2 | 2,000 | 40,981 | 5/5 | pass | Verified |
 | Trend-Adjusted Exponential Smoothing (Holt) | 2/2 | 2,000 | 95,905 | 5/5 | pass | Verified |
 | Seasonal Indices | 2/2 | 2,000 | 40,733 | 5/5 | n/a | Verified |
-| Holt-Winters (Trend and Seasonality) | 2/2 | 2,000 | 36,888 | 5/5 | n/a | Verified |
+| Holt-Winters (Trend and Seasonality) | 3/3 | 2,000 | 48,496 | 5/5 | n/a | Verified |
 | Linear Regression / Trend Projection | 2/2 | 2,000 | 22,000 | 6/6 | pass | Verified |
 | Mean Absolute Deviation (MAD) | 2/2 | 2,000 | 57,592 | 3/3 | n/a | Verified |
 | Mean Squared Error (MSE) | 2/2 | 2,000 | 58,612 | 3/3 | n/a | Verified |

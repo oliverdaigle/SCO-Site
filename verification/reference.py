@@ -18,14 +18,24 @@ def ref(name):
     return deco
 
 # ---------------------------------------------------------------- time units
+def _days_per_week(dpy):
+    """A calendar year has 7-day weeks; a working-day year has 6- or 5-day weeks."""
+    if dpy >= 330: return 7.0
+    if dpy >= 280: return 6.0
+    return 5.0
+
+def _weeks_per_year(dpy):
+    """52 for a calendar year (textbook convention); otherwise operating days / days per week (250 -> 50)."""
+    return 52.0 if dpy >= 330 else dpy / _days_per_week(dpy)
+
 def _per_year(u, dpy):
-    return {'day': dpy, 'week': 52.0, 'month': 12.0, 'year': 1.0}[u]
+    return {'day': dpy, 'week': _weeks_per_year(dpy), 'month': 12.0, 'year': 1.0}[u]
 
 def _periods(frm, to, dpy):
-    """How many `to` periods are in one `frm` period (a week is always 7 days)."""
+    """How many `to` periods are in one `frm` period."""
     if frm == to: return 1.0
-    if frm == 'week' and to == 'day': return 7.0
-    if frm == 'day' and to == 'week': return 1.0 / 7.0
+    if frm == 'week' and to == 'day': return _days_per_week(dpy)
+    if frm == 'day' and to == 'week': return 1.0 / _days_per_week(dpy)
     return _per_year(to, dpy) / _per_year(frm, dpy)
 
 def normalize(schema, raw):
@@ -42,6 +52,8 @@ def normalize(schema, raw):
     for k, t in timed.items():
         x = raw.get(k)
         if not isinstance(x, (int, float)): continue
+        skip = t.get('unless')                      # e.g. a sigma already stated for the whole lead time is used as entered
+        if skip and raw.get(skip[0]) == skip[1]: continue
         u = raw.get(k + '_u') or t['unit']
         if u != basis:
             n = _periods(u, basis, dpy)
@@ -110,23 +122,28 @@ def _epq(v):
 
 @ref('quantity-discount')
 def _qd(v):
-    D, S, rate = v['D'], v['S'], v['I'] / 100.0
+    D, S = v['D'], v['S']
+    fixed = v.get('hMode') == 'amount'            # holding cost as a flat $ per unit, else a % of each tier's price
     tiers = sorted(((max(0.0, float(t['min'])), float(t['price'])) for t in v['breaks']), key=lambda t: t[0])
     rows = []
     for i, (mn, price) in enumerate(tiers):
         hi = tiers[i + 1][0] if i + 1 < len(tiers) else math.inf
-        h = rate * price
+        h = v['H'] if fixed else v['I'] / 100.0 * price
         eoq = math.sqrt(2 * D * S / h)
         if eoq < mn: q, ok = mn, True
         elif eoq >= hi: q, ok = eoq, False
         else: q, ok = eoq, True
         q = max(q, 1e-9)
         tc = D * price + D / q * S + q / 2 * h if ok else math.inf
-        rows.append((q, price, tc, eoq, ok))
+        rows.append((q, price, tc, eoq, ok, h, mn))
     best = min(range(len(rows)), key=lambda i: (rows[i][2], i))
-    feas = [r for r in rows if r[4]]
-    base = feas[0] if feas else rows[best]
-    return dict(Q=rows[best][0], price=rows[best][1], TC=rows[best][2], tier=best, savings=base[2] - rows[best][2], tierQs=[r[3] for r in rows])
+    # no-discount benchmark: stay on the first price, at its EOQ or (if that would earn the next price) one unit below the break
+    _, p0, _, e0, _, h0, mn0 = rows[0]
+    hi0 = tiers[1][0] if len(tiers) > 1 else math.inf
+    q0 = max(e0, mn0) if e0 < hi0 else max(mn0, hi0 - 1)
+    q0 = max(q0, 1e-9)
+    base_tc = D * p0 + D / q0 * S + q0 / 2 * h0
+    return dict(Q=rows[best][0], price=rows[best][1], TC=rows[best][2], tier=best, savings=max(0.0, base_tc - rows[best][2]), baseQ=q0, baseTC=base_tc, tierQs=[r[3] for r in rows])
 
 @ref('backorder-eoq')
 def _bo(v):
@@ -189,7 +206,7 @@ def _fr(v):
     ss = v['ROP'] - mu
     z = ss / s
     g = loss(z)
-    return dict(dlt=mu, sigLT=s, ss=ss, z=z, G=g, ESC=s * g, ROPout=v['ROP'], fillRate=(1 - s * g / v['Q']) * 100, CSL=float(norm.cdf(z)) * 100)
+    return dict(dlt=mu, sigLT=s, ss=ss, z=z, G=g, ESC=s * g, ROPout=v['ROP'], fillRate=max(0.0, 1 - s * g / v['Q']) * 100, CSL=float(norm.cdf(z)) * 100)
 
 @ref('newsvendor')
 def _nv(v):
@@ -214,14 +231,14 @@ def _pr(v):
 @ref('continuous-review')
 def _cr(v):
     ppy = _per_year(v.get('_basis', 'day'), v.get('daysPerYear', 365))
-    d, sd, L, S, H = v['d'], v['sd'], v['L'], v['S'], v['H']
+    d, sd, L, S, H = v['d'], v['sd'], v['L'], v['S'], holding(v)
     Q = math.sqrt(2 * d * S / H)
     z = z_value(v['SL'] / 100, v.get('zMode', 'exact'))
     s = sd * math.sqrt(L)
     ss = z * s
     avg = Q / 2 + ss
     N = d / Q * ppy
-    return dict(Q=Q, z=z, sigLT=s, ss=ss, s=d * L + ss, avgInv=avg, N=N, annualCost=N * S + avg * H * ppy, annualD=d * ppy, annualH=H * ppy, fillRate=(1 - s * loss(z) / Q) * 100 if s > 0 else 100.0)
+    return dict(Q=Q, z=z, sigLT=s, ss=ss, s=d * L + ss, avgInv=avg, N=N, annualCost=N * S + avg * H * ppy, annualD=d * ppy, annualH=H * ppy, fillRate=max(0.0, 1 - s * loss(z) / Q) * 100 if s > 0 else 100.0)
 
 @ref('risk-pooling')
 def _rp(v):
@@ -354,10 +371,35 @@ def _si(v):
 
 @ref('holt-winters')
 def _hw(v):
-    a, m, al, be, ga = v['data'], int(v['m']), v['alpha'], v['beta'], v['gamma']
+    a, m, al, be, ga = [float(x) for x in v['data']], int(v['m']), v['alpha'], v['beta'], v['gamma']
     n = len(a)
+    if v.get('init') == 'regression':
+        # Chopra & Meindl: centered moving average -> regression line -> average seasonal ratios -> update from period 1
+        arr = np.array(a); half = m // 2; ts, ds = [], []
+        for t in range(half, n - half):                       # 0-based centre
+            if m % 2 == 0:
+                w = np.r_[0.5, np.ones(m - 1), 0.5] / m
+                ds.append(float(np.dot(w, arr[t - half:t + half + 1])))
+            else:
+                ds.append(float(arr[t - half:t + half + 1].mean()))
+            ts.append(t + 1)
+        slope, intercept = np.polyfit(np.array(ts, dtype=float), np.array(ds), 1)
+        L0, T0 = float(intercept), float(slope)
+        ratio = arr / (L0 + T0 * np.arange(1, n + 1))
+        S = [float(ratio[i::m].mean()) for i in range(m)]
+        s0 = list(S)
+        L, T, fcl = L0, T0, []
+        for t in range(n):
+            fcl.append((L + T) * S[t])
+            newL = al * a[t] / S[t] + (1 - al) * (L + T)
+            T = be * (newL - L) + (1 - be) * T
+            L = newL
+            S.append(ga * a[t] / L + (1 - ga) * S[t])
+        ahead = [(L + h * T) * S[n + ((h - 1) % m)] for h in range(1, m + 1)]
+        return dict(L0=L0, T0=T0, s0=s0, next=ahead[0], level=L, trend=T, ahead=ahead, fc=fcl, **_acc(_errors(a, fcl, 0)))
     L = sum(a[:m]) / m
     T = (sum(a[m:2 * m]) / m - L) / m
+    L0, T0 = L, T
     S = {i: a[i] / L for i in range(m)}
     fc = {}
     for t in range(m, n):
@@ -368,7 +410,7 @@ def _hw(v):
         S[t] = ga * (a[t] / L) + (1 - ga) * S[t - m]
     ahead = [(L + h * T) * S[n - m + ((h - 1) % m)] for h in range(1, m + 1)]
     fcl = [None] * m + [fc[t] for t in range(m, n)]
-    return dict(next=ahead[0], level=L, trend=T, ahead=ahead, fc=fcl[m:], **_acc(_errors(a, fcl, m)))
+    return dict(L0=L0, T0=T0, s0=[a[i] / L0 for i in range(m)], next=ahead[0], level=L, trend=T, ahead=ahead, fc=fcl[m:], **_acc(_errors(a, fcl, m)))
 
 @ref('linear-regression')
 def _lr(v):
@@ -510,13 +552,14 @@ def _mmsc(v):
     q = _mms(lam, mu, s)
     cw, cs = v.get('cw', 0) or 0, v.get('cs', 0) or 0
     best_s = s
+    key = 'Lq' if v.get('costOn') == 'queue' else 'Ls'    # which customers the waiting cost is charged on
     if cw > 0 and cs > 0:
         best = math.inf
         s0 = int(math.floor(lam / mu)) + 1
         for k in range(s0, s0 + 61):
-            c = cs * k + cw * _mms(lam, mu, k)['Ls']
+            c = cs * k + cw * _mms(lam, mu, k)[key]
             if c < best - 1e-12: best, best_s = c, k
-    q.update(cost=cs * s + cw * q['Ls'], sBest=best_s)
+    q.update(cost=cs * s + cw * q[key], sBest=best_s)
     return q
 
 @ref('md1')
@@ -683,7 +726,9 @@ def _agg(v):
     hrs, wage, hire, fire, hold, back, sub, beg = v['hrs'], v['wage'], v['hire'], v['fire'], v['hold'], v.get('back', 0) or 0, v['subCost'], v.get('begInv', 0) or 0
     rnd = v.get('roundRates') != 'no'
     # level
-    rate = (sum(dem) - beg) / sum(days)
+    rate = max(0.0, (sum(dem) - beg) / sum(days))
+    if not back > 0:                         # shortages not allowed: smallest constant rate covering cumulative demand
+        rate = max([rate] + [(float(np.sum(dem[:t + 1])) - beg) / float(np.sum(days[:t + 1])) for t in range(len(dem))])
     inv, lh, lb, units = beg, 0.0, 0.0, 0.0
     for d, dy in zip(dem, days):
         p = rate * dy; units += p; inv += p - d

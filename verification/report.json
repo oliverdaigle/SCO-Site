@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17 01:31 UTC",
+ "generated": "2026-11-17 07:04 UTC",
  "environment": {
   "python": "3.13.18",
   "numpy": "2.5.3",
@@ -10,21 +10,21 @@
  "summary": {
   "calculators": 93,
   "passed": 93,
-  "examples": 186,
-  "examplesPassed": 186,
+  "examples": 187,
+  "examplesPassed": 187,
   "crossCases": 186000,
-  "crossComparisons": 2333251,
+  "crossComparisons": 2348859,
   "crossMismatches": 0,
   "properties": 514,
   "propertiesPassed": 514,
-  "otherTests": 54,
-  "otherTestsPassed": 54,
+  "otherTests": 69,
+  "otherTestsPassed": 69,
   "simulations": 30,
   "simulationsPassed": 30,
   "simulatedTrials": 146520764,
   "withSimulation": 42,
-  "totalTests": 847,
-  "totalTestsPassed": 847
+  "totalTests": 863,
+  "totalTestsPassed": 863
  },
  "calculators": [
   {
@@ -211,10 +211,10 @@
    },
    "crosscheck": {
     "cases": 2000,
-    "comparisons": 16001,
+    "comparisons": 20001,
     "mismatches": 0,
     "tolerance": 1e-09,
-    "outputs": 6,
+    "outputs": 8,
     "passed": true
    },
    "properties": {
@@ -1866,19 +1866,20 @@
    "claim": null,
    "passed": true,
    "examples": {
-    "n": 2,
-    "passed": 2,
+    "n": 3,
+    "passed": 3,
     "titles": [
      "Two quarterly cycles, responsive settings",
+     "Road salt, regression start",
      "Same data, calmer settings"
     ]
    },
    "crosscheck": {
     "cases": 2000,
-    "comparisons": 36888,
+    "comparisons": 48496,
     "mismatches": 0,
     "tolerance": 1e-09,
-    "outputs": 9,
+    "outputs": 12,
     "passed": true
    },
    "properties": {
@@ -4518,7 +4519,7 @@
    "id": "aggregate-planning",
    "name": "Aggregate Planning: Chase vs Level vs Hybrid",
    "cat": "mrp",
-   "claim": "Each plan meets all demand and its cost equals an independent recomputation from the period-by-period inventory balance.",
+   "claim": "The chase and hybrid plans meet demand in every period, the level plan never runs short unless a backorder cost is given, and each cost equals an independent recomputation from the period-by-period inventory balance.",
    "passed": true,
    "examples": {
     "n": 2,
