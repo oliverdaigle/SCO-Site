@@ -79,7 +79,7 @@ export function genValues(def: CalcDef, r: Rng, custom?: (r: Rng) => Vals): Vals
     if (g) Object.assign(v, g(r));
     else for (const i of def.inputs) if (i.rand) v[i.id] = randStep(r, i.rand[0], i.rand[1], i.rand[2] ?? 1);
     if (!validate(def, v).length) {
-      try { const { v: nv, o } = computeOnly(def, v); if (def.check && def.check(nv)) continue; if (Object.values(o).every((x) => typeof x !== 'number' || !Number.isNaN(x))) return v; } catch { /* retry */ }
+      try { const nv = normalize(def, v).v; if (def.check && def.check(nv)) continue; const o = def.compute(nv); if (Object.values(o).every((x) => typeof x !== 'number' || !Number.isNaN(x))) return v; } catch { /* retry */ }
     }
   }
   return defaults(def);

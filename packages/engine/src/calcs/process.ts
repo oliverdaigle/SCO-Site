@@ -283,7 +283,7 @@ export function balanceLine(tasks: Task[], cycle: number) {
       if (done[i] || tasks[i].time > remaining + 1e-9 || !tasks[i].preds.every((p) => done[idx.get(p)!])) continue;
       if (pickI < 0 || tasks[i].time > tasks[pickI].time + 1e-12 || (Math.abs(tasks[i].time - tasks[pickI].time) <= 1e-12 && followers[i] > followers[pickI])) pickI = i;
     }
-    if (pickI < 0) { st++; remaining = cycle; continue; }
+    if (pickI < 0) { if (remaining >= cycle - 1e-12) throw new Error('A task is longer than the cycle time, so it cannot be assigned to any station.'); st++; remaining = cycle; continue; }
     done[pickI] = true; station[pickI] = st; order.push(pickI); remaining -= tasks[pickI].time; left--;
   }
   return { station, stations: st, order, followers };
