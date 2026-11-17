@@ -8,6 +8,8 @@ const SYM: Record<string, string> = {
 };
 const OPS: Record<string, [string, string]> = { times: ['×', 'op'], cdot: ['·', 'op'], le: ['≤', 'rel'], ge: ['≥', 'rel'], approx: ['≈', 'rel'], to: ['→', 'rel'], Rightarrow: ['⇒', 'rel'], pm: ['±', 'op'], ne: ['≠', 'rel'] };
 const FUNCS = new Set(['min', 'max', 'ln', 'log', 'exp']);
+// Named quantities are set upright as one word. Any other run of letters is a product of single-letter variables (dL = d times L).
+const NAMES = new Set(['ROP', 'EOQ', 'EPQ', 'POQ', 'SL', 'CSL', 'FR', 'ESC', 'OUL', 'TC', 'ss', 'SS', 'WIP', 'TH', 'CT', 'FT', 'UCL', 'LCL', 'USL', 'LSL', 'MAD', 'MSE', 'MAPE', 'RSFE', 'TS', 'RMSE', 'BEP', 'EMV', 'EV', 'EVPI', 'EVwPI', 'ES', 'EF', 'LS', 'LF', 'OEE', 'DPMO', 'COQ', 'CR', 'DIO', 'DSO', 'DPO', 'ROA', 'FIT', 'CV', 'LD', 'TCO', 'GMROI', 'LT', 'dLT', 'fr', 'max', 'min', 'pooled', 'each', 'dec', 'cen', 'opt', 'make', 'buy', 'orders', 'demand', 'LS', 'E', 'hC']);
 
 type Tok = { t: 'cmd' | 'chr' | 'open' | 'close' | 'sub' | 'sup' | 'num' | 'word'; v: string };
 function lex(s: string): Tok[] {
@@ -26,15 +28,15 @@ function lex(s: string): Tok[] {
   return out;
 }
 
-function parse(toks: Tok[], pos: { i: number }, stop: boolean): ReactNode[] {
+function parse(toks: Tok[], pos: { i: number }, stop: boolean, script = false, st: { frac: number } = { frac: 0 }): ReactNode[] {
   const nodes: ReactNode[] = []; let key = 0;
-  const group = (): ReactNode[] => { if (toks[pos.i]?.t === 'open') { pos.i++; const g = parse(toks, pos, true); return g; } const one = atom(); return one === null ? [] : [one]; };
+  const group = (scr = script): ReactNode[] => { if (toks[pos.i]?.t === 'open') { pos.i++; const g = parse(toks, pos, true, scr, st); return g; } const one = atom(scr); return one === null ? [] : [one]; };
   const textGroup = (): string => { let txt = ''; if (toks[pos.i]?.t === 'open') { pos.i++; let depth = 1; while (pos.i < toks.length) { const t = toks[pos.i++]; if (t.t === 'open') depth++; else if (t.t === 'close') { if (--depth === 0) break; } txt += t.t === 'cmd' ? (SYM[t.v] ?? t.v) : t.v; } } return txt; };
-  function atom(): ReactNode {
+  function atom(scr = script): ReactNode {
     const t = toks[pos.i]; if (!t) return null; pos.i++; const k = key++;
     if (t.t === 'num') return <span key={k} className="n">{t.v}</span>;
-    if (t.t === 'word') return t.v.length === 1 ? <span key={k} className="v">{t.v}</span> : <span key={k} className="rm">{t.v}</span>;
-    if (t.t === 'open') { const g = parse(toks, pos, true); return <Fragment key={k}>{g}</Fragment>; }
+    if (t.t === 'word') return t.v.length === 1 ? <span key={k} className="v">{t.v}</span> : scr || NAMES.has(t.v) ? <span key={k} className="rm">{t.v}</span> : <span key={k} className="v">{t.v}</span>;
+    if (t.t === 'open') { const g = parse(toks, pos, true, scr, st); return <Fragment key={k}>{g}</Fragment>; }
     if (t.t === 'chr') {
       if (t.v === ' ') return null;
       if ('=<>'.includes(t.v)) return <span key={k} className="rel">{t.v}</span>;
@@ -46,8 +48,8 @@ function parse(toks: Tok[], pos: { i: number }, stop: boolean): ReactNode[] {
     }
     if (t.t === 'cmd') {
       const c = t.v;
-      if (c === 'frac') { const a = group(), b = group(); return <span key={k} className="frac"><span className="num_">{a}</span><span className="den">{b}</span></span>; }
-      if (c === 'sqrt') { const a = group(); return <span key={k} className="sqrt"><span className="rad">√</span><span className="body">{a}</span></span>; }
+      if (c === 'frac') { const a = group(), b = group(); st.frac++; return <span key={k} className="frac"><span className="num_">{a}</span><span className="den">{b}</span></span>; }
+      if (c === 'sqrt') { const f0 = st.frac; const a = group(); return <span key={k} className={st.frac > f0 ? 'sqrt tall' : 'sqrt'}><span className="rad">√</span><span className="body">{a}</span></span>; }
       if (c === 'text') return <span key={k} className="txt">{textGroup()}</span>;
       if (c === 'bar') { const a = group(); return <span key={k} className="acc bar">{a}</span>; }
       if (c === 'hat') { const a = group(); return <span key={k} className="acc">{a}<span aria-hidden style={{ position: 'absolute', left: 0, right: 0, top: '-0.62em', textAlign: 'center', fontSize: '0.8em' }}>^</span></span>; }
@@ -65,7 +67,7 @@ function parse(toks: Tok[], pos: { i: number }, stop: boolean): ReactNode[] {
   while (pos.i < toks.length) {
     const t = toks[pos.i];
     if (t.t === 'close') { pos.i++; if (stop) return nodes; continue; }
-    if (t.t === 'sub' || t.t === 'sup') { pos.i++; const g = group(); const k = key++; nodes.push(t.t === 'sub' ? <sub key={`s${k}`}>{g}</sub> : <sup key={`s${k}`}>{g}</sup>); continue; }
+    if (t.t === 'sub' || t.t === 'sup') { pos.i++; const g = group(true); const k = key++; nodes.push(t.t === 'sub' ? <sub key={`s${k}`}>{g}</sub> : <sup key={`s${k}`}>{g}</sup>); continue; }
     const a = atom(); if (a !== null) nodes.push(a);
   }
   return nodes;

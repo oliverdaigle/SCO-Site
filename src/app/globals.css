@@ -115,9 +115,12 @@
   .tex .frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 0.14em; align-self: center; text-align: center; }
   .tex .frac > .num_ { padding: 0 0.3em 0.12em; border-bottom: 1px solid currentColor; display: inline-flex; align-items: baseline; }
   .tex .frac > .den { padding: 0.12em 0.3em 0; display: inline-flex; align-items: baseline; }
-  .tex .sqrt { display: inline-flex; align-items: stretch; align-self: center; margin: 0 0.1em; }
-  .tex .sqrt > .rad { font-size: 1.25em; line-height: 1; align-self: center; margin-right: -0.04em; transform: scaleY(1.15); }
-  .tex .sqrt > .body { border-top: 1px solid currentColor; padding: 0.14em 0.2em 0 0.14em; display: inline-flex; align-items: center; }
+  .tex .sqrt { display: inline-flex; align-items: baseline; margin: 0 0.1em; }
+  .tex .sqrt > .rad { font-size: 1.12em; line-height: 1; margin-right: -0.02em; }
+  .tex .sqrt > .body { border-top: 1px solid currentColor; padding: 0.1em 0.2em 0 0.14em; display: inline-flex; align-items: baseline; }
+  .tex .sqrt.tall { align-items: stretch; align-self: center; }
+  .tex .sqrt.tall > .rad { font-size: 1.3em; align-self: center; transform: scaleY(1.5); }
+  .tex .sqrt.tall > .body { align-items: center; padding-top: 0.16em; }
   .tex sub, .tex sup { font-size: 0.72em; line-height: 0; }
   .tex .big { font-size: 1.45em; line-height: 1; align-self: center; font-weight: 300; }
   .tex .acc { display: inline-block; position: relative; }
